@@ -102,10 +102,21 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .countdown {
-            font-size: 0.9rem;
-            color: var(--marron);
-            opacity: 0.8;
+        .progress-container {
+            width: 100%;
+            max-width: 300px;
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: var(--rojo-claro);
+            width: 0%;
+            border-radius: 20px;
+            transition: width 0.3s ease;
         }
         
         @media (max-width: 768px) {
@@ -149,31 +160,36 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
     
     <p>Háblame a mi WhatsApp ya mismo para confirmar tu registro al evento.</p>
     
-    <a href="https://wa.me/51987654321?text=Hola%20Renzo,%20quiero%20confirmar%20mi%20registro%20al%20evento%20de%20Constelaciones%20Familiares" class="btn" id="whatsappBtn">CONTACTAR POR WHATSAPP</a>
+    <a href="https://group.wha.link/eVPp9b" class="btn" id="whatsappBtn">CONTACTAR POR WHATSAPP</a>
     
-    <p class="countdown">Redireccionando automáticamente en <span id="countdown">5</span> segundos...</p>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <p>Redireccionando automáticamente...</p>
     
     <script>
-        // Redirección automática después de 5 segundos
-        let seconds = 5;
-        const countdownElement = document.getElementById('countdown');
+        // Barra de progreso
+        const progressBar = document.getElementById('progressBar');
         const whatsappBtn = document.getElementById('whatsappBtn');
+        let progress = 0;
+        const duration = 5000; // 5 segundos
+        const intervalTime = 50;
+        const increment = (intervalTime / duration) * 100;
         
-        const countdown = setInterval(function() {
-            seconds--;
-            countdownElement.textContent = seconds;
+        const progressInterval = setInterval(function() {
+            progress += increment;
+            progressBar.style.width = `${Math.min(progress, 100)}%`;
             
-            if(seconds <= 0) {
-                clearInterval(countdown);
+            if(progress >= 100) {
+                clearInterval(progressInterval);
                 // Redirigir a WhatsApp
                 window.location.href = whatsappBtn.href;
             }
-        }, 1000);
+        }, intervalTime);
         
-        // Si el usuario hace clic manualmente, cancelar el countdown
+        // Si el usuario hace clic manualmente, cancelar el intervalo
         whatsappBtn.addEventListener('click', function() {
-            clearInterval(countdown);
-            document.querySelector('.countdown').style.display = 'none';
+            clearInterval(progressInterval);
         });
     </script>
     <script>
