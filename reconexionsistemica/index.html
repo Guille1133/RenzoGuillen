@@ -107,7 +107,7 @@
         header {
             background: linear-gradient(to bottom, var(--rojo-profundo), var(--marron));
             color: white;
-            padding: 40px 0 0;
+            padding: 20px 0 0;
             position: relative;
             overflow: visible;
         }
@@ -128,7 +128,7 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
         }
         
         .header-content {
@@ -144,14 +144,13 @@
         .logo {
             font-family: 'Anton', sans-serif;
             font-size: 2rem;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 3px;
             position: relative;
             z-index: 1;
             width: 100%;
             text-align: center;
-            margin-top: -20px;
         }
         
         .logo span {
@@ -162,7 +161,7 @@
         }
 
         .logo img {
-            max-width: 420px;
+            max-width: 380px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -170,13 +169,13 @@
 
         .hero-text {
             text-align: center;
-            margin: 30px 0;
+            margin: 15px 0;
             color: white;
         }
         
         .hero-text h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 15px;
             position: relative;
             display: inline-block;
         }
@@ -199,8 +198,9 @@
         }
         
         .hero-text p {
-            font-size: 1.3rem;
-            line-height: 1.5;
+            font-size: 1.2rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
         }
         
         .hero-text strong {
@@ -209,59 +209,61 @@
         
         /* Foto de Renzo en el header */
         .renzo-photo {
-            max-width: 400px;
+            max-width: 380px;
             width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
         }
         
-        /* Formulario en el header */
-        .header-form {
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            margin: 30px auto 0;
-            backdrop-filter: blur(5px);
+        /* Título del formulario */
+        .form-title {
+            text-align: center;
+            color: white;
+            margin: 10px 0;
+            font-size: 1.3rem;
         }
         
-        .header-form h2 {
-            color: var(--rojo-profundo);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            text-align: center;
+        /* Formulario en el header */
+        .header-form {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+            max-width: 550px;
+            margin: 0 auto;
+            backdrop-filter: blur(8px);
         }
         
         .header-form p {
             color: var(--marron);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
             text-align: center;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 500;
             color: var(--marron);
+            font-size: 0.9rem;
         }
         
         .form-group input {
             width: 100%;
-            padding: 12px 15px;
+            padding: 10px 12px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: border 0.3s ease;
-            background-color: #f9f9f9;
+            background-color: rgba(249, 249, 249, 0.8);
         }
         
         .form-group input:focus {
@@ -280,33 +282,33 @@
             position: relative;
             display: flex;
             align-items: center;
-            margin-right: 10px;
+            margin-right: 8px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 0 10px;
-            height: 46px;
+            padding: 0 8px;
+            height: 42px;
             cursor: pointer;
-            min-width: 90px;
+            min-width: 80px;
             flex-shrink: 0;
             z-index: 99998;
         }
 
         .country-selector img {
-            width: 20px;
-            height: 15px;
+            width: 18px;
+            height: 13px;
             margin-right: 5px;
         }
 
         .country-selector span {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #000;
             white-space: nowrap;
         }
 
         .country-selector::after {
             content: "▼";
-            font-size: 0.6rem;
+            font-size: 0.5rem;
             margin-left: 5px;
             color: #000;
         }
@@ -315,14 +317,14 @@
             position: absolute;
             top: 100%;
             left: 0;
-            width: 250px;
+            width: 230px;
             background: white;
             border: 1px solid #ddd;
             border-radius: 5px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             z-index: 99999;
             display: none;
-            max-height: 300px;
+            max-height: 280px;
             overflow-y: auto;
         }
 
@@ -331,12 +333,13 @@
         }
 
         .country-option {
-            padding: 8px 10px;
+            padding: 6px 8px;
             display: flex;
             align-items: center;
             cursor: pointer;
             color: #000;
             white-space: nowrap;
+            font-size: 0.85rem;
         }
 
         .country-option:hover {
@@ -344,9 +347,9 @@
         }
 
         .country-option img {
-            width: 20px;
-            height: 15px;
-            margin-right: 8px;
+            width: 18px;
+            height: 13px;
+            margin-right: 6px;
             flex-shrink: 0;
         }
 
@@ -363,21 +366,25 @@
 
         .phone-code {
             position: absolute;
-            left: 10px;
+            left: 8px;
             top: 50%;
             transform: translateY(-50%);
             color: #555;
             pointer-events: none;
+            font-size: 0.85rem;
         }
 
         .phone-number-input {
-            padding-left: 40px !important;
+            padding-left: 35px !important;
             width: 100%;
+            font-size: 0.9rem;
         }
         
         /* Botón animado */
         .pulse-button {
             animation: pulse 2s infinite;
+            padding: 12px 25px;
+            font-size: 0.9rem;
         }
         
         @keyframes pulse {
@@ -397,15 +404,15 @@
         
         /* Sección de contenido */
         .content-section {
-            padding: 50px 0;
+            padding: 40px 0;
             position: relative;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             color: var(--rojo-profundo);
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             position: relative;
             display: inline-block;
             left: 50%;
@@ -415,25 +422,25 @@
         .section-title::after {
             content: "";
             display: block;
-            width: 60px;
+            width: 50px;
             height: 3px;
             background-color: var(--mostaza);
-            margin: 10px auto 0;
+            margin: 8px auto 0;
         }
         
         /* Imágenes de las clases */
         .classes-images {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         .class-container {
             flex: 0 0 32.5%;
             max-width: 32.5%;
-            min-width: 280px;
+            min-width: 260px;
         }
         
         .class-image {
@@ -457,19 +464,19 @@
             text-align: center;
             font-family: 'Anton', sans-serif;
             color: var(--rojo-profundo);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         /* Facilitador */
         .facilitator-section {
             background-color: white;
-            padding: 50px 0;
+            padding: 40px 0;
             position: relative;
         }
         
         .facilitator-container {
             position: relative;
-            max-width: 800px;
+            max-width: 750px;
             margin: 0 auto;
         }
         
@@ -479,33 +486,33 @@
         
         .facilitator-content h2 {
             color: var(--rojo-profundo);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
         }
         
         .facilitator-content h3 {
             color: var(--marron);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
         }
         
         .facilitator-content p {
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
         }
         
         .facilitator-content em {
             display: block;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--rojo-profundo);
         }
         
         .signature {
             font-family: 'Libre Baskerville', serif;
             font-style: italic;
-            margin-top: 20px;
-            font-size: 1.1rem;
+            margin-top: 15px;
+            font-size: 1rem;
             color: var(--marron);
         }
         
@@ -513,31 +520,31 @@
         .final-cta {
             background: linear-gradient(to right, var(--rojo-profundo), var(--marron));
             color: white;
-            padding: 60px 0;
+            padding: 50px 0;
             text-align: center;
             position: relative;
             overflow: visible;
-    z-index: 1;
+            z-index: 1;
         }
         
         .final-cta h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
         .final-cta p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto 25px;
+            font-size: 0.95rem;
         }
         
         /* Footer */
         footer {
             background-color: var(--marron);
             color: var(--crema);
-            padding: 30px 0 20px;
-            font-size: 0.8rem;
+            padding: 25px 0 15px;
+            font-size: 0.75rem;
             position: relative;
             z-index: 0;
         }
@@ -546,33 +553,33 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 20px;
+            gap: 15px;
             position: relative;
         }
         
         .footer-logo {
-            flex: 1 1 200px;
+            flex: 1 1 180px;
         }
         
         .footer-logo h3 {
             font-family: 'Anton', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
             letter-spacing: 1px;
         }
         
         .footer-logo p {
             opacity: 0.8;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
         
         .footer-links {
-            flex: 1 1 150px;
+            flex: 1 1 130px;
         }
         
         .footer-links h4 {
-            margin-bottom: 10px;
-            font-size: 1rem;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
             opacity: 0.9;
         }
         
@@ -581,14 +588,14 @@
         }
         
         .footer-links li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         
         .footer-links a {
             color: var(--mostaza);
             text-decoration: none;
             transition: color 0.3s ease;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
         
         .footer-links a:hover {
@@ -597,16 +604,16 @@
         }
         
        .disclaimer {
-    margin-top: 30px;
-    font-size: 0.8rem;
-    color: var(--mostaza);
-    text-align: justify; /* ✅ Justifica el texto */
-    opacity: 0.85;
-    line-height: 1.6;
-    max-width: 900px;     /* ✅ Máximo ancho para lectura cómoda */
-    margin-left: auto;
-    margin-right: auto;
-}
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: var(--mostaza);
+            text-align: justify;
+            opacity: 0.85;
+            line-height: 1.5;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         
         /* Responsive */
         @media (max-width: 992px) {
@@ -622,36 +629,36 @@
         
         @media (max-width: 768px) {
             .logo {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
             .logo span {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             
             .logo img {
-                max-width: 320px;
+                max-width: 300px;
             }
             
             .form-container {
-                padding: 25px;
+                padding: 20px;
             }
             
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 margin-bottom: 20px;
             }
             
             .facilitator-content h2 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .final-cta h2 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             
             .final-cta p {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .country-dropdown {
@@ -668,34 +675,34 @@
             }
             
             .renzo-photo {
-                max-width: 300px;
+                max-width: 280px;
             }
             
             .hero-text h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
             .hero-text p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
         }
         
         @media (max-width: 480px) {
             .logo {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .logo img {
-                max-width: 300px;
+                max-width: 280px;
             }
             
             .btn {
-                padding: 12px 25px;
-                font-size: 0.9rem;
+                padding: 10px 20px;
+                font-size: 0.85rem;
             }
             
             .facilitator-image {
-                margin-bottom: 20px;
+                margin-bottom: 15px;
             }
 
             .phone-input-container {
@@ -705,7 +712,7 @@
 
             .country-selector {
                 width: auto;
-                margin-right: 10px;
+                margin-right: 8px;
                 margin-bottom: 0;
             }
 
@@ -714,15 +721,23 @@
             }
             
             .renzo-photo {
-                max-width: 250px;
+                max-width: 240px;
             }
             
             .hero-text h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .hero-text p {
-                font-size: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .form-title {
+                font-size: 1.1rem;
+            }
+            
+            .header-form {
+                padding: 15px;
             }
         }
     </style>
@@ -730,29 +745,29 @@
   .footer-terminos {
     width: 100vw;
     max-width: 100%;
-    padding: 30px 40px;
+    padding: 25px 30px;
     box-sizing: border-box;
     background-color: #3d1c0d;
     color: #f1d8a8;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.5;
     text-align: center;
   }
 </style>
 <style>
   .class-container {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   }
 
   .class-title {
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 0;
     white-space: normal;
   }
 
   @media (max-width: 480px) {
     .class-title {
-      font-size: 1.1rem;
+      font-size: 1rem;
       white-space: normal;
     }
   }
@@ -809,9 +824,10 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
                     <p><strong>incluso si sientes que tus heridas son muy profundas</strong>, con el poder del enfoque sistémico... <strong>en solo 3 días!</strong></p>
                 </div>
                 
+                <h3 class="form-title">✅ Paso #1 ¡Regístrate para asegurar tu espacio!</h3>
+                
                 <div class="header-form">
-                    <h2>✅ Paso #1 ¡Regístrate para asegurar tu espacio!</h2>
-                    <p>Después de registrarte te llevaré a hablarme en WhatsApp.</p>
+    
                     
                     <form id="registrationForm" action="gracias.html" method="GET">
                         <div class="form-group">
@@ -938,8 +954,8 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
             <p>Únete a este seminario gratuito de 3 días y comienza tu camino de reconciliación emocional con el poder del enfoque sistémico.</p>
             
             <!-- Formulario duplicado en CTA -->
-            <div class="header-form" style="margin-top: 30px;">
-                <h2 style="color: var(--rojo-profundo);">✅ ¡Reserva tu lugar ahora!</h2>
+            <h3 class="form-title">✅ ¡Reserva tu lugar ahora!</h3>
+            <div class="header-form" style="margin-top: 15px;">
                 <p style="color: var(--marron);">Después de registrarte te llevaré a hablarme en WhatsApp.</p>
                 
                 <form id="registrationForm2" action="gracias.html" method="GET">
