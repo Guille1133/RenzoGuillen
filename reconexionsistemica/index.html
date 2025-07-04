@@ -372,9 +372,10 @@
         
         .header-content {
             text-align: left;
-            padding-bottom: 40px;
+            padding-bottom: 60px;
             position: relative;
             z-index: 2;
+            overflow: visible;
         }
         
         .header-photo {
@@ -729,7 +730,7 @@
         
         /* Sección de contenido */
         .content-section {
-            padding: 50px 0 20px;
+            padding: 80px 0 20px;
             position: relative;
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
             color: white;
@@ -968,6 +969,61 @@
         .footer-links a:hover {
             color: var(--crema);
             text-decoration: underline;
+        }
+        
+        /* Contenedor del CTA con layout */
+        .cta-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 500px;
+            gap: 40px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Texto animado a la izquierda */
+        .animated-text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .animated-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            transform: rotate(-2deg);
+            min-height: 120px;
+        }
+        
+        .animated-arrow {
+            font-size: 3rem;
+            color: var(--mostaza);
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        /* Formulario wrapper */
+        .form-wrapper {
+            position: relative;
+            z-index: 2;
         }
         
        .disclaimer {
@@ -1741,6 +1797,49 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
             
             // Configurar segundo formulario
             let currentCountryCode2 = setupCountrySelector('countrySelector2', 'countryDropdown2', 'phoneCode2', 'whatsapp2');
+            
+            // Animación de texto escribiéndose
+            const animatedText = document.getElementById('animatedText');
+            
+            if (animatedText) {
+                const messages = [
+                    "¡Asegura tu lugar YA!",
+                    "¡Solo quedan pocos cupos!",
+                    "¡No te quedes fuera!"
+                ];
+                
+                let messageIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+                
+                function typeWriter() {
+                    const currentMessage = messages[messageIndex];
+                    
+                    if (isDeleting) {
+                        animatedText.textContent = currentMessage.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        animatedText.textContent = currentMessage.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+                    
+                    let typeSpeed = isDeleting ? 50 : 100;
+                    
+                    if (!isDeleting && charIndex === currentMessage.length) {
+                        typeSpeed = 2000; // Pausa al final
+                        isDeleting = true;
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        messageIndex = (messageIndex + 1) % messages.length;
+                        typeSpeed = 500; // Pausa antes del siguiente mensaje
+                    }
+                    
+                    setTimeout(typeWriter, typeSpeed);
+                }
+                
+                // Iniciar la animación después de 1 segundo
+                setTimeout(typeWriter, 1000);
+            }
             
             // Manejar el envío del primer formulario
             document.getElementById('registrationForm').addEventListener('submit', function(e) {
