@@ -357,7 +357,7 @@
             cursor: pointer;
             min-width: 80px;
             flex-shrink: 0;
-            z-index: 99998;
+            z-index: 100000;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
@@ -386,13 +386,13 @@
             top: 100%;
             left: 0;
             width: 230px;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 0;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            z-index: 99999;
+            z-index: 100001;
             display: none;
             max-height: 280px;
             overflow-y: auto;
@@ -407,13 +407,13 @@
             display: flex;
             align-items: center;
             cursor: pointer;
-            color: #000;
+            color: #333;
             white-space: nowrap;
             font-size: 0.85rem;
         }
 
         .country-option:hover {
-            background-color: #f5f5f5;
+            background-color: rgba(222, 172, 70, 0.2);
         }
 
         .country-option img {
@@ -424,7 +424,7 @@
         }
 
         .country-option span {
-            color: #000;
+            color: #333;
             overflow: hidden;
             text-overflow: ellipsis;
         }
@@ -478,6 +478,7 @@
             position: relative;
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
             color: white;
+            z-index: 1;
         }
         
         .section-title {
@@ -507,15 +508,15 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 30px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             padding: 0 10px;
             gap: 15px;
         }
         
         .class-container {
-            flex: 0 0 32.5%;
-            max-width: 32.5%;
-            min-width: 350px;
+            flex: 1;
+            max-width: 33.33%;
+            min-width: 300px;
             margin-bottom: 40px;
             position: relative;
         }
@@ -729,43 +730,48 @@
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
-            .header-content, .header-photo {
-                flex: 1 1 100%;
+            .header-content {
+                order: 1;
                 text-align: center;
-                position: relative;
-                width: 100%;
-                z-index: auto;
-                max-width: 100%;
+                padding-bottom: 20px;
             }
             
             .header-photo {
+                order: 2;
                 min-height: 300px;
-                position: relative;
-                top: auto;
-                right: auto;
-                bottom: auto;
-                display: flex;
-                align-items: flex-end;
                 justify-content: center;
+                align-items: center;
             }
             
             .renzo-photo {
                 position: relative;
-                top: auto;
-                right: auto;
-                bottom: auto;
+                bottom: 0;
+                right: 0;
                 height: auto;
-                max-width: 450px;
+                max-width: 100%;
+                max-height: 400px;
                 transform: none;
+            }
+            
+            .classes-images {
+                flex-wrap: wrap;
+            }
+            
+            .class-container {
+                flex: 1 1 100%;
+                max-width: 100%;
+                min-width: 280px;
             }
         }
         
         @media (max-width: 768px) {
             .logo {
                 font-size: 1.6rem;
+                justify-content: center;
             }
             
             .logo span {
@@ -804,6 +810,7 @@
             .class-container {
                 flex: 1 1 100%;
                 max-width: 100%;
+                min-width: 280px;
             }
 
             .class-image img {
@@ -823,6 +830,10 @@
             
             .hero-text p {
                 font-size: 1rem;
+            }
+            
+            .classes-images {
+                flex-wrap: wrap;
             }
         }
         
