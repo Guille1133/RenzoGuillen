@@ -521,6 +521,7 @@
             z-index: 2;
             max-width: 100%;
             margin: 0 0 20px 0;
+            overflow: visible;
         }
         
         .header-form::before {
@@ -548,6 +549,13 @@
         
         .form-group {
             margin-bottom: 15px;
+            position: relative;
+            z-index: auto;
+        }
+        
+        .form-group:has(.phone-input-container) {
+            z-index: 999997;
+            position: relative;
         }
         
         .form-group label {
@@ -587,6 +595,7 @@
         .phone-input-container {
             display: flex;
             align-items: center;
+            position: relative;
         }
 
         .country-selector {
@@ -602,7 +611,7 @@
             cursor: pointer;
             min-width: 80px;
             flex-shrink: 0;
-            z-index: 100000;
+            z-index: 999998;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
@@ -627,20 +636,19 @@
         }
 
         .country-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 230px;
-            background: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 250px;
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 0;
+            border-radius: 4px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            z-index: 100001;
+            z-index: 999999;
             display: none;
-            max-height: 280px;
+            max-height: 300px;
             overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .country-dropdown.show {
@@ -1536,7 +1544,7 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
             <p>Únete a este seminario gratuito de 3 días y comienza tu camino de reconciliación emocional con el poder del enfoque sistémico.</p>
             
             <!-- Formulario duplicado en CTA -->
-            <h3 class="form-title">✅ ¡Reserva tu lugar ahora!</h3>
+            <h3 class="form-title" style="text-align: center;">✅ ¡Reserva tu lugar ahora!</h3>
             <div class="header-form" style="margin-top: 15px; max-width: 500px; margin-left: auto; margin-right: auto;">
                 <p style="color: rgba(255, 255, 255, 0.9); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);">Después de registrarte te llevaré a hablarme en WhatsApp.</p>
                 
