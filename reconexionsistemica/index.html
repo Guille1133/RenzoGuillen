@@ -118,9 +118,9 @@
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             position: relative;
-            height: 600px;
+            height: 100%;
+            min-height: 600px;
             align-items: start;
-            padding: 0 20px;
         }
         
         .header-content {
@@ -131,11 +131,8 @@
         }
         
         .header-photo {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            top: 0;
-            width: 50%;
+            position: relative;
+            min-height: 600px;
             overflow: hidden;
         }
         
