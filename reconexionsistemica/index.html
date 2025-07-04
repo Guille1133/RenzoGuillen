@@ -763,16 +763,24 @@
 
 <style>
   /* Ajuste para que la imagen de Renzo quede alineada al fondo rojo */
+
   .header-photo {
+    position: relative;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
-  }
+    justify-content: flex-end;
+    min-height: 400px; /* Ajustalo si querés más alto el bloque */
+}
 
-  .header-photo img.renzo-photo {
-    margin-bottom: -4px;
-    display: block;
-  }
+.header-photo img.renzo-photo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    object-fit: contain;
+}
 
   header {
     padding-bottom: 0;
