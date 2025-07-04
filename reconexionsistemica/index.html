@@ -1703,8 +1703,17 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
         // Función para posicionar el dropdown correctamente
         function positionDropdown(selector, dropdown) {
             const rect = selector.getBoundingClientRect();
-            dropdown.style.top = (rect.bottom + window.scrollY) + 'px';
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Posición debajo del selector
+            dropdown.style.top = (rect.bottom + scrollTop + 2) + 'px';
             dropdown.style.left = rect.left + 'px';
+            
+            // Verificar si se sale de la pantalla por la derecha
+            const dropdownWidth = 250;
+            if (rect.left + dropdownWidth > window.innerWidth) {
+                dropdown.style.left = (window.innerWidth - dropdownWidth - 20) + 'px';
+            }
         }
 
         // Función para manejar el selector de país
