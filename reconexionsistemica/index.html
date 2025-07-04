@@ -173,17 +173,34 @@
             display: inline-block;
         }
         
-        /* Resaltado amarillo mejorado para cubrir toda la altura */
+        /* Resaltado amarillo estilo marcador natural */
         .highlight-animation {
-            background-image: linear-gradient(to right, var(--mostaza) 0%, var(--mostaza) 100%);
+            background: linear-gradient(105deg, transparent 0%, transparent 40%, rgba(222, 172, 70, 0.8) 42%, rgba(222, 172, 70, 0.9) 45%, rgba(222, 172, 70, 0.7) 48%, rgba(222, 172, 70, 0.9) 52%, rgba(222, 172, 70, 0.8) 55%, rgba(222, 172, 70, 0.6) 58%, transparent 60%, transparent 100%);
+            background-size: 0% 85%;
             background-repeat: no-repeat;
-            background-size: 0% 100%;
             background-position: left center;
-            transition: background-size 1s ease-in-out;
-            padding: 8px 12px;
-            border-radius: 8px;
+            transition: background-size 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 4px 8px;
             display: inline-block;
-            line-height: 1.2;
+            line-height: 1.3;
+            position: relative;
+            transform: rotate(-0.5deg);
+        }
+        
+        .highlight-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(108deg, transparent 0%, transparent 38%, rgba(222, 172, 70, 0.3) 40%, rgba(222, 172, 70, 0.5) 43%, rgba(222, 172, 70, 0.4) 46%, rgba(222, 172, 70, 0.6) 49%, rgba(222, 172, 70, 0.3) 52%, transparent 54%, transparent 100%);
+            background-size: 0% 90%;
+            background-repeat: no-repeat;
+            background-position: left center;
+            transition: background-size 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+            pointer-events: none;
+            z-index: -1;
         }
         
         .hero-text p {
@@ -1116,11 +1133,19 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
                 window.location.href = 'gracias.html';
             });
             
-            // Animación del resaltado
+            // Animación del resaltado estilo marcador
             const highlightElement = document.querySelector('.highlight-animation');
             setTimeout(() => {
-                highlightElement.style.backgroundSize = '100% 100%';
-            }, 500);
+                highlightElement.style.backgroundSize = '100% 85%';
+                // Activar el segundo layer del efecto
+                const beforeElement = highlightElement;
+                setTimeout(() => {
+                    beforeElement.style.setProperty('--before-size', '100% 90%');
+                    if (beforeElement.querySelector('::before')) {
+                        beforeElement.querySelector('::before').style.backgroundSize = '100% 90%';
+                    }
+                }, 200);
+            }, 800);
         });
     </script>
 </body>
