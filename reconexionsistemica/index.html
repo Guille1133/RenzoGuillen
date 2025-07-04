@@ -124,15 +124,18 @@
             flex: 1 1 600px;
             text-align: left;
             padding-bottom: 40px;
+            position: relative;
+            z-index: 2;
         }
         
         .header-photo {
             flex: 1 1 500px;
-            position: relative;
-            min-height: 500px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            z-index: 1;
         }
         
         .logo {
@@ -236,13 +239,14 @@
         .renzo-photo {
             max-width: 600px;
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
             object-fit: cover;
             object-position: bottom center;
             position: absolute;
             bottom: 0;
             right: 0;
+            top: 0;
             z-index: 1;
         }
         
@@ -475,46 +479,63 @@
         
         .section-title {
             text-align: center;
-            margin-bottom: 25px;
-            color: var(--rojo-profundo);
-            font-size: 1.6rem;
+            margin-bottom: 40px;
+            color: white;
+            font-size: 1.8rem;
             position: relative;
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .section-title::after {
             content: "";
             display: block;
-            width: 50px;
+            width: 60px;
             height: 3px;
-            background-color: var(--mostaza);
-            margin: 8px auto 0;
+            background: linear-gradient(90deg, var(--mostaza) 0%, #FFD700 100%);
+            margin: 12px auto 0;
+            box-shadow: 0 0 10px rgba(222, 172, 70, 0.5);
         }
         
         /* Imágenes de las clases */
         .classes-images {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
-            padding: 0 15px;
+            padding: 0 20px;
+            gap: 20px;
         }
         
         .class-container {
-            flex: 0 0 32.5%;
-            max-width: 32.5%;
-            min-width: 260px;
+            flex: 0 0 32%;
+            max-width: 32%;
+            min-width: 280px;
             margin-bottom: 50px;
+            position: relative;
         }
         
         .class-image {
             border-radius: 0;
             overflow: hidden;
-            box-shadow: none;
             background-color: transparent;
             margin-bottom: 0;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .class-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(222, 172, 70, 0.3) 0%, rgba(222, 172, 70, 0.1) 40%, transparent 70%);
+            z-index: -1;
+            border-radius: 0;
         }
         
         .class-image img {
@@ -523,17 +544,31 @@
             object-fit: contain;
             display: block;
             border-radius: 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 
+                0 10px 30px rgba(222, 172, 70, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(222, 172, 70, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .class-image:hover img {
+            transform: scale(1.02);
+            box-shadow: 
+                0 15px 40px rgba(222, 172, 70, 0.3),
+                0 8px 20px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(222, 172, 70, 0.2);
         }
         
         .class-title {
             text-align: center;
             font-family: 'Anton', sans-serif;
-            color: var(--rojo-profundo);
+            color: white;
             font-size: 1.1rem;
-            margin-top: 15px;
+            margin-top: 20px;
             margin-bottom: 0;
             white-space: normal;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.5px;
         }
         
         /* Facilitador */
@@ -693,10 +728,29 @@
             .header-content, .header-photo {
                 flex: 1 1 100%;
                 text-align: center;
+                position: relative;
+                width: 100%;
+                z-index: auto;
             }
             
             .header-photo {
                 min-height: 300px;
+                position: relative;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+            }
+            
+            .renzo-photo {
+                position: relative;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                height: auto;
+                max-width: 450px;
             }
         }
         
@@ -718,8 +772,8 @@
             }
             
             .section-title {
-                font-size: 1.4rem;
-                margin-bottom: 20px;
+                font-size: 1.6rem;
+                margin-bottom: 30px;
             }
             
             .facilitator-content h2 {
@@ -799,8 +853,10 @@
             .renzo-photo {
                 max-width: 380px;
                 position: relative;
-                bottom: auto;
+                top: auto;
                 right: auto;
+                bottom: auto;
+                height: auto;
                 margin: 0 auto;
             }
             
