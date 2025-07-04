@@ -354,8 +354,9 @@
             color: white;
             padding: 20px 0 0 0;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             min-height: 600px;
+            z-index: 1;
         }
         
         .header-container {
@@ -366,6 +367,7 @@
             height: 100%;
             min-height: 600px;
             align-items: start;
+            overflow: visible;
         }
         
         .header-content {
@@ -1642,6 +1644,13 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
     </footer>
 
     <script>
+        // Función para posicionar el dropdown correctamente
+        function positionDropdown(selector, dropdown) {
+            const rect = selector.getBoundingClientRect();
+            dropdown.style.top = (rect.bottom + window.scrollY) + 'px';
+            dropdown.style.left = rect.left + 'px';
+        }
+
         // Función para manejar el selector de país
         function setupCountrySelector(selectorId, dropdownId, phoneCodeId, whatsappId) {
             const countrySelector = document.getElementById(selectorId);
@@ -1654,7 +1663,22 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
             // Mostrar/ocultar dropdown
             countrySelector.addEventListener('click', function(e) {
                 e.stopPropagation();
-                countryDropdown.classList.toggle('show');
+                
+                // Cerrar otros dropdowns
+                document.querySelectorAll('.country-dropdown').forEach(dd => {
+                    if (dd !== countryDropdown) {
+                        dd.classList.remove('show');
+                    }
+                });
+                
+                // Toggle del dropdown actual
+                if (countryDropdown.classList.contains('show')) {
+                    countryDropdown.classList.remove('show');
+                } else {
+                    // Posicionar correctamente antes de mostrar
+                    positionDropdown(countrySelector, countryDropdown);
+                    countryDropdown.classList.add('show');
+                }
             });
             
             // Seleccionar país
@@ -1689,8 +1713,21 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
             
             // Cerrar dropdown al hacer clic fuera
             document.addEventListener('click', function(e) {
-                if (!countrySelector.contains(e.target)) {
+                if (!countrySelector.contains(e.target) && !countryDropdown.contains(e.target)) {
                     countryDropdown.classList.remove('show');
+                }
+            });
+            
+            // Reposicionar en scroll y resize
+            window.addEventListener('scroll', function() {
+                if (countryDropdown.classList.contains('show')) {
+                    positionDropdown(countrySelector, countryDropdown);
+                }
+            });
+            
+            window.addEventListener('resize', function() {
+                if (countryDropdown.classList.contains('show')) {
+                    positionDropdown(countrySelector, countryDropdown);
                 }
             });
             
