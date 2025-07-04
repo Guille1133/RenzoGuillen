@@ -118,10 +118,14 @@
             flex-wrap: wrap;
             align-items: flex-start;
             gap: 30px;
+            position: relative;
+            height: 100%;
+            min-height: 600px;
         }
         
         .header-content {
-            flex: 1 1 600px;
+            flex: 1 1 50%;
+            max-width: 50%;
             text-align: left;
             padding-bottom: 40px;
             position: relative;
@@ -129,12 +133,12 @@
         }
         
         .header-photo {
-            flex: 1 1 500px;
+            flex: 1 1 50%;
+            max-width: 50%;
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
-            width: 50%;
             z-index: 1;
         }
         
@@ -147,7 +151,7 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            text-align: center;
+            text-align: left;
         }
         
         .logo span {
@@ -165,7 +169,7 @@
         }
 
         .hero-text {
-            text-align: center;
+            text-align: left;
             margin: 15px 0 30px;
             color: white;
         }
