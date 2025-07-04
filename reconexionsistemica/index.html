@@ -110,6 +110,7 @@
             padding: 20px 0 0;
             position: relative;
             overflow: hidden;
+            min-height: 500px;
         }
         
         .header-container {
@@ -172,13 +173,17 @@
             display: inline-block;
         }
         
+        /* Resaltado amarillo mejorado para cubrir toda la altura */
         .highlight-animation {
             background-image: linear-gradient(to right, var(--mostaza) 0%, var(--mostaza) 100%);
             background-repeat: no-repeat;
-            background-size: 0% 40%;
-            background-position: left bottom;
+            background-size: 0% 100%;
+            background-position: left center;
             transition: background-size 1s ease-in-out;
-            padding-bottom: 2px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: inline-block;
+            line-height: 1.2;
         }
         
         .hero-text p {
@@ -191,7 +196,7 @@
             font-weight: 700;
         }
         
-        /* Foto de Renzo en el header */
+        /* Foto de Renzo en el header - posicionada desde abajo */
         .renzo-photo {
             max-width: 480px;
             width: 100%;
@@ -201,6 +206,7 @@
             position: absolute;
             bottom: 0;
             right: 0;
+            object-position: bottom;
         }
         
         /* Título del formulario */
@@ -1113,7 +1119,7 @@ src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
             // Animación del resaltado
             const highlightElement = document.querySelector('.highlight-animation');
             setTimeout(() => {
-                highlightElement.style.backgroundSize = '100% 40%';
+                highlightElement.style.backgroundSize = '100% 100%';
             }, 500);
         });
     </script>
