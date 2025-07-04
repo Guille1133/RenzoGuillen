@@ -118,14 +118,10 @@
             flex-wrap: wrap;
             align-items: flex-start;
             gap: 30px;
-            position: relative;
-            height: 100%;
-            min-height: 600px;
         }
         
         .header-content {
-            flex: 1 1 50%;
-            max-width: 50%;
+            flex: 1 1 600px;
             text-align: left;
             padding-bottom: 40px;
             position: relative;
@@ -133,13 +129,13 @@
         }
         
         .header-photo {
-            flex: 1 1 50%;
-            max-width: 50%;
-            position: relative;
-            min-height: 600px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
+            flex: 1 1 500px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            z-index: 1;
         }
         
         .logo {
@@ -151,7 +147,7 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            text-align: left;
+            text-align: center;
         }
         
         .logo span {
@@ -165,11 +161,11 @@
             max-width: 280px;
             height: auto;
             display: block;
-            margin: 0;
+            margin: 0 auto;
         }
 
         .hero-text {
-            text-align: left;
+            text-align: center;
             margin: 15px 0 30px;
             color: white;
         }
@@ -241,21 +237,22 @@
         
         /* Foto de Renzo en el header - posicionada desde abajo */
         .renzo-photo {
-            max-width: 100%;
+            max-width: 600px;
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
             object-fit: cover;
             object-position: bottom center;
             position: absolute;
             bottom: 0;
             right: 0;
+            top: 0;
             z-index: 1;
         }
         
         /* Título del formulario */
         .form-title {
-            text-align: left;
+            text-align: center;
             color: white;
             margin: 30px 0 20px;
             font-size: 1.3rem;
@@ -274,8 +271,8 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             z-index: 2;
-            max-width: 100%;
-            margin: 0 0 20px 0;
+            max-width: 550px;
+            margin: 0 auto 20px;
         }
         
         .header-form::before {
@@ -723,7 +720,7 @@
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .header-container {
                 flex-direction: column;
             }
@@ -734,7 +731,6 @@
                 position: relative;
                 width: 100%;
                 z-index: auto;
-                max-width: 100%;
             }
             
             .header-photo {
@@ -857,10 +853,8 @@
             .renzo-photo {
                 max-width: 380px;
                 position: relative;
-                top: auto;
-                right: auto;
                 bottom: auto;
-                height: auto;
+                right: auto;
                 margin: 0 auto;
             }
             
