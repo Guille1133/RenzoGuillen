@@ -133,9 +133,6 @@
         .header-photo {
             position: relative;
             min-height: 600px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
             overflow: hidden;
         }
         
@@ -238,13 +235,16 @@
         
         /* Foto de Renzo en el header - posicionada desde abajo */
         .renzo-photo {
-            max-width: 100%;
             width: 100%;
-            height: auto;
+            height: 100%;
+            min-height: 600px;
             display: block;
             object-fit: cover;
             object-position: bottom center;
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             bottom: 0;
             z-index: 1;
         }
