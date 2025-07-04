@@ -110,7 +110,7 @@
             padding: 20px 0 0;
             position: relative;
             overflow: hidden;
-            min-height: 500px;
+            min-height: 600px;
         }
         
         .header-container {
@@ -129,9 +129,10 @@
         .header-photo {
             flex: 1 1 500px;
             position: relative;
-            min-height: 400px;
+            min-height: 500px;
             display: flex;
             align-items: flex-end;
+            justify-content: flex-end;
         }
         
         .logo {
@@ -233,15 +234,16 @@
         
         /* Foto de Renzo en el header - posicionada desde abajo */
         .renzo-photo {
-            max-width: 480px;
+            max-width: 600px;
             width: 100%;
             height: auto;
             display: block;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: bottom center;
             position: absolute;
             bottom: 0;
             right: 0;
-            object-position: bottom;
+            z-index: 1;
         }
         
         /* Título del formulario */
@@ -744,7 +746,10 @@
             }
             
             .renzo-photo {
-                max-width: 350px;
+                max-width: 450px;
+                position: relative;
+                bottom: auto;
+                right: auto;
             }
             
             .hero-text h1 {
@@ -790,7 +795,11 @@
             }
             
             .renzo-photo {
-                max-width: 280px;
+                max-width: 380px;
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin: 0 auto;
             }
             
             .hero-text h1 {
