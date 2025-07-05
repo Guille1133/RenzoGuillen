@@ -1504,18 +1504,22 @@ function enviarFormularioConMake(formId, phoneCodeId, inputId) {
 
         const fullPhone = `${phoneCode}${whatsapp}`.replace(/\s+/g, "");
 
-        const data = new FormData();
-        data.append("name", name);
-        data.append("email", email);
-        data.append("whatsapp", fullPhone);
+       const data = {
+    name: name,
+    email: email,
+    whatsapp: fullPhone
+};
 
-        fetch(form.action, {
-            method: "POST",
-            body: data
-        }).then(() => {
-            window.location.href = "gracias.html";
-        });
-    });
+fetch(form.action, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+}).then(() => {
+    window.location.href = "gracias.html";
+});
+
 }
 
 document.addEventListener("DOMContentLoaded", function () {
