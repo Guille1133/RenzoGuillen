@@ -1391,139 +1391,113 @@
     </footer>
 
     <script>
-        // Configuración de países para el selector
-        const countries = [
-            { code: 'pe', name: 'Perú', dial: '+51', flag: 'https://flagcdn.com/w20/pe.png' },
-            { code: 'ar', name: 'Argentina', dial: '+54', flag: 'https://flagcdn.com/w20/ar.png' },
-            { code: 'co', name: 'Colombia', dial: '+57', flag: 'https://flagcdn.com/w20/co.png' },
-            { code: 'mx', name: 'México', dial: '+52', flag: 'https://flagcdn.com/w20/mx.png' },
-            { code: 'cl', name: 'Chile', dial: '+56', flag: 'https://flagcdn.com/w20/cl.png' },
-            { code: 'ec', name: 'Ecuador', dial: '+593', flag: 'https://flagcdn.com/w20/ec.png' },
-            { code: 'bo', name: 'Bolivia', dial: '+591', flag: 'https://flagcdn.com/w20/bo.png' },
-            { code: 'uy', name: 'Uruguay', dial: '+598', flag: 'https://flagcdn.com/w20/uy.png' },
-            { code: 'py', name: 'Paraguay', dial: '+595', flag: 'https://flagcdn.com/w20/py.png' },
-            { code: 've', name: 'Venezuela', dial: '+58', flag: 'https://flagcdn.com/w20/ve.png' },
-            { code: 'es', name: 'España', dial: '+34', flag: 'https://flagcdn.com/w20/es.png' },
-            { code: 'us', name: 'Estados Unidos', dial: '+1', flag: 'https://flagcdn.com/w20/us.png' }
-        ];
+    // Configuración de países
+    const countries = [
+        { code: 'pe', name: 'Perú', dial: '+51', flag: 'https://flagcdn.com/w20/pe.png' },
+        { code: 'ar', name: 'Argentina', dial: '+54', flag: 'https://flagcdn.com/w20/ar.png' },
+        { code: 'co', name: 'Colombia', dial: '+57', flag: 'https://flagcdn.com/w20/co.png' },
+        { code: 'mx', name: 'México', dial: '+52', flag: 'https://flagcdn.com/w20/mx.png' },
+        { code: 'cl', name: 'Chile', dial: '+56', flag: 'https://flagcdn.com/w20/cl.png' },
+        { code: 'ec', name: 'Ecuador', dial: '+593', flag: 'https://flagcdn.com/w20/ec.png' },
+        { code: 'bo', name: 'Bolivia', dial: '+591', flag: 'https://flagcdn.com/w20/bo.png' },
+        { code: 'uy', name: 'Uruguay', dial: '+598', flag: 'https://flagcdn.com/w20/uy.png' },
+        { code: 'py', name: 'Paraguay', dial: '+595', flag: 'https://flagcdn.com/w20/py.png' },
+        { code: 've', name: 'Venezuela', dial: '+58', flag: 'https://flagcdn.com/w20/ve.png' },
+        { code: 'es', name: 'España', dial: '+34', flag: 'https://flagcdn.com/w20/es.png' },
+        { code: 'us', name: 'Estados Unidos', dial: '+1', flag: 'https://flagcdn.com/w20/us.png' }
+    ];
 
-        function setupCountrySelector(selectorId, dropdownId, phoneCodeId, whatsappId) {
-            const selector = document.getElementById(selectorId);
-            const dropdown = document.getElementById(dropdownId);
-            const phoneCode = document.getElementById(phoneCodeId);
-            const whatsappInput = document.getElementById(whatsappId);
+    function setupCountrySelector(selectorId, dropdownId, phoneCodeId, whatsappId) {
+        const selector = document.getElementById(selectorId);
+        const dropdown = document.getElementById(dropdownId);
+        const phoneCode = document.getElementById(phoneCodeId);
+        const whatsappInput = document.getElementById(whatsappId);
 
-            // Crear opciones del dropdown
-            dropdown.innerHTML = countries.map(country => `
-                <div class="country-option" data-code="${country.code}" data-dial="${country.dial}">
-                    <img src="${country.flag}" alt="${country.name}">
-                    <span>${country.name} ${country.dial}</span>
-                </div>
-            `).join('');
+        dropdown.innerHTML = countries.map(country => `
+            <div class="country-option" data-code="${country.code}" data-dial="${country.dial}">
+                <img src="${country.flag}" alt="${country.name}">
+                <span>${country.name} ${country.dial}</span>
+            </div>
+        `).join('');
 
-            // Toggle dropdown
-            selector.addEventListener('click', (e) => {
-                e.stopPropagation();
-                dropdown.classList.toggle('show');
-                
-                // Cerrar otros dropdowns
-                document.querySelectorAll('.country-dropdown').forEach(d => {
-                    if (d !== dropdown) d.classList.remove('show');
-                });
+        selector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+            document.querySelectorAll('.country-dropdown').forEach(d => {
+                if (d !== dropdown) d.classList.remove('show');
             });
+        });
 
-            // Seleccionar país
-            dropdown.addEventListener('click', (e) => {
-                const option = e.target.closest('.country-option');
-                if (option) {
-                    const dial = option.dataset.dial;
-                    const code = option.dataset.code;
-                    const country = countries.find(c => c.code === code);
-                    
-                    selector.querySelector('img').src = country.flag;
-                    selector.querySelector('span').textContent = dial;
-                    phoneCode.textContent = dial;
-                    
-                    dropdown.classList.remove('show');
-                }
-            });
+        dropdown.addEventListener('click', (e) => {
+            const option = e.target.closest('.country-option');
+            if (option) {
+                const dial = option.dataset.dial;
+                const code = option.dataset.code;
+                const country = countries.find(c => c.code === code);
 
-            // Cerrar dropdown al hacer clic fuera
-            document.addEventListener('click', () => {
+                selector.querySelector('img').src = country.flag;
+                selector.querySelector('span').textContent = dial;
+                phoneCode.textContent = dial;
+
                 dropdown.classList.remove('show');
-            });
-        }
+            }
+        });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Configurar ambos selectores de país
-            setupCountrySelector('countrySelector', 'countryDropdown', 'phoneCode', 'whatsapp');
-            setupCountrySelector('countrySelector2', 'countryDropdown2', 'phoneCode2', 'whatsapp2');
+        document.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+        });
+    }
 
-            // Manejar envío de formularios
-            function handleFormSubmit(formId) {
-                const form = document.getElementById(formId);
-                if (form) {
-                    form.addEventListener('submit', function(e) {
-                        e.preventDefault();
-                        
-                        const name = this.querySelector('input[name="name"]').value;
-                        const email = this.querySelector('input[name="email"]').value;
-                        const whatsapp = this.querySelector('input[name="whatsapp"]').value;
-                        
-                        // Tracking de Facebook Pixel
-                        if (typeof fbq !== 'undefined') {
-                            fbq('track', 'Lead', {
-                                content_name: 'Reconexión Sistémica Registration',
-                                value: 0,
-                                currency: 'USD'
-                            });
-                        }
-                        
-                        // Redirigir a página de gracias
-                        window.location.href = `gracias.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&whatsapp=${encodeURIComponent(whatsapp)}`;
+    function enviarFormularioConMake(formId, phoneCodeId, whatsappId) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = form.querySelector("input[name='name']").value;
+            const email = form.querySelector("input[name='email']").value;
+            const phoneCode = form.querySelector(`#${phoneCodeId}`).textContent.trim();
+            const phoneNumber = form.querySelector(`#${whatsappId}`).value;
+            const fullPhone = `${phoneCode}${phoneNumber}`;
+
+            const data = {
+                name: name,
+                email: email,
+                whatsapp: fullPhone,
+                phone_code: phoneCode,
+                phone_number: phoneNumber
+            };
+
+            fetch(form.action, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(() => {
+                if (typeof fbq !== "undefined") {
+                    fbq("track", "Lead", {
+                        content_name: "Reconexión Sistémica Registration",
+                        value: 0,
+                        currency: "USD"
                     });
                 }
-            }
 
-            handleFormSubmit('registrationForm');
-            handleFormSubmit('registrationForm2');
+                window.location.href = `gracias.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&whatsapp=${encodeURIComponent(fullPhone)}`;
+            });
         });
-    </script>
-    <script>
-function enviarFormularioConMake(formId, phoneCodeId, inputId) {
-    const form = document.getElementById(formId);
-    if (!form) return;
+    }
 
-    form.addEventListener("submit", function(e) {
-  e.preventDefault();
+    document.addEventListener('DOMContentLoaded', function () {
+        setupCountrySelector('countrySelector', 'countryDropdown', 'phoneCode', 'whatsapp');
+        setupCountrySelector('countrySelector2', 'countryDropdown2', 'phoneCode2', 'whatsapp2');
 
-  const name = document.querySelector("#name").value;
-  const email = document.querySelector("#email").value;
-  const fullPhone = phoneInput.getNumber(); // o como estés armando el teléfono
-
-  const data = {
-    name: name,
-    email: email,
-    whatsapp: fullPhone
-  };
-
-  fetch(form.action, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  }).then(() => {
-    window.location.href = "gracias.html";
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    enviarFormularioConMake("registrationForm", "phoneCode", "whatsapp");
-    enviarFormularioConMake("registrationForm2", "phoneCode2", "whatsapp2");
-});
+        enviarFormularioConMake("registrationForm", "phoneCode", "whatsapp");
+        enviarFormularioConMake("registrationForm2", "phoneCode2", "whatsapp2");
+    });
 </script>
+
 
 </body>
 </html>
