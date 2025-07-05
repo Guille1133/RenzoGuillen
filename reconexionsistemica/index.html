@@ -142,18 +142,6 @@
             justify-content: flex-end;
         }
         
-        .header-photo::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 180px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-            pointer-events: none;
-            z-index: 2;
-        }
-        
         .logo {
             font-family: 'Anton', sans-serif;
             font-size: 2rem;
@@ -263,22 +251,9 @@
             object-position: bottom right;
             position: absolute;
             bottom: -200px;
-            right: -120px;
+            right: -80px;
             z-index: 1;
-            transform: translateX(60px);
-        }
-        
-        /* Degradado negro en la base de la foto de Renzo */
-        .renzo-photo::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 150px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            pointer-events: none;
-            z-index: 2;
+            transform: translateX(40px);
         }
         
         /* Título del formulario */
@@ -648,56 +623,30 @@
         
         /* Facilitador */
         .facilitator-section {
-            background: linear-gradient(135deg, #f8f4f0 0%, #ffffff 50%, #f5f1ed 100%);
-            padding: 60px 0;
+            background-color: white;
+            padding: 40px 0;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .facilitator-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="30" r="0.8" fill="rgba(222,172,70,0.1)"/><circle cx="50" cy="15" r="0.5" fill="rgba(222,172,70,0.08)"/><circle cx="80" cy="40" r="0.7" fill="rgba(222,172,70,0.12)"/></svg>');
-            background-size: 150px;
-            opacity: 0.3;
-            z-index: 1;
-            pointer-events: none;
         }
         
         .facilitator-container {
             position: relative;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 50px;
-            align-items: center;
-            z-index: 2;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            align-items: start;
         }
         
         .facilitator-content {
             text-align: left;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.08),
-                0 0 60px rgba(222, 172, 70, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .facilitator-content h3 {
             color: var(--rojo-profundo);
-            font-size: 2.4rem;
-            margin-bottom: 8px;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
             letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         .facilitator-content h4 {
@@ -707,103 +656,39 @@
         }
         
         .facilitator-content p {
-            margin-bottom: 18px;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            text-align: justify;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
         }
         
         .facilitator-content em {
             display: block;
             font-style: italic;
-            margin-bottom: 25px;
+            margin-bottom: 12px;
             color: var(--rojo-profundo);
-            font-size: 1.1rem;
-            font-weight: 500;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .facilitator-content em::before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -5px;
-            font-size: 2rem;
-            color: var(--mostaza);
-            font-family: serif;
-        }
-        
-        .facilitator-image-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         
         .facilitator-image {
             width: 100%;
-            max-width: 320px;
-            border-radius: 20px;
+            max-width: 300px;
+            border-radius: 0;
             box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.15),
-                0 0 80px rgba(222, 172, 70, 0.2);
-            transition: all 0.3s ease;
-            background: transparent;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .facilitator-image::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            background: linear-gradient(135deg, 
-                rgba(222, 172, 70, 0.3) 0%, 
-                rgba(222, 172, 70, 0.1) 50%, 
-                rgba(162, 31, 24, 0.2) 100%);
-            border-radius: 25px;
-            z-index: -1;
-            opacity: 0.7;
-        }
-        
-        .facilitator-image:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 
-                0 35px 70px rgba(0, 0, 0, 0.2),
-                0 0 100px rgba(222, 172, 70, 0.3);
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                0 0 50px rgba(222, 172, 70, 0.1);
         }
         
         .facilitator-image img {
             width: 100%;
             height: auto;
             object-fit: cover;
-            border-radius: 20px;
-            display: block;
+            border-radius: 0;
         }
         
         .signature {
             font-family: 'Libre Baskerville', serif;
             font-style: italic;
-            margin-top: 25px;
-            font-size: 1.1rem;
+            margin-top: 15px;
+            font-size: 1rem;
             color: var(--marron);
-            text-align: right;
-            position: relative;
-            padding-top: 15px;
-        }
-        
-        .signature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent 0%, var(--mostaza) 100%);
         }
         
         /* CTA Final */
@@ -1019,36 +904,17 @@
 
             .facilitator-container {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 20px;
                 text-align: center;
             }
 
             .facilitator-content {
                 text-align: center;
-                padding: 30px 25px;
-            }
-
-            .facilitator-content em::before {
-                display: none;
-            }
-
-            .facilitator-content em {
-                padding-left: 0;
-                text-align: center;
             }
 
             .facilitator-image {
-                max-width: 280px;
+                max-width: 250px;
                 margin: 0 auto;
-            }
-
-            .signature {
-                text-align: center;
-            }
-
-            .signature::before {
-                left: 50%;
-                transform: translateX(-50%);
             }
         }
         
@@ -1597,10 +1463,8 @@
                     <p class="signature">Renzo Alfaro Guillén</p>
                 </div>
                 
-                <div class="facilitator-image-container">
-                    <div class="facilitator-image">
-                        <img src="renzo.webp" alt="Renzo Alfaro Guillén">
-                    </div>
+                <div class="facilitator-image">
+                    <img src="renzo.webp" alt="Renzo Alfaro Guillén">
                 </div>
             </div>
         </div>
