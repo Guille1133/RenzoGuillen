@@ -1391,7 +1391,7 @@
     </footer>
 
     <script>
-    // Configuración de países
+    // Configuración de países para el selector
     const countries = [
         { code: 'pe', name: 'Perú', dial: '+51', flag: 'https://flagcdn.com/w20/pe.png' },
         { code: 'ar', name: 'Argentina', dial: '+54', flag: 'https://flagcdn.com/w20/ar.png' },
@@ -1407,11 +1407,10 @@
         { code: 'us', name: 'Estados Unidos', dial: '+1', flag: 'https://flagcdn.com/w20/us.png' }
     ];
 
-    function setupCountrySelector(selectorId, dropdownId, phoneCodeId, whatsappId) {
+    function setupCountrySelector(selectorId, dropdownId, phoneCodeId) {
         const selector = document.getElementById(selectorId);
         const dropdown = document.getElementById(dropdownId);
         const phoneCode = document.getElementById(phoneCodeId);
-        const whatsappInput = document.getElementById(whatsappId);
 
         dropdown.innerHTML = countries.map(country => `
             <div class="country-option" data-code="${country.code}" data-dial="${country.dial}">
@@ -1438,7 +1437,6 @@
                 selector.querySelector('img').src = country.flag;
                 selector.querySelector('span').textContent = dial;
                 phoneCode.textContent = dial;
-
                 dropdown.classList.remove('show');
             }
         });
@@ -1448,7 +1446,7 @@
         });
     }
 
-    function enviarFormularioConMake(formId, phoneCodeId, whatsappId) {
+    function enviarFormularioConMake(formId, phoneCodeId, inputId) {
         const form = document.getElementById(formId);
         if (!form) return;
 
@@ -1457,41 +1455,40 @@
 
             const name = form.querySelector("input[name='name']").value;
             const email = form.querySelector("input[name='email']").value;
-            const phoneCode = form.querySelector(`#${phoneCodeId}`).textContent.trim();
-            const phoneNumber = form.querySelector(`#${whatsappId}`).value;
-            const fullPhone = `${phoneCode}${phoneNumber}`;
+            const phoneCode = document.getElementById(phoneCodeId).textContent;
+            const phoneNumber = form.querySelector("input[name='" + inputId + "']").value;
+            const whatsapp = phoneCode + phoneNumber;
+
+            // Tracking de Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Reconexión Sistémica Registration',
+                    value: 0,
+                    currency: 'USD'
+                });
+            }
 
             const data = {
                 name: name,
                 email: email,
-                whatsapp: fullPhone,
-                phone_code: phoneCode,
-                phone_number: phoneNumber
+                whatsapp: whatsapp
             };
 
-            fetch(form.action, {
+            fetch("https://hook.us2.make.com/b5hx2v78qw44qrnbnlq3qmtohdx2vdhj", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
             }).then(() => {
-                if (typeof fbq !== "undefined") {
-                    fbq("track", "Lead", {
-                        content_name: "Reconexión Sistémica Registration",
-                        value: 0,
-                        currency: "USD"
-                    });
-                }
-
-                window.location.href = `gracias.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&whatsapp=${encodeURIComponent(fullPhone)}`;
+                window.location.href = `gracias.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&whatsapp=${encodeURIComponent(whatsapp)}`;
             });
         });
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        setupCountrySelector('countrySelector', 'countryDropdown', 'phoneCode', 'whatsapp');
-        setupCountrySelector('countrySelector2', 'countryDropdown2', 'phoneCode2', 'whatsapp2');
+    document.addEventListener("DOMContentLoaded", function () {
+        setupCountrySelector('countrySelector', 'countryDropdown', 'phoneCode');
+        setupCountrySelector('countrySelector2', 'countryDropdown2', 'phoneCode2');
 
         enviarFormularioConMake("registrationForm", "phoneCode", "whatsapp");
         enviarFormularioConMake("registrationForm2", "phoneCode2", "whatsapp2");
