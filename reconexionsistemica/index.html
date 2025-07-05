@@ -1487,35 +1487,45 @@
                         // Enviar datos a Make webhook
                         fetch('https://hook.us2.make.com/b5hx2v78qw44qrnbnlq3qmtohdx2vdhj', {
                             method: 'POST',
+                            mode: 'no-cors',
                             headers: {
                                 'Content-Type': 'application/json',
                             },
                             body: JSON.stringify(formData)
                         })
-                        .then(response => {
-                            if (response.ok) {
-                                // Tracking de Facebook Pixel
-                                if (typeof fbq !== 'undefined') {
-                                    fbq('track', 'Lead', {
-                                        content_name: 'Reconexión Sistémica Registration',
-                                        value: 0,
-                                        currency: 'USD'
-                                    });
-                                }
-                                
-                                // Redirigir a página de gracias
-                                window.location.href = `gracias.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&whatsapp=${encodeURIComponent(phoneCode + whatsapp)}`;
-                            } else {
-                                throw new Error('Error en el envío');
+                        .then(() => {
+                            // Con no-cors no podemos verificar el response, asumimos éxito
+                            // Tracking de Facebook Pixel
+                            if (typeof fbq !== 'undefined') {
+                                fbq('track', 'Lead', {
+                                    content_name: 'Reconexión Sistémica Registration',
+                                    value: 0,
+                                    currency: 'USD'
+                                });
                             }
+                            
+                            // Redirigir a página de gracias
+                            window.location.href = `gracias.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&whatsapp=${encodeURIComponent(phoneCode + whatsapp)}`;
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                            alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
                             
-                            // Restaurar botón
-                            submitButton.textContent = originalText;
-                            submitButton.disabled = false;
+                            // Intentar envío alternativo usando form data
+                            const form = document.createElement('form');
+                            form.method = 'POST';
+                            form.action = 'https://hook.us2.make.com/b5hx2v78qw44qrnbnlq3qmtohdx2vdhj';
+                            form.style.display = 'none';
+                            
+                            Object.keys(formData).forEach(key => {
+                                const input = document.createElement('input');
+                                input.type = 'hidden';
+                                input.name = key;
+                                input.value = formData[key];
+                                form.appendChild(input);
+                            });
+                            
+                            document.body.appendChild(form);
+                            form.submit();
                         });
                     });
                 }
