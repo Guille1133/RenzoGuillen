@@ -165,7 +165,7 @@
         }
 
         .logo img {
-            max-width: 280px;
+            max-width: 350px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -184,52 +184,73 @@
             display: inline-block;
         }
         
-        /* Resaltado amarillo estilo marcador natural */
-        .highlight-animation {
-            background: linear-gradient(102deg, 
-                rgba(222, 172, 70, 0.2) 0%, 
-                rgba(222, 172, 70, 0.7) 15%, 
-                rgba(222, 172, 70, 0.9) 25%, 
-                rgba(222, 172, 70, 0.8) 35%, 
-                rgba(222, 172, 70, 0.9) 45%, 
-                rgba(222, 172, 70, 0.7) 55%, 
-                rgba(222, 172, 70, 0.9) 65%, 
-                rgba(222, 172, 70, 0.8) 75%, 
-                rgba(222, 172, 70, 0.6) 85%, 
-                rgba(222, 172, 70, 0.3) 100%);
+        /* Efecto de subrayado tipo marcador resaltador mejorado */
+        .highlight-marker {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(120deg, 
+                rgba(255, 215, 0, 0.9) 0%, 
+                rgba(255, 215, 0, 0.8) 15%, 
+                rgba(255, 215, 0, 0.9) 30%, 
+                rgba(255, 215, 0, 0.7) 45%, 
+                rgba(255, 215, 0, 0.9) 60%, 
+                rgba(255, 215, 0, 0.8) 75%, 
+                rgba(255, 215, 0, 0.9) 90%, 
+                rgba(255, 215, 0, 0.8) 100%);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            background-position: left center;
+            animation: highlightDraw 2s ease-in-out forwards;
+            animation-delay: 0.5s;
+            padding: 2px 8px;
+            border-radius: 3px;
+            transform: rotate(-0.5deg);
+            box-shadow: 
+                0 2px 8px rgba(255, 215, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .highlight-marker::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(115deg, 
+                rgba(255, 215, 0, 0.4) 0%, 
+                rgba(255, 215, 0, 0.2) 25%, 
+                rgba(255, 215, 0, 0.5) 50%, 
+                rgba(255, 215, 0, 0.3) 75%, 
+                rgba(255, 215, 0, 0.4) 100%);
             background-size: 0% 90%;
             background-repeat: no-repeat;
             background-position: left center;
-            transition: background-size 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            padding: 6px 8px;
-            display: inline-block;
-            line-height: 1.3;
-            position: relative;
-            transform: rotate(-0.3deg);
-            border-radius: 3px;
-        }
-        
-        .highlight-animation::before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
-            background: linear-gradient(98deg, 
-                rgba(222, 172, 70, 0.1) 0%, 
-                rgba(222, 172, 70, 0.4) 20%, 
-                rgba(222, 172, 70, 0.3) 40%, 
-                rgba(222, 172, 70, 0.5) 60%, 
-                rgba(222, 172, 70, 0.2) 80%, 
-                rgba(222, 172, 70, 0.3) 100%);
-            background-size: 0% 85%;
-            background-repeat: no-repeat;
-            background-position: left center;
-            transition: background-size 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
-            pointer-events: none;
+            animation: highlightGlow 2s ease-in-out forwards;
+            animation-delay: 1s;
             z-index: -1;
-            border-radius: 2px;
+            border-radius: 4px;
+            filter: blur(1px);
+        }
+
+        @keyframes highlightDraw {
+            0% {
+                background-size: 0% 100%;
+            }
+            100% {
+                background-size: 100% 100%;
+            }
+        }
+
+        @keyframes highlightGlow {
+            0% {
+                background-size: 0% 90%;
+                opacity: 0;
+            }
+            100% {
+                background-size: 100% 90%;
+                opacity: 1;
+            }
         }
         
         .hero-text p {
@@ -984,7 +1005,7 @@
             }
             
             .logo img {
-                max-width: 250px;
+                max-width: 300px;
             }
             
             .form-container {
@@ -1040,7 +1061,7 @@
                 overflow: hidden;
             }
             
-            .highlight-animation {
+            .highlight-marker {
                 white-space: nowrap;
                 display: inline-block;
                 max-width: 100%;
@@ -1063,7 +1084,7 @@
             }
             
             .logo img {
-                max-width: 220px;
+                max-width: 280px;
             }
             
             .btn {
@@ -1115,7 +1136,7 @@
                 overflow: hidden;
             }
             
-            .highlight-animation {
+            .highlight-marker {
                 font-size: 1.2rem;
                 white-space: nowrap;
                 display: inline-block;
@@ -1186,7 +1207,7 @@
                 </div>
                 
                 <div class="hero-text">
-                    <h1><span class="highlight-animation">Haz las paces con tu historia afectiva</span></h1>
+                    <h1><span class="highlight-marker">Haz las paces con tu historia afectiva</span></h1>
                     <p>incluso si sientes que tus <strong>heridas</strong> son muy <strong>profundas</strong>, con el poder del enfoque sistémico... en <strong>solo 3 días!</strong></p>
                 </div>
                 
@@ -1211,7 +1232,7 @@
                                     <img src="https://flagcdn.com/w20/pe.png" alt="Perú">
                                     <span>+51</span>
                                     <div class="country-dropdown" id="countryDropdown">
-                                        <!-- Country options aquí - mantengo el mismo contenido original -->
+                                        <!-- Country options aquí -->
                                     </div>
                                 </div>
                                 <div class="phone-with-code">
@@ -1360,13 +1381,102 @@
     </footer>
 
     <script>
-        // Script JavaScript mantenido igual que el original
+        // Configuración de países para el selector
+        const countries = [
+            { code: 'pe', name: 'Perú', dial: '+51', flag: 'https://flagcdn.com/w20/pe.png' },
+            { code: 'ar', name: 'Argentina', dial: '+54', flag: 'https://flagcdn.com/w20/ar.png' },
+            { code: 'co', name: 'Colombia', dial: '+57', flag: 'https://flagcdn.com/w20/co.png' },
+            { code: 'mx', name: 'México', dial: '+52', flag: 'https://flagcdn.com/w20/mx.png' },
+            { code: 'cl', name: 'Chile', dial: '+56', flag: 'https://flagcdn.com/w20/cl.png' },
+            { code: 'ec', name: 'Ecuador', dial: '+593', flag: 'https://flagcdn.com/w20/ec.png' },
+            { code: 'bo', name: 'Bolivia', dial: '+591', flag: 'https://flagcdn.com/w20/bo.png' },
+            { code: 'uy', name: 'Uruguay', dial: '+598', flag: 'https://flagcdn.com/w20/uy.png' },
+            { code: 'py', name: 'Paraguay', dial: '+595', flag: 'https://flagcdn.com/w20/py.png' },
+            { code: 've', name: 'Venezuela', dial: '+58', flag: 'https://flagcdn.com/w20/ve.png' },
+            { code: 'es', name: 'España', dial: '+34', flag: 'https://flagcdn.com/w20/es.png' },
+            { code: 'us', name: 'Estados Unidos', dial: '+1', flag: 'https://flagcdn.com/w20/us.png' }
+        ];
+
         function setupCountrySelector(selectorId, dropdownId, phoneCodeId, whatsappId) {
-            // ... código JavaScript igual al original
+            const selector = document.getElementById(selectorId);
+            const dropdown = document.getElementById(dropdownId);
+            const phoneCode = document.getElementById(phoneCodeId);
+            const whatsappInput = document.getElementById(whatsappId);
+
+            // Crear opciones del dropdown
+            dropdown.innerHTML = countries.map(country => `
+                <div class="country-option" data-code="${country.code}" data-dial="${country.dial}">
+                    <img src="${country.flag}" alt="${country.name}">
+                    <span>${country.name} ${country.dial}</span>
+                </div>
+            `).join('');
+
+            // Toggle dropdown
+            selector.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
+                
+                // Cerrar otros dropdowns
+                document.querySelectorAll('.country-dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('show');
+                });
+            });
+
+            // Seleccionar país
+            dropdown.addEventListener('click', (e) => {
+                const option = e.target.closest('.country-option');
+                if (option) {
+                    const dial = option.dataset.dial;
+                    const code = option.dataset.code;
+                    const country = countries.find(c => c.code === code);
+                    
+                    selector.querySelector('img').src = country.flag;
+                    selector.querySelector('span').textContent = dial;
+                    phoneCode.textContent = dial;
+                    
+                    dropdown.classList.remove('show');
+                }
+            });
+
+            // Cerrar dropdown al hacer clic fuera
+            document.addEventListener('click', () => {
+                dropdown.classList.remove('show');
+            });
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // ... código JavaScript igual al original
+            // Configurar ambos selectores de país
+            setupCountrySelector('countrySelector', 'countryDropdown', 'phoneCode', 'whatsapp');
+            setupCountrySelector('countrySelector2', 'countryDropdown2', 'phoneCode2', 'whatsapp2');
+
+            // Manejar envío de formularios
+            function handleFormSubmit(formId) {
+                const form = document.getElementById(formId);
+                if (form) {
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        const name = this.querySelector('input[name="name"]').value;
+                        const email = this.querySelector('input[name="email"]').value;
+                        const whatsapp = this.querySelector('input[name="whatsapp"]').value;
+                        
+                        // Tracking de Facebook Pixel
+                        if (typeof fbq !== 'undefined') {
+                            fbq('track', 'Lead', {
+                                content_name: 'Reconexión Sistémica Registration',
+                                value: 0,
+                                currency: 'USD'
+                            });
+                        }
+                        
+                        // Redirigir a página de gracias
+                        window.location.href = `gracias.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&whatsapp=${encodeURIComponent(whatsapp)}`;
+                    });
+                }
+            }
+
+            handleFormSubmit('registrationForm');
+            handleFormSubmit('registrationForm2');
         });
     </script>
 </body>
