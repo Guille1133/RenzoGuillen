@@ -1445,7 +1445,7 @@
         });
     }
 
-    function enviarFormularioConMake(formId, phoneCodeId, inputId) {
+    function enviarFormularioConMake(formId, phoneCodeId, inputName) {
         const form = document.getElementById(formId);
         if (!form) return;
 
@@ -1455,7 +1455,7 @@
             const name = form.querySelector("input[name='name']").value;
             const email = form.querySelector("input[name='email']").value;
             const phoneCode = document.getElementById(phoneCodeId).textContent;
-            const phoneNumber = form.querySelector("input[name='" + inputId + "']").value;
+            const phoneNumber = form.querySelector("input[name='whatsapp']").value;
             const whatsapp = phoneCode + phoneNumber;
 
             // Tracking de Facebook Pixel
