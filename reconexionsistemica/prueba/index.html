@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconexión Sistémica - Seminario de Constelaciones Familiares</title>
+    
+    <!-- DNS Prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//flagcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="logo.webp" as="image">
+    <link rel="preload" href="foto2.webp" as="image">
+    <link rel="preload" href="fondo.webp" as="image">
+    
+    <!-- Preload de fuentes críticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            --rojo-profundo: #A21F18;
+            --rojo-claro: #C7241B;
+            --mostaza: #DEAC46;
+            --crema: #F9F5F2;
+            --marron: #3C1F0F;
+            --negro: #000000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--marron);
+            background-color: var(--crema);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="30" r="0.8" fill="white" opacity="0.8"/><circle cx="50" cy="15" r="0.5" fill="white" opacity="0.6"/><circle cx="80" cy="40" r="0.7" fill="white" opacity="0.7"/><circle cx="10" cy="70" r="0.6" fill="white" opacity="0.5"/><circle cx="40" cy="85" r="0.9" fill="white" opacity="0.9"/><circle cx="70" cy="60" r="0.4" fill="white" opacity="0.4"/><circle cx="90" cy="90" r="0.5" fill="white" opacity="0.6"/></svg>');
+            background-size: 200px;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Anton', sans-serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        .highlight-text {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--rojo-profundo);
+            color: white;
+            border: 2px solid var(--rojo-profundo);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--rojo-claro);
+            border-color: var(--rojo-claro);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--mostaza);
+            color: var(--marron);
+            border: 2px solid var(--mostaza);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #E8BA5A;
+            border-color: #E8BA5A;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        header {
+            background: url('fondo.webp') no-repeat center center / cover;
+            color: white;
+            padding: 20px 0 0 0;
+            position: relative;
+            overflow: visible;
+            min-height: 600px;
+            z-index: 1;
+        }
+        
+        .header-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            position: relative;
+            height: 100%;
+            min-height: 600px;
+            align-items: start;
+            overflow: visible;
+            contain: layout style;
+        }
+        
+        .header-content {
+            text-align: left;
+            padding-bottom: 60px;
+            position: relative;
+            z-index: 2;
+            overflow: visible;
+        }
+        
+        .header-photo {
+            position: relative;
+            min-height: 600px;
+            overflow: visible;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+        
+        .logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .logo span {
+            display: block;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        .logo img {
+            max-width: 350px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            text-align: left;
+            margin: 15px 0 30px;
+            color: white;
+        }
+        
+        .hero-text h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Efecto de subrayado tipo marcador resaltador natural */
+        .highlight-marker {
+            position: relative;
+            display: inline-block;
+            color: white;
+            padding: 0 4px;
+        }
+
+        .highlight-marker::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(110deg, 
+                rgba(255, 215, 0, 0.8) 0%, 
+                rgba(255, 215, 0, 0.9) 15%, 
+                rgba(255, 215, 0, 0.7) 30%, 
+                rgba(255, 215, 0, 0.9) 45%, 
+                rgba(255, 215, 0, 0.8) 60%, 
+                rgba(255, 215, 0, 0.9) 75%, 
+                rgba(255, 215, 0, 0.8) 100%);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            background-position: left center;
+            animation: highlightDraw 2.5s ease-in-out forwards;
+            animation-delay: 0.8s;
+            transform: rotate(-0.5deg);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .highlight-marker::before {
+            content: '';
+            position: absolute;
+            left: 1px;
+            right: 1px;
+            top: 1px;
+            bottom: 1px;
+            background: linear-gradient(108deg, 
+                rgba(255, 215, 0, 0.3) 0%, 
+                rgba(255, 215, 0, 0.5) 20%, 
+                rgba(255, 215, 0, 0.4) 40%, 
+                rgba(255, 215, 0, 0.6) 60%, 
+                rgba(255, 215, 0, 0.4) 80%, 
+                rgba(255, 215, 0, 0.3) 100%);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            background-position: left center;
+            animation: highlightGlow 2.5s ease-in-out forwards;
+            animation-delay: 1.2s;
+            transform: rotate(-0.3deg);
+            z-index: -1;
+            border-radius: 3px;
+        }
+
+        @keyframes highlightDraw {
+            0% {
+                background-size: 0% 100%;
+            }
+            100% {
+                background-size: 100% 100%;
+            }
+        }
+
+        @keyframes highlightGlow {
+            0% {
+                background-size: 0% 100%;
+                opacity: 0;
+            }
+            100% {
+                background-size: 100% 100%;
+                opacity: 1;
+            }
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        
+        .hero-text strong {
+            font-weight: 700;
+        }
+        
+        /* Foto de Renzo en el header - posicionada desde abajo y a la derecha */
+        .renzo-photo {
+            height: 140%;
+            max-height: 900px;
+            width: auto;
+            min-width: 300px;
+            min-height: 400px;
+            object-fit: contain;
+            object-position: bottom right;
+            position: absolute;
+            bottom: -200px;
+            right: -80px;
+            z-index: 1;
+            transform: translateX(40px);
+        }
+        
+        /* Título del formulario */
+        .form-title {
+            text-align: left;
+            color: white;
+            margin: 30px 0 20px;
+            font-size: 1.3rem;
+        }
+        
+        /* Formulario en el header */
+        .header-form {
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 0;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 10;
+            max-width: 100%;
+            margin: 0 0 60px 0;
+            overflow: visible;
+            min-height: 350px;
+        }
+        
+        .header-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(255, 255, 255, 0.02) 50%, 
+                rgba(0, 0, 0, 0.1) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .header-form p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-group:has(.phone-input-container) {
+            z-index: 1000;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.9rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .form-group input:focus {
+            border-color: rgba(222, 172, 70, 0.8);
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px rgba(222, 172, 70, 0.2);
+        }
+
+        /* Estilos para el selector de país */
+        .phone-input-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .country-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0;
+            padding: 0 8px;
+            height: 44px;
+            cursor: pointer;
+            min-width: 80px;
+            flex-shrink: 0;
+            z-index: 1001;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .country-selector img {
+            width: 18px;
+            height: 13px;
+            margin-right: 5px;
+        }
+
+        .country-selector span {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            white-space: nowrap;
+        }
+
+        .country-selector::after {
+            content: "▼";
+            font-size: 0.5rem;
+            margin-left: 5px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .country-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            width: 280px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            z-index: 1002;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin-top: 2px;
+        }
+
+        /* Ensanchar dropdown en móvil */
+        @media (max-width: 768px) {
+            .country-dropdown {
+                width: 320px;
+                left: -20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .country-dropdown {
+                width: 300px;
+                left: -10px;
+            }
+        }
+
+        .country-dropdown.show {
+            display: block;
+        }
+
+        .country-option {
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #333;
+            white-space: nowrap;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .country-option:hover {
+            background-color: rgba(222, 172, 70, 0.2);
+        }
+
+        .country-option:last-child {
+            border-bottom: none;
+        }
+
+        .country-option img {
+            width: 18px;
+            height: 13px;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .country-option span {
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .phone-with-code {
+            position: relative;
+            flex: 1;
+        }
+
+        .phone-code {
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+            font-size: 0.85rem;
+            z-index: 2;
+        }
+
+        .phone-number-input {
+            padding-left: 40px !important;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        
+        /* Botón animado */
+        .pulse-button {
+            animation: pulse 2s infinite;
+            padding: 12px 25px;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(162, 31, 24, 0.7);
+            }
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 10px rgba(162, 31, 24, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(162, 31, 24, 0);
+            }
+        }
+        
+        /* Sección de contenido */
+        .content-section {
+            padding: 40px 0 20px;
+            position: relative;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            color: white;
+            z-index: 1;
+            margin-top: -40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--mostaza) 0%, #FFD700 100%);
+            margin: 12px auto 0;
+            box-shadow: 0 0 10px rgba(222, 172, 70, 0.5);
+        }
+        
+        /* Imágenes de las clases */
+        .classes-images {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
+            padding: 0 15px;
+            gap: 20px;
+        }
+        
+        .class-container {
+            flex: 1;
+            max-width: 31%;
+            min-width: 280px;
+            margin-bottom: 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .class-image {
+            border-radius: 0;
+            overflow: hidden;
+            background-color: transparent;
+            margin-bottom: 0;
+            position: relative;
+            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .class-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(222, 172, 70, 0.3) 0%, rgba(222, 172, 70, 0.1) 40%, transparent 70%);
+            z-index: -1;
+            border-radius: 0;
+        }
+        
+        .class-image img {
+            width: 100%;
+            height: auto;
+            min-height: 200px;
+            object-fit: contain;
+            display: block;
+            border-radius: 0;
+            box-shadow: 
+                0 10px 30px rgba(222, 172, 70, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(222, 172, 70, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .class-image:hover img {
+            transform: scale(1.02);
+            box-shadow: 
+                0 15px 40px rgba(222, 172, 70, 0.3),
+                0 8px 20px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(222, 172, 70, 0.2);
+        }
+        
+        .class-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: white;
+            font-size: 1.1rem;
+            margin-top: 25px;
+            margin-bottom: 0;
+            white-space: normal;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+        
+        /* Facilitador - NUEVO DISEÑO */
+        .facilitator-section {
+            background: #ffffff;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facilitator-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            pointer-events: none;
+        }
+        
+        .facilitator-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 550px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .facilitator-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .facilitator-image {
+            width: 550px;
+            height: auto;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .facilitator-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .facilitator-content {
+            text-align: left;
+            position: relative;
+        }
+        
+        .facilitator-content h3 {
+            color: var(--rojo-profundo);
+            font-size: 3rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facilitator-subtitle {
+            color: var(--mostaza);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-style: italic;
+            font-family: 'Libre Baskerville', serif;
+        }
+        
+        .facilitator-content p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #495057;
+            text-align: justify;
+        }
+        
+        .facilitator-content p:first-of-type {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--marron);
+        }
+        
+        .signature {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            margin-top: 25px;
+            font-size: 1.1rem;
+            color: var(--rojo-profundo);
+            font-weight: 600;
+        }
+        
+        /* CTA Final */
+        .final-cta {
+            background: linear-gradient(to right, var(--rojo-profundo), var(--marron));
+            color: white;
+            padding: 50px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: visible;
+            z-index: 1;
+        }
+        
+        .final-cta h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .final-cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            font-size: 0.95rem;
+        }
+
+        /* Formulario final específico */
+        .final-form {
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 0;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 10;
+            max-width: 500px;
+            margin: 15px auto 0;
+            overflow: visible;
+            min-height: 350px;
+        }
+
+        .final-form .phone-input-container {
+            z-index: 900;
+        }
+
+        .final-form .country-selector {
+            z-index: 901;
+        }
+
+        .final-form .country-dropdown {
+            z-index: 902;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #000000;
+            color: white;
+            padding: 25px 0 15px;
+            font-size: 0.75rem;
+            position: relative;
+            z-index: 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+            position: relative;
+        }
+        
+        .footer-logo {
+            flex: 1 1 180px;
+        }
+        
+        .footer-logo h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-logo p {
+            opacity: 0.8;
+            font-size: 0.75rem;
+            color: white;
+        }
+        
+        .footer-links {
+            flex: 1 1 130px;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 6px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.75rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--mostaza);
+            text-decoration: underline;
+        }
+        
+        .disclaimer {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: var(--mostaza);
+            text-align: justify;
+            opacity: 0.85;
+            line-height: 1.5;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-terminos {
+            width: 100vw;
+            max-width: 100%;
+            padding: 25px 30px;
+            box-sizing: border-box;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                min-height: 650px;
+            }
+            
+            .header-content {
+                order: 1;
+                text-align: center;
+                padding-bottom: 20px;
+            }
+            
+            .header-photo {
+                order: 2;
+                min-height: 250px;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: -30px;
+            }
+            
+            .renzo-photo {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                height: auto;
+                max-width: 100%;
+                max-height: 350px;
+                transform: none;
+                margin-bottom: -20px;
+            }
+            
+            .classes-images {
+                flex-wrap: wrap;
+            }
+            
+            .class-container {
+                flex: 1 1 100%;
+                max-width: 100%;
+                min-width: 280px;
+            }
+
+            .country-dropdown {
+                width: 100%;
+                left: 0;
+                right: 0;
+            }
+
+            .facilitator-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .facilitator-content {
+                text-align: center;
+                order: 2;
+            }
+
+            .facilitator-image-container {
+                order: 1;
+                margin-bottom: 20px;
+            }
+
+            .facilitator-image {
+                width: 420px;
+                height: auto;
+            }
+
+            .facilitator-content h3 {
+                font-size: 2.2rem;
+            }
+
+            .facilitator-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .facilitator-content p {
+                text-align: center;
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.6rem;
+                justify-content: center;
+            }
+            
+            .logo span {
+                font-size: 0.95rem;
+            }
+            
+            .logo img {
+                max-width: 300px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            
+            .final-cta h2 {
+                font-size: 1.5rem;
+            }
+            
+            .final-cta p {
+                font-size: 0.85rem;
+            }
+
+            .country-dropdown {
+                width: 100%;
+            }
+
+            .class-container {
+                flex: 1 1 100%;
+                max-width: 100%;
+                min-width: 280px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .class-image {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .class-image img {
+                height: auto;
+                object-fit: contain;
+            }
+            
+            .renzo-photo {
+                max-width: 450px;
+                max-height: 500px;
+                position: relative;
+                bottom: auto;
+                right: auto;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.4rem;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            
+            .highlight-marker {
+                white-space: nowrap;
+                display: inline-block;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+            }
+            
+            .classes-images {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .logo img {
+                max-width: 280px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .phone-input-container {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .country-selector {
+                width: auto;
+                margin-right: 8px;
+                margin-bottom: 0;
+            }
+
+            .phone-with-code {
+                flex: 1;
+            }
+            
+            .renzo-photo {
+                max-width: 400px;
+                max-height: 550px;
+                position: relative;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                height: auto;
+                margin: 0 auto -10px auto;
+                transform: none;
+                object-fit: contain;
+                width: auto;
+            }
+            
+            .header-photo {
+                min-height: 350px;
+                margin-bottom: -10px;
+                overflow: visible;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.2rem;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            
+            .highlight-marker {
+                font-size: 1.2rem;
+                white-space: nowrap;
+                display: inline-block;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+            
+            .form-title {
+                font-size: 1.1rem;
+            }
+            
+            .header-form {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .class-title {
+                font-size: 1rem;
+                white-space: normal;
+            }
+            
+            .facilitator-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .facilitator-image {
+                width: 300px;
+                height: auto;
+            }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1643628369684773');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.webp" alt="Logo Reconexión Sistémica">
+                </div>
+                
+                <div class="hero-text">
+                    <h1><span class="highlight-marker">Haz las paces con tu historia afectiva</span></h1>
+                    <p>incluso si sientes que tus <strong>heridas</strong> son muy <strong>profundas</strong>, con el poder del enfoque sistémico... en <strong>solo 3 días!</strong></p>
+                </div>
+                
+                <h3 class="form-title">✅ Paso #1 ¡Regístrate para asegurar tu espacio!</h3>
+                
+                <div class="header-form">
+                    <form id="registrationForm" action="https://hook.us2.make.com/b5hx2v78qw44qrnbnlq3qmtohdx2vdhj" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" name="name" required placeholder="Ej: María García">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">¿Cuál es tu correo?</label>
+                            <input type="email" id="email" name="email" required placeholder="Ej: ejemplo@correo.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="whatsapp">Tu número de WhatsApp</label>
+                            <div class="phone-input-container">
+                                <div class="country-selector" id="countrySelector">
+                                    <img src="https://flagcdn.com/w20/pe.png" alt="Perú" width="18" height="13">
+                                    <span>+51</span>
+                                    <div class="country-dropdown" id="countryDropdown">
+                                        <!-- Country options aquí -->
+                                    </div>
+                                </div>
+                                <div class="phone-with-code">
+                                    <span class="phone-code" id="phoneCode">+51</span>
+                                    <input type="tel" id="whatsapp" name="whatsapp" required placeholder="987654321" class="phone-number-input">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary pulse-button" style="width: 100%;">Quiero asistir al seminario</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="header-photo">
+                <img src="foto2.webp" alt="Renzo Alfaro Guillén" class="renzo-photo" width="400" height="600">
+            </div>
+        </div>
+    </header>
+    
+    <!-- Qué vas a aprender -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">¿Qué vas a aprender en este curso?</h2>
+            
+            <div class="classes-images">
+                <div class="class-container">
+                    <div class="class-image">
+                        <img src="c1.webp" alt="Clase 1 - El poder de las constelaciones familiares" width="400" height="300">
+                    </div>
+                    <div class="class-title">CLASE #1:<br>El poder de las constelaciones familiares.</div>
+                </div>
+                <div class="class-container">
+                    <div class="class-image">
+                        <img src="c2.webp" alt="Clase 2 - Lealtades invisibles - Ese dolor no es mío" width="400" height="300">
+                    </div>
+                    <div class="class-title">CLASE #2:<br>Lealtades invisibles. Ese dolor no es mío.</div>
+                </div>
+                <div class="class-container">
+                    <div class="class-image">
+                        <img src="c3.webp" alt="Clase 3 - Reconciliación entre hombres y mujeres" width="400" height="300">
+                    </div>
+                    <div class="class-title">CLASE #3:<br>Reconciliación entre hombres y mujeres.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Facilitador - NUEVO DISEÑO -->
+    <section class="facilitator-section">
+        <div class="container">
+            <div class="facilitator-container">
+                <div class="facilitator-image-container">
+                    <img src="renzo.webp" alt="Renzo Alfaro Guillén" class="facilitator-image" width="550" height="660">
+                </div>
+                
+                <div class="facilitator-content">
+                    <h3>Renzo Alfaro Guillén</h3>
+                    <div class="facilitator-subtitle">Referente en liderazgo sistémico y desarrollo humano con alma.</div>
+                    
+                    <p>Renzo Alfaro lidera el despertar de la conciencia en América Latina, habiendo impactado a más de 70.000 personas a través de viajes formativos que integran alma, cuerpo y propósito.</p>
+                    
+                    <p>Ha formado a más de 1.300 profesionales en metodologías que unen ontología, constelaciones familiares y organizacionales, pedagogía espiritual y liderazgo consciente - siempre con un enfoque en la práctica vivencial y la sanación de sistemas.</p>
+                    
+                    <p>Reconocido por su presencia integral y escucha sensible, ha facilitado procesos transformadores en más de 10 países, incluyendo Brasil, Perú, Colombia, México, Argentina y España, además de trabajar como consultor sistémico para empresas líderes.</p>
+                    
+                    <p class="signature">Renzo Alfaro Guillén</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Final con formulario -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>¿Listo para transformar tu historia afectiva?</h2>
+            <p>Únete a este seminario gratuito de 3 días y comienza tu camino de reconciliación emocional con el poder del enfoque sistémico.</p>
+            
+            <!-- Formulario duplicado en CTA -->
+            <h3 class="form-title" style="text-align: center;">✅ ¡Reserva tu lugar ahora!</h3>
+            <div class="final-form">
+                <p style="color: rgba(255, 255, 255, 0.9); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);">Después de registrarte te llevaré a hablarme en WhatsApp.</p>
+                
+                <form id="registrationForm2" action="https://hook.us2.make.com/b5hx2v78qw44qrnbnlq3qmtohdx2vdhj" method="POST">
+                    <div class="form-group">
+                        <label for="name2">Nombre completo</label>
+                        <input type="text" id="name2" name="name" required placeholder="Ej: María García">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email2">¿Cuál es tu correo?</label>
+                        <input type="email" id="email2" name="email" required placeholder="Ej: ejemplo@correo.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsapp2">Tu número de WhatsApp</label>
+                        <div class="phone-input-container">
+                            <div class="country-selector" id="countrySelector2">
+                                <img src="https://flagcdn.com/w20/pe.png" alt="Perú" width="18" height="13">
+                                <span>+51</span>
+                                <div class="country-dropdown" id="countryDropdown2">
+                                    <!-- Country options aquí -->
+                                </div>
+                            </div>
+                            <div class="phone-with-code">
+                                <span class="phone-code" id="phoneCode2">+51</span>
+                                <input type="tel" id="whatsapp2" name="whatsapp" required placeholder="987654321" class="phone-number-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary pulse-button" style="width: 100%;">Quiero asistir al seminario</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>RECONEXIÓN SISTÉMICA</h3>
+                    <p>Inmersión de 3 días para reconciliación emocional</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="https://unoinstitutoholistico.com/politicas-de-privacidad/">Políticas de privacidad</a></li>
+                        <li><a href="https://unoinstitutoholistico.com/politicas-de-privacidad/">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-terminos">
+                <p>Este sitio no forma parte ni está respaldado por Facebook™️. Facebook™️ es una marca comercial de Facebook™️, Inc.</p>
+                <p>Los testimonios o resultados mencionados corresponden a procesos personales reales, pero no garantizan que tú necesariamente obtendrás los mismos resultados. Cada proceso de transformación emocional es único y depende de múltiples factores, como tu historia, disposición, compromiso y contexto.</p>
+                <p>Este evento gratuito no es una terapia individual ni reemplaza el acompañamiento terapéutico profesional. Es un proceso formativo basado en enfoque sistémico y constelaciones familiares, creado para ayudarte a reconciliar tu historia afectiva y transformar tu manera de relacionarte.</p>
+                <p>Durante este evento de 3 clases en directo, compartiré un camino práctico y profundo para comenzar tu proceso de reconciliación emocional. Al finalizar, ofreceré una opción de acceso a un programa completo para quienes deseen profundizar y transformar de forma más integrada sus vínculos. Esta oferta es completamente opcional.</p>
+                <p>Puedes participar en el evento gratuito, aprender e implementar los contenidos por tu cuenta, sin compromiso alguno. Gracias por tu interés y por estar abierto/a a este viaje de transformación.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Preload de imágenes críticas para evitar layout shifts
+    function preloadCriticalImages() {
+        const criticalImages = ['logo.webp', 'foto2.webp', 'fondo.webp', 'c1.webp', 'c2.webp', 'c3.webp', 'renzo.webp'];
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
+
+    // Ejecutar preload inmediatamente
+    preloadCriticalImages();
+
+    // Configuración de países para el selector
+    const countries = [
+        { code: 'pe', name: 'Perú', dial: '+51', flag: 'https://flagcdn.com/w20/pe.png' },
+        { code: 'ar', name: 'Argentina', dial: '+54', flag: 'https://flagcdn.com/w20/ar.png' },
+        { code: 'co', name: 'Colombia', dial: '+57', flag: 'https://flagcdn.com/w20/co.png' },
+        { code: 'mx', name: 'México', dial: '+52', flag: 'https://flagcdn.com/w20/mx.png' },
+        { code: 'cl', name: 'Chile', dial: '+56', flag: 'https://flagcdn.com/w20/cl.png' },
+        { code: 'ec', name: 'Ecuador', dial: '+593', flag: 'https://flagcdn.com/w20/ec.png' },
+        { code: 'bo', name: 'Bolivia', dial: '+591', flag: 'https://flagcdn.com/w20/bo.png' },
+        { code: 'uy', name: 'Uruguay', dial: '+598', flag: 'https://flagcdn.com/w20/uy.png' },
+        { code: 'py', name: 'Paraguay', dial: '+595', flag: 'https://flagcdn.com/w20/py.png' },
+        { code: 've', name: 'Venezuela', dial: '+58', flag: 'https://flagcdn.com/w20/ve.png' },
+        { code: 'es', name: 'España', dial: '+34', flag: 'https://flagcdn.com/w20/es.png' },
+        { code: 'us', name: 'Estados Unidos', dial: '+1', flag: 'https://flagcdn.com/w20/us.png' }
+    ];
+
+    function setupCountrySelector(selectorId, dropdownId, phoneCodeId) {
+        const selector = document.getElementById(selectorId);
+        const dropdown = document.getElementById(dropdownId);
+        const phoneCode = document.getElementById(phoneCodeId);
+
+        dropdown.innerHTML = countries.map(country => `
+            <div class="country-option" data-code="${country.code}" data-dial="${country.dial}">
+                <img src="${country.flag}" alt="${country.name}" width="18" height="13">
+                <span>${country.name} ${country.dial}</span>
+            </div>
+        `).join('');
+
+        selector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+            document.querySelectorAll('.country-dropdown').forEach(d => {
+                if (d !== dropdown) d.classList.remove('show');
+            });
+        });
+
+        dropdown.addEventListener('click', (e) => {
+            const option = e.target.closest('.country-option');
+            if (option) {
+                const dial = option.dataset.dial;
+                const code = option.dataset.code;
+                const country = countries.find(c => c.code === code);
+
+                selector.querySelector('img').src = country.flag;
+                selector.querySelector('span').textContent = dial;
+                phoneCode.textContent = dial;
+                dropdown.classList.remove('show');
+            }
+        });
+
+        document.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+        });
+    }
+
+    function enviarFormularioConMake(formId, phoneCodeId, inputName) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = form.querySelector("input[name='name']").value;
+            const email = form.querySelector("input[name='email']").value;
+            const phoneCode = document.getElementById(phoneCodeId).textContent;
+            const phoneNumber = form.querySelector("input[name='whatsapp']").value;
+            const whatsapp = phoneCode + phoneNumber;
+
+            // Tracking de Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Reconexión Sistémica Registration',
+                    value: 0,
+                    currency: 'USD'
+                });
+            }
+
+            const data = {
+                name: name,
+                email: email,
+                whatsapp: whatsapp
+            };
+
+            fetch("https://hook.us2.make.com/b5hx2v78qw44qrnbnlq3qmtohdx2vdhj", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(() => {
+                window.location.href = `gracias.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&whatsapp=${encodeURIComponent(whatsapp)}`;
+            });
+        });
+    }
+
+    // Ejecutar setup después de que DOM y recursos estén listos
+    document.addEventListener("DOMContentLoaded", function () {
+        // Esperar a que las fuentes estén cargadas antes de setup
+        if (document.fonts) {
+            document.fonts.ready.then(function () {
+                setupCountrySelector('countrySelector', 'countryDropdown', 'phoneCode');
+                setupCountrySelector('countrySelector2', 'countryDropdown2', 'phoneCode2');
+            });
+        } else {
+            // Fallback para navegadores sin soporte para document.fonts
+            setTimeout(function() {
+                setupCountrySelector('countrySelector', 'countryDropdown', 'phoneCode');
+                setupCountrySelector('countrySelector2', 'countryDropdown2', 'phoneCode2');
+            }, 100);
+        }
+
+        enviarFormularioConMake("registrationForm", "phoneCode", "whatsapp");
+        enviarFormularioConMake("registrationForm2", "phoneCode2", "whatsapp");
+    });
+    </script>
+
+</body>
+</html>
