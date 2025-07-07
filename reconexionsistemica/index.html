@@ -14,11 +14,7 @@
     <!-- Preload de recursos críticos -->
     <link rel="preload" href="logo.webp" as="image">
     <link rel="preload" href="foto2.webp" as="image">
-    <link rel="preload" href="fondo.webp" as="image" fetchpriority="high">
-    
-    <!-- Preload de fuentes críticas con high priority -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&display=swap" as="style" fetchpriority="high">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" fetchpriority="high">
+    <link rel="preload" href="fondo.webp" as="image">
     
     <!-- Preload de fuentes críticas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,9 +127,6 @@
             overflow: visible;
             min-height: 600px;
             z-index: 1;
-            /* AÑADIR: Evitar layout shifts */
-            contain: layout style paint;
-            will-change: auto;
         }
         
         .header-container {
@@ -145,9 +138,6 @@
             min-height: 600px;
             align-items: start;
             overflow: visible;
-            contain: layout style;
-            /* AÑADIR: Estabilizar el grid */
-            grid-template-rows: minmax(600px, auto);
         }
         
         .header-content {
@@ -1381,28 +1371,12 @@
     </footer>
 
     <script>
-    // SOLUCIÓN: Preload inmediato y estabilización del layout
-    (function() {
-        // Preload crítico de imágenes antes de que el DOM esté listo
-        const criticalImages = ['logo.webp', 'foto2.webp', 'fondo.webp'];
-        criticalImages.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-        
-        // Estabilizar el layout inmediatamente
-        document.documentElement.style.setProperty('--initial-load', 'true');
-    })();
-
     // Preload de imágenes críticas para evitar layout shifts
     function preloadCriticalImages() {
         const criticalImages = ['logo.webp', 'foto2.webp', 'fondo.webp', 'c1.webp', 'c2.webp', 'c3.webp', 'renzo.webp'];
         criticalImages.forEach(src => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'image';
-            link.href = src;
-            document.head.appendChild(link);
+            const img = new Image();
+            img.src = src;
         });
     }
 
@@ -1506,21 +1480,11 @@
 
     // Ejecutar setup después de que DOM y recursos estén listos
     document.addEventListener("DOMContentLoaded", function () {
-        // SOLUCIÓN: Forzar repaint para evitar desfases
-        document.body.style.display = 'none';
-        document.body.offsetHeight; // Trigger reflow
-        document.body.style.display = '';
-        
         // Esperar a que las fuentes estén cargadas antes de setup
         if (document.fonts) {
             document.fonts.ready.then(function () {
                 setupCountrySelector('countrySelector', 'countryDropdown', 'phoneCode');
                 setupCountrySelector('countrySelector2', 'countryDropdown2', 'phoneCode2');
-                
-                // Forzar repaint final
-                requestAnimationFrame(() => {
-                    document.documentElement.style.setProperty('--initial-load', 'false');
-                });
             });
         } else {
             // Fallback para navegadores sin soporte para document.fonts
