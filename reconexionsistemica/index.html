@@ -153,7 +153,7 @@
             overflow: hidden;
             display: flex;
             align-items: flex-end;
-            justify-content: center;
+            justify-content: flex-end;
         }
         
         .logo {
@@ -285,15 +285,15 @@
             font-weight: 700;
         }
         
-        /* Foto de Renzo en el header - grande, desde la base, sin efectos */
+        /* Foto de Renzo en el header - grande, desde la base, alineada a la derecha */
         .renzo-photo {
             height: 100%;
             max-height: 100%;
             width: auto;
-            min-width: 400px;
+            min-width: 450px;
             min-height: 600px;
             object-fit: cover;
-            object-position: bottom center;
+            object-position: bottom right;
             position: relative;
             bottom: 0;
             right: 0;
@@ -922,8 +922,8 @@
             .header-photo {
                 order: 2;
                 min-height: 250px;
-                justify-content: center;
-                align-items: center;
+                justify-content: flex-end;
+                align-items: flex-end;
                 margin-bottom: -30px;
             }
             
@@ -938,7 +938,7 @@
                 transform: none;
                 margin-bottom: 0;
                 object-fit: cover;
-                object-position: bottom center;
+                object-position: bottom right;
                 transition: none;
             }
             
@@ -1047,11 +1047,19 @@
             }
             
             .renzo-photo {
-                max-width: 450px;
-                max-height: 500px;
+                max-width: 100%;
+                max-height: 100%;
+                min-height: 450px;
                 position: relative;
-                bottom: auto;
-                right: auto;
+                bottom: 0;
+                right: 0;
+                height: 100%;
+                margin: 0 auto;
+                transform: none;
+                object-fit: cover;
+                object-position: bottom center;
+                width: auto;
+                transition: none;
             }
             
             .hero-text h1 {
@@ -1107,16 +1115,20 @@
             }
             
             .renzo-photo {
-                max-width: 400px;
-                max-height: 450px;
+                max-width: 100%;
+                max-height: 100%;
+                min-height: 400px;
                 position: relative;
                 bottom: 0;
                 right: 0;
-                height: auto;
-                margin: 0 auto;
+                height: 100%;
+                margin: 0;
+                margin-left: auto;
                 transform: none;
-                object-fit: contain;
+                object-fit: cover;
+                object-position: bottom right;
                 width: auto;
+                transition: none;
             }
             
             .header-photo {
@@ -1124,7 +1136,7 @@
                 margin-bottom: 0;
                 overflow: hidden;
                 display: flex;
-                justify-content: center;
+                justify-content: flex-end;
                 align-items: flex-end;
             }
             
