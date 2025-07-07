@@ -907,123 +907,53 @@
             text-align: center;
         }
         
-        /* Responsive */
+        /* Responsive - SOLO PARA MÓVIL (no afecta a PC) */
         @media (max-width: 768px) {
             .header-container {
-                grid-template-columns: 1fr;
-                gap: 10px;
-                min-height: 650px;
+                display: flex;
+                flex-direction: column;
+                min-height: auto;
+                gap: 0;
             }
             
             .header-content {
                 order: 1;
-                text-align: center;
                 padding-bottom: 20px;
+                text-align: center;
             }
             
             .header-photo {
                 order: 2;
-                min-height: 250px;
-                justify-content: flex-end;
-                align-items: flex-end;
-                margin-bottom: -30px;
+                min-height: auto;
+                height: auto;
+                overflow: hidden;
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             
             .renzo-photo {
                 position: relative;
-                bottom: 0;
-                right: 0;
-                height: auto;
+                bottom: auto;
+                right: auto;
                 max-width: 100%;
-                max-height: 350px;
+                height: auto;
+                min-height: auto;
                 transform: none;
-                margin-bottom: -20px;
+                margin: 0;
             }
             
-            .classes-images {
-                flex-wrap: wrap;
-            }
-            
-            .class-container {
-                flex: 1 1 100%;
-                max-width: 100%;
-                min-width: 280px;
-            }
-
-            .country-dropdown {
-                width: 100%;
-                left: 0;
-                right: 0;
-            }
-
-            .facilitator-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
-            .facilitator-content {
-                text-align: center;
-                order: 2;
-            }
-
-            .facilitator-image-container {
-                order: 1;
-                margin-bottom: 20px;
-            }
-
-            .facilitator-image {
-                width: 420px;
-                height: auto;
-            }
-
-            .facilitator-content h3 {
-                font-size: 2.2rem;
-            }
-
-            .facilitator-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .facilitator-content p {
-                text-align: center;
-                font-size: 0.95rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
             .logo {
-                font-size: 1.6rem;
                 justify-content: center;
             }
             
-            .logo span {
-                font-size: 0.95rem;
-            }
-            
-            .logo img {
-                max-width: 300px;
-            }
-            
-            .form-container {
-                padding: 20px;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-                margin-bottom: 30px;
-            }
-            
-            .final-cta h2 {
-                font-size: 1.5rem;
-            }
-            
-            .final-cta p {
-                font-size: 0.85rem;
+            .hero-text {
+                text-align: center;
             }
 
-            .country-dropdown {
-                width: 100%;
+            .classes-images {
+                flex-wrap: wrap;
             }
 
             .class-container {
@@ -1044,100 +974,19 @@
                 height: auto;
                 object-fit: contain;
             }
-            
-            .renzo-photo {
-                max-width: 100%;
-                max-height: 100%;
-                min-height: 450px;
-                position: relative;
-                bottom: 0;
-                right: 0;
-                height: 100%;
-                margin: 0 auto;
-                transform: none;
-                object-fit: cover;
-                object-position: bottom center;
-                width: auto;
-                transition: none;
-            }
-            
-            .hero-text h1 {
-                font-size: 1.4rem;
-                white-space: nowrap;
-                overflow: hidden;
-            }
-            
-            .highlight-marker {
-                white-space: nowrap;
-                display: inline-block;
-                max-width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            
-            .hero-text p {
-                font-size: 1rem;
-            }
-            
-            .classes-images {
-                flex-wrap: wrap;
-            }
         }
         
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.4rem;
-            }
-            
-            .logo img {
-                max-width: 280px;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.85rem;
-            }
-
-            .phone-input-container {
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .country-selector {
-                width: auto;
-                margin-right: 8px;
-                margin-bottom: 0;
-            }
-
-            .phone-with-code {
-                flex: 1;
+            .header-photo {
+                margin-top: 15px;
             }
             
             .renzo-photo {
-                max-width: 400px;
-                max-height: 550px;
-                position: relative;
-                top: auto;
-                right: auto;
-                bottom: auto;
-                height: auto;
-                margin: 0 auto -10px auto;
-                transform: none;
-                object-fit: contain;
-                width: auto;
+                max-height: 400px;
             }
-            
-            .header-photo {
-                min-height: 350px;
-                margin-bottom: -10px;
-                overflow: visible;
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
-            }
-            
+
             .hero-text h1 {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
                 white-space: nowrap;
                 overflow: hidden;
             }
