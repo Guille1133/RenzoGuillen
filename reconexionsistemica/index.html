@@ -907,8 +907,9 @@
             text-align: center;
         }
         
-        /* Responsive - SOLO PARA MÓVIL (no afecta a PC) */
+        /* Responsive - SOLO PARA MÓVIL */
         @media (max-width: 768px) {
+            /* Header */
             .header-container {
                 display: flex;
                 flex-direction: column;
@@ -918,7 +919,7 @@
             
             .header-content {
                 order: 1;
-                padding-bottom: 20px;
+                padding-bottom: 10px;
                 text-align: center;
             }
             
@@ -927,7 +928,8 @@
                 min-height: auto;
                 height: auto;
                 overflow: hidden;
-                margin-top: 20px;
+                margin-top: 10px;
+                margin-bottom: -30px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -942,6 +944,7 @@
                 min-height: auto;
                 transform: none;
                 margin: 0;
+                max-height: 350px;
             }
             
             .logo {
@@ -951,7 +954,13 @@
             .hero-text {
                 text-align: center;
             }
+            
+            .header-form {
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
 
+            /* Clases */
             .classes-images {
                 flex-wrap: wrap;
             }
@@ -974,15 +983,68 @@
                 height: auto;
                 object-fit: contain;
             }
+            
+            /* Facilitador */
+            .facilitator-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .facilitator-image-container {
+                order: 1;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .facilitator-content {
+                order: 2;
+                text-align: center;
+                padding: 0 15px;
+            }
+            
+            .facilitator-image {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+            
+            .facilitator-content h3 {
+                font-size: 2.2rem;
+                margin-top: 10px;
+            }
+            
+            .facilitator-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+            
+            .facilitator-content p {
+                text-align: center;
+                font-size: 0.95rem;
+                margin-bottom: 15px;
+            }
+            
+            .signature {
+                margin-top: 15px;
+            }
         }
         
         @media (max-width: 480px) {
+            /* Ajustes adicionales para móviles pequeños */
             .header-photo {
+                margin-top: 5px;
+                margin-bottom: -20px;
+            }
+            
+            .header-form {
                 margin-top: 15px;
+                margin-bottom: 20px;
             }
             
             .renzo-photo {
-                max-height: 400px;
+                max-height: 280px;
             }
 
             .hero-text h1 {
@@ -1010,7 +1072,6 @@
             
             .header-form {
                 padding: 15px;
-                margin-bottom: 20px;
             }
             
             .class-title {
@@ -1018,13 +1079,17 @@
                 white-space: normal;
             }
             
+            /* Facilitador en móviles pequeños */
             .facilitator-content h3 {
                 font-size: 1.8rem;
             }
-
+            
             .facilitator-image {
-                width: 300px;
-                height: auto;
+                max-width: 300px;
+            }
+            
+            .facilitator-content p {
+                font-size: 0.9rem;
             }
         }
     </style>
