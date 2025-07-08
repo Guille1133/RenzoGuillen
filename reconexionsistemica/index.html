@@ -1313,6 +1313,7 @@
 
     // Configuración de países para el selector
     const countries = [
+        // Países de América Latina (mantener al inicio por relevancia)
         { code: 'pe', name: 'Perú', dial: '+51', flag: 'https://flagcdn.com/w20/pe.png' },
         { code: 'ar', name: 'Argentina', dial: '+54', flag: 'https://flagcdn.com/w20/ar.png' },
         { code: 'co', name: 'Colombia', dial: '+57', flag: 'https://flagcdn.com/w20/co.png' },
@@ -1323,8 +1324,38 @@
         { code: 'uy', name: 'Uruguay', dial: '+598', flag: 'https://flagcdn.com/w20/uy.png' },
         { code: 'py', name: 'Paraguay', dial: '+595', flag: 'https://flagcdn.com/w20/py.png' },
         { code: 've', name: 'Venezuela', dial: '+58', flag: 'https://flagcdn.com/w20/ve.png' },
+        { code: 'br', name: 'Brasil', dial: '+55', flag: 'https://flagcdn.com/w20/br.png' },
+        { code: 'pa', name: 'Panamá', dial: '+507', flag: 'https://flagcdn.com/w20/pa.png' },
+        { code: 'cr', name: 'Costa Rica', dial: '+506', flag: 'https://flagcdn.com/w20/cr.png' },
+        { code: 'gt', name: 'Guatemala', dial: '+502', flag: 'https://flagcdn.com/w20/gt.png' },
+        { code: 'ni', name: 'Nicaragua', dial: '+505', flag: 'https://flagcdn.com/w20/ni.png' },
+        { code: 'hn', name: 'Honduras', dial: '+504', flag: 'https://flagcdn.com/w20/hn.png' },
+        { code: 'sv', name: 'El Salvador', dial: '+503', flag: 'https://flagcdn.com/w20/sv.png' },
+        { code: 'do', name: 'República Dominicana', dial: '+1', flag: 'https://flagcdn.com/w20/do.png' },
+        { code: 'cu', name: 'Cuba', dial: '+53', flag: 'https://flagcdn.com/w20/cu.png' },
+        
+        // Europa (incluyendo Portugal)
         { code: 'es', name: 'España', dial: '+34', flag: 'https://flagcdn.com/w20/es.png' },
-        { code: 'us', name: 'Estados Unidos', dial: '+1', flag: 'https://flagcdn.com/w20/us.png' }
+        { code: 'pt', name: 'Portugal', dial: '+351', flag: 'https://flagcdn.com/w20/pt.png' },
+        { code: 'it', name: 'Italia', dial: '+39', flag: 'https://flagcdn.com/w20/it.png' },
+        { code: 'fr', name: 'Francia', dial: '+33', flag: 'https://flagcdn.com/w20/fr.png' },
+        { code: 'de', name: 'Alemania', dial: '+49', flag: 'https://flagcdn.com/w20/de.png' },
+        { code: 'ch', name: 'Suiza', dial: '+41', flag: 'https://flagcdn.com/w20/ch.png' },
+        { code: 'nl', name: 'Países Bajos', dial: '+31', flag: 'https://flagcdn.com/w20/nl.png' },
+        { code: 'be', name: 'Bélgica', dial: '+32', flag: 'https://flagcdn.com/w20/be.png' },
+        { code: 'at', name: 'Austria', dial: '+43', flag: 'https://flagcdn.com/w20/at.png' },
+        { code: 'gb', name: 'Reino Unido', dial: '+44', flag: 'https://flagcdn.com/w20/gb.png' },
+        { code: 'ie', name: 'Irlanda', dial: '+353', flag: 'https://flagcdn.com/w20/ie.png' },
+        
+        // América del Norte
+        { code: 'us', name: 'Estados Unidos', dial: '+1', flag: 'https://flagcdn.com/w20/us.png' },
+        { code: 'ca', name: 'Canadá', dial: '+1', flag: 'https://flagcdn.com/w20/ca.png' },
+        
+        // Otros países relevantes
+        { code: 'au', name: 'Australia', dial: '+61', flag: 'https://flagcdn.com/w20/au.png' },
+        { code: 'nz', name: 'Nueva Zelanda', dial: '+64', flag: 'https://flagcdn.com/w20/nz.png' },
+        { code: 'jp', name: 'Japón', dial: '+81', flag: 'https://flagcdn.com/w20/jp.png' },
+        { code: 'il', name: 'Israel', dial: '+972', flag: 'https://flagcdn.com/w20/il.png' }
     ];
 
     function setupCountrySelector(selectorId, dropdownId, phoneCodeId) {
