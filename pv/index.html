@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconciliación entre Hombres y Mujeres - Programa Transformador</title>
+    
+    <!-- DNS Prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//flagcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="logo.webp" as="image">
+    <link rel="preload" href="foto2.webp" as="image">
+    <link rel="preload" href="fondo.webp" as="image">
+    
+    <!-- Preload de fuentes críticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            --rojo-profundo: #A21F18;
+            --rojo-claro: #C7241B;
+            --mostaza: #DEAC46;
+            --crema: #F9F5F2;
+            --marron: #3C1F0F;
+            --negro: #000000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--marron);
+            background-color: var(--crema);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="30" r="0.8" fill="white" opacity="0.8"/><circle cx="50" cy="15" r="0.5" fill="white" opacity="0.6"/><circle cx="80" cy="40" r="0.7" fill="white" opacity="0.7"/><circle cx="10" cy="70" r="0.6" fill="white" opacity="0.5"/><circle cx="40" cy="85" r="0.9" fill="white" opacity="0.9"/><circle cx="70" cy="60" r="0.4" fill="white" opacity="0.4"/><circle cx="90" cy="90" r="0.5" fill="white" opacity="0.6"/></svg>');
+            background-size: 200px;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Anton', sans-serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        .highlight-text {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--rojo-profundo);
+            color: white;
+            border: 2px solid var(--rojo-profundo);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--rojo-claro);
+            border-color: var(--rojo-claro);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--mostaza);
+            color: var(--marron);
+            border: 2px solid var(--mostaza);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #E8BA5A;
+            border-color: #E8BA5A;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        header {
+            background: url('fondo.webp') no-repeat center center / cover;
+            color: white;
+            padding: 20px 0 0 0;
+            position: relative;
+            overflow: visible;
+            min-height: 600px;
+            z-index: 1;
+        }
+        
+        .header-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            position: relative;
+            height: 100%;
+            min-height: 600px;
+            align-items: start;
+            overflow: visible;
+            contain: layout style;
+        }
+        
+        .header-content {
+            text-align: left;
+            padding-bottom: 60px;
+            position: relative;
+            z-index: 2;
+            overflow: visible;
+        }
+        
+        .header-photo {
+            position: relative;
+            min-height: 600px;
+            overflow: visible;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+        
+        .logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .logo span {
+            display: block;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        .logo img {
+            max-width: 350px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            text-align: left;
+            margin: 15px 0 30px;
+            color: white;
+        }
+        
+        .hero-text h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Efecto de subrayado tipo marcador resaltador natural */
+        .highlight-marker {
+            position: relative;
+            display: inline-block;
+            color: white;
+            padding: 0 4px;
+        }
+
+        .highlight-marker::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(110deg, 
+                rgba(255, 215, 0, 0.8) 0%, 
+                rgba(255, 215, 0, 0.9) 15%, 
+                rgba(255, 215, 0, 0.7) 30%, 
+                rgba(255, 215, 0, 0.9) 45%, 
+                rgba(255, 215, 0, 0.8) 60%, 
+                rgba(255, 215, 0, 0.9) 75%, 
+                rgba(255, 215, 0, 0.8) 100%);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            background-position: left center;
+            animation: highlightDraw 2.5s ease-in-out forwards;
+            animation-delay: 0.8s;
+            transform: rotate(-0.5deg);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .highlight-marker::before {
+            content: '';
+            position: absolute;
+            left: 1px;
+            right: 1px;
+            top: 1px;
+            bottom: 1px;
+            background: linear-gradient(108deg, 
+                rgba(255, 215, 0, 0.3) 0%, 
+                rgba(255, 215, 0, 0.5) 20%, 
+                rgba(255, 215, 0, 0.4) 40%, 
+                rgba(255, 215, 0, 0.6) 60%, 
+                rgba(255, 215, 0, 0.4) 80%, 
+                rgba(255, 215, 0, 0.3) 100%);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            background-position: left center;
+            animation: highlightGlow 2.5s ease-in-out forwards;
+            animation-delay: 1.2s;
+            transform: rotate(-0.3deg);
+            z-index: -1;
+            border-radius: 3px;
+        }
+
+        @keyframes highlightDraw {
+            0% {
+                background-size: 0% 100%;
+            }
+            100% {
+                background-size: 100% 100%;
+            }
+        }
+
+        @keyframes highlightGlow {
+            0% {
+                background-size: 0% 100%;
+                opacity: 0;
+            }
+            100% {
+                background-size: 100% 100%;
+                opacity: 1;
+            }
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        
+        .hero-text strong {
+            font-weight: 700;
+        }
+        
+        /* Foto de Renzo en el header - posicionada desde abajo y a la derecha */
+        .renzo-photo {
+            height: 140%;
+            max-height: 900px;
+            width: auto;
+            min-width: 300px;
+            min-height: 400px;
+            object-fit: contain;
+            object-position: bottom right;
+            position: absolute;
+            bottom: -200px;
+            right: -80px;
+            z-index: 1;
+            transform: translateX(40px);
+        }
+        
+        /* Contador de cierre */
+        .countdown-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--mostaza);
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Anton', sans-serif;
+        }
+        
+        .countdown-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Secciones de contenido */
+        .content-section {
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .dark-section {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            color: white;
+        }
+        
+        .light-section {
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .dark-section .section-title {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .light-section .section-title {
+            color: var(--rojo-profundo);
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--mostaza) 0%, #FFD700 100%);
+            margin: 12px auto 0;
+            box-shadow: 0 0 10px rgba(222, 172, 70, 0.5);
+        }
+        
+        /* Beneficios */
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--mostaza);
+            margin-bottom: 15px;
+        }
+        
+        .benefit-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .benefit-description {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+        
+        /* Programa */
+        .program-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .program-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-item:last-child {
+            border-bottom: none;
+        }
+        
+        .program-title {
+            font-size: 1.3rem;
+            color: var(--rojo-profundo);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .program-title .icon {
+            margin-right: 10px;
+            color: var(--mostaza);
+        }
+        
+        .program-description {
+            color: var(--marron);
+            line-height: 1.6;
+        }
+        
+        /* Calendario */
+        .calendar-container {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 5px;
+            margin-top: 40px;
+        }
+        
+        .calendar-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .calendar-date {
+            font-weight: 700;
+            color: var(--mostaza);
+            min-width: 120px;
+        }
+        
+        .calendar-event {
+            color: white;
+        }
+        
+        /* Inversión */
+        .investment-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-family: 'Anton', sans-serif;
+            color: var(--mostaza);
+            margin: 20px 0;
+        }
+        
+        .payment-methods {
+            margin: 20px 0;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .guarantee {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border: 1px dashed var(--mostaza);
+        }
+        
+        /* Bono */
+        .bonus-container {
+            background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
+            padding: 30px;
+            border-radius: 5px;
+            margin-top: 40px;
+            color: white;
+        }
+        
+        .bonus-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--mostaza);
+        }
+        
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background-color: var(--rojo-profundo);
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .faq-answer {
+            padding: 15px;
+            background-color: white;
+            color: var(--marron);
+            display: none;
+        }
+        
+        .faq-answer.show {
+            display: block;
+        }
+        
+        /* Testimonio */
+        .testimonial-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 5px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-container::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(222, 172, 70, 0.2);
+            font-family: 'Libre Baskerville', serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--rojo-profundo);
+        }
+        
+        /* CTA Final */
+        .final-cta {
+            background: linear-gradient(to right, var(--rojo-profundo), var(--marron));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: visible;
+            z-index: 1;
+        }
+        
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .final-cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            color: white;
+            padding: 25px 0 15px;
+            font-size: 0.75rem;
+            position: relative;
+            z-index: 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+            position: relative;
+        }
+        
+        .footer-logo {
+            flex: 1 1 180px;
+        }
+        
+        .footer-logo h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-logo p {
+            opacity: 0.8;
+            font-size: 0.75rem;
+            color: white;
+        }
+        
+        .footer-links {
+            flex: 1 1 130px;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 6px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.75rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--mostaza);
+            text-decoration: underline;
+        }
+        
+        .disclaimer {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: var(--mostaza);
+            text-align: justify;
+            opacity: 0.85;
+            line-height: 1.5;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-terminos {
+            width: 100vw;
+            max-width: 100%;
+            padding: 25px 30px;
+            box-sizing: border-box;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        /* Responsive - SOLO PARA MÓVIL */
+        @media (max-width: 768px) {
+            /* Header */
+            .header-container {
+                display: flex;
+                flex-direction: column;
+                min-height: auto;
+                gap: 0;
+            }
+            
+            .header-content {
+                order: 1;
+                padding-bottom: 10px;
+                text-align: center;
+            }
+            
+            .header-photo {
+                order: 2;
+                min-height: auto;
+                height: auto;
+                overflow: hidden;
+                margin-top: 10px;
+                margin-bottom: -30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+            
+            .renzo-photo {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                max-width: 90%;
+                width: 90%;
+                height: auto;
+                min-height: auto;
+                transform: none;
+                margin: 0 auto;
+                max-height: 450px;
+                display: block;
+            }
+            
+            .logo {
+                justify-content: center;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            /* Contador */
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-value {
+                font-size: 1.5rem;
+            }
+            
+            /* Beneficios */
+            .benefits-container {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Secciones */
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            /* Programa */
+            .program-item {
+                padding-bottom: 15px;
+                margin-bottom: 20px;
+            }
+            
+            /* Calendario */
+            .calendar-item {
+                flex-direction: column;
+            }
+            
+            .calendar-date {
+                margin-bottom: 5px;
+            }
+            
+            /* Precio */
+            .price {
+                font-size: 2.5rem;
+            }
+            
+            /* CTA Final */
+            .final-cta {
+                padding: 50px 0;
+            }
+            
+            .final-cta h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Ajustes adicionales para móviles pequeños */
+            .header-photo {
+                margin-top: 5px;
+                margin-bottom: -20px;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.4rem;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            
+            .highlight-marker {
+                font-size: 1.2rem;
+                white-space: nowrap;
+                display: inline-block;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+            
+            /* Contador */
+            .countdown {
+                gap: 5px;
+            }
+            
+            .countdown-value {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.6rem;
+            }
+            
+            /* Secciones */
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            /* Precio */
+            .price {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1643628369684773');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1643628369684773&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.webp" alt="Logo Reconexión Sistémica">
+                </div>
+                
+                <!-- Contador de cierre -->
+                <div class="countdown-container">
+                    <div class="countdown-title">Las puertas a Reconciliación entre Hombres y Mujeres se cierran en:</div>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="days">00</div>
+                            <div class="countdown-label">Días</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="hours">00</div>
+                            <div class="countdown-label">Horas</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="minutes">00</div>
+                            <div class="countdown-label">Minutos</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="seconds">00</div>
+                            <div class="countdown-label">Segundos</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-text">
+                    <h1><span class="highlight-marker">Reconcilia tu historia afectiva</span></h1>
+                    <p>Crea vínculos más sanos y conscientes, incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</p>
+                </div>
+                
+                <a href="#cta" class="btn btn-primary pulse-button" style="width: 100%; margin-bottom: 20px;">Quiero unirme al programa</a>
+                
+                <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Esta experiencia transformacional comienza pronto… y no volverá a abrir este año.</p>
+            </div>
+            
+            <div class="header-photo">
+                <img src="foto2.webp" alt="Renzo Alfaro Guillén" class="renzo-photo" width="400" height="600">
+            </div>
+        </div>
+    </header>
+    
+    <!-- Introducción -->
+    <section class="content-section light-section">
+        <div class="container">
+            <h2 class="section-title">Si has llegado hasta aquí no es casualidad</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">Estás en el momento exacto para liberar esas heridas que llevas cargando desde hace años, reconciliarte con tu historia, y transformar la manera en que te relacionas contigo, con el otro sexo y con tu energía interior.</p>
+                
+                <p style="font-size: 1.1rem; margin-bottom: 30px;">Este no es un curso más. Es un viaje sistémico de 3 meses, profundo y transformador, donde sanarás desde la raíz, no desde la superficie.</p>
+                
+                <a href="#cta" class="btn btn-primary">Quiero unirme al programa</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Beneficios -->
+    <section class="content-section dark-section">
+        <div class="container">
+            <h2 class="section-title">Lo que pasará cuando entres a este proceso</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: rgba(255,255,255,0.9);">Estas son 5 transformaciones reales que puedes esperar desde el primer módulo:</p>
+            
+            <div class="benefits-container">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💔</div>
+                    <h3 class="benefit-title">Liberarás cargas emocionales heredadas</h3>
+                    <p class="benefit-description">Que sabotean tu vida afectiva sin que te des cuenta.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🧬</div>
+                    <h3 class="benefit-title">Reconectarás con tu energía masculina y femenina interna</h3>
+                    <p class="benefit-description">Dejando de vivirte en polaridades.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">❤️</div>
+                    <h3 class="benefit-title">Cerrarás ciclos con tus exparejas</h3>
+                    <p class="benefit-description">Y dejarás de atraer relaciones que duelen.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌹</div>
+                    <h3 class="benefit-title">Transformarás tu sexualidad e intimidad</h3>
+                    <p class="benefit-description">En espacios de presencia, respeto y autenticidad.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌱</div>
+                    <h3 class="benefit-title">Reconstruirás vínculos</h3>
+                    <p class="benefit-description">Desde un lugar consciente, con más libertad, claridad y amor propio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Programa -->
+    <section class="content-section light-section">
+        <div class="container">
+            <h2 class="section-title">¿Qué incluye el programa?</h2>
+            
+            <div class="program-container">
+                <div class="program-item">
+                    <h3 class="program-title"><span class="icon">🌟</span> Clases en vivo + acceso grabado</h3>
+                    <p class="program-description">Este recorrido está diseñado para vivirse en tiempo real junto a una comunidad que también está lista para transformar su historia afectiva. Además, tendrás acceso a todas las grabaciones para avanzar a tu ritmo.</p>
+                </div>
+                
+                <div class="program-item">
+                    <h3 class="program-title"><span class="icon">1.</span> Masculino y Femenino: Tomar y Honrar las Polaridades</h3>
+                    <p class="program-description">Descubre cómo estás rechazando o inflando una de tus energías y cómo recuperar tu equilibrio interior.</p>
+                </div>
+                
+                <div class="program-item">
+                    <h3 class="program-title"><span class="icon">2.</span> Respeto y Amor Natural: Recupera el Respeto hacia el Otro Sexo</h3>
+                    <p class="program-description">Sana las heridas invisibles de tu linaje que te hacen desconfiar, rechazar o luchar con el otro sexo.</p>
+                </div>
+                
+                <div class="program-item">
+                    <h3 class="program-title"><span class="icon">3.</span> Exparejas: Dejar Ir y Tomar la Vida</h3>
+                    <p class="program-description">Libérate de los vínculos pasados que siguen vivos dentro de ti y honra lo vivido para abrirte a nuevas posibilidades.</p>
+                </div>
+                
+                <div class="program-item">
+                    <h3 class="program-title"><span class="icon">4.</span> Sexualidad e Intimidad: Placer, Presencia y Respeto</h3>
+                    <p class="program-description">Reconcilia tu cuerpo, tu deseo y tu historia sexual con amor, libertad y profundidad.</p>
+                </div>
+                
+                <div class="program-item">
+                    <h3 class="program-title"><span class="icon">5.</span> Campos Mórficos: Memorias Invisibles que Nos Condicionan</h3>
+                    <p class="program-description">Accede a los patrones colectivos e inconscientes que habitan en tu sistema familiar… y libérate desde el asentimiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Calendario -->
+    <section class="content-section dark-section">
+        <div class="container">
+            <h2 class="section-title">Calendario de sesiones en vivo</h2>
+            
+            <div class="calendar-container">
+                <div class="calendar-item">
+                    <div class="calendar-date">4 de agosto</div>
+                    <div class="calendar-event">Clase 0 – Bienvenida e introducción sistémica</div>
+                </div>
+                
+                <div class="calendar-item">
+                    <div class="calendar-date">18 de agosto</div>
+                    <div class="calendar-event">Módulo 1 – Masculino y Femenino</div>
+                </div>
+                
+                <div class="calendar-item">
+                    <div class="calendar-date">1 de septiembre</div>
+                    <div class="calendar-event">Módulo 2 – Respeto y Amor Natural</div>
+                </div>
+                
+                <div class="calendar-item">
+                    <div class="calendar-date">15 de septiembre</div>
+                    <div class="calendar-event">Módulo 3 – Exparejas y Liberación</div>
+                </div>
+                
+                <div class="calendar-item">
+                    <div class="calendar-date">29 de septiembre</div>
+                    <div class="calendar-event">Módulo 4 – Sexualidad e Intimidad Consciente</div>
+                </div>
+                
+                <div class="calendar-item">
+                    <div class="calendar-date">13 de octubre</div>
+                    <div class="calendar-event">Módulo 5 – Campos Mórficos y Sanación Transgeneracional</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Inversión -->
+    <section class="content-section light-section">
+        <div class="container">
+            <h2 class="section-title">Precio e inversión</h2>
+            
+            <div class="investment-container">
+                <p>Precio lanzamiento:</p>
+                <div class="price">$147 USD</div>
+                <p class="payment-methods">Puedes pagar con tarjeta, PayPal o transferencia.<br>Acceso inmediato. Acceso POR 1 AÑO</p>
+                
+                <a href="#cta" class="btn btn-primary">Quiero unirme al programa</a>
+                
+                <div class="guarantee">
+                    <h3>🛡️ Garantía de satisfacción</h3>
+                    <p>Si antes de completar el segundo módulo sientes que esto no es para ti, te devolvemos el 100% de tu dinero. Sin preguntas. Sin condiciones. Así de seguro estamos del poder de este proceso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bono -->
+    <section class="content-section dark-section">
+        <div class="container">
+            <h2 class="section-title">Bono exclusivo</h2>
+            
+            <div class="bonus-container">
+                <h3 class="bonus-title">🎁 CURSO EN VIVO: AMOR A SEGUNDA VISTA</h3>
+                <p>La pareja tiene el rostro de mamá</p>
+                <p style="margin: 15px 0;">Al inscribirte al programa, accedes gratis a un curso de 3 clases EN VIVO donde profundizaremos en los pilares ocultos del amor de pareja.</p>
+                
+                <div style="margin: 20px 0;">
+                    <p><strong>🔸 Clase 1:</strong> Amor a Segunda Vista</p>
+                    <p style="margin-left: 20px;">Lo que no viste antes en tus relaciones y cómo abrir los ojos desde el alma.</p>
+                    
+                    <p><strong>🔸 Clase 2:</strong> La Pareja Tiene el Rostro de Mamá</p>
+                    <p style="margin-left: 20px;">Cómo tus conflictos con mamá se manifiestan en tu vida amorosa.</p>
+                    
+                    <p><strong>🔸 Clase 3:</strong> Los Pilares de la Pareja y los Conflictos de Ella</p>
+                    <p style="margin-left: 20px;">Orden, pertenencia y jerarquía: la clave para una relación equilibrada.</p>
+                </div>
+                
+                <p>👉 Este curso es EN VIVO, exclusivo para estudiantes del programa. Un espacio íntimo, terapéutico y revelador para integrar la transformación.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Facilitador -->
+    <section class="content-section light-section">
+        <div class="container">
+            <h2 class="section-title">Conoce al facilitador</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;">
+                <div>
+                    <img src="renzo.webp" alt="Renzo Alfaro Guillén" style="width: 100%; border-radius: 5px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--rojo-profundo); font-size: 1.8rem; margin-bottom: 10px;">Renzo Alfaro Guillén</h3>
+                    <p style="font-style: italic; color: var(--mostaza); margin-bottom: 20px;">Referente en liderazgo sistémico y desarrollo humano con alma.</p>
+                    
+                    <p style="margin-bottom: 15px;">Renzo Alfaro lidera el despertar de la conciencia en América Latina, habiendo impactado a más de 70.000 personas a través de viajes formativos que integran alma, cuerpo y propósito.</p>
+                    
+                    <p style="margin-bottom: 15px;">Ha formado a más de 1.300 profesionales en metodologías que unen ontología, constelaciones familiares y organizacionales, pedagogía espiritual y liderazgo consciente - siempre con un enfoque en la práctica vivencial y la sanación de sistemas.</p>
+                    
+                    <p>Reconocido por su presencia integral y escucha sensible, ha facilitado procesos transformadores en más de 10 países, incluyendo Brasil, Perú, Colombia, México, Argentina y España, además de trabajar como consultor sistémico para empresas líderes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="content-section dark-section">
+        <div class="container">
+            <h2 class="section-title">Preguntas frecuentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">1. ¿Y si ya he hecho muchas terapias o procesos y sigo igual?</div>
+                    <div class="faq-answer">Eso es precisamente lo que trabajamos aquí: no desde el "hacer más", sino desde mirar lo que aún no has visto. Este programa tiene un enfoque sistémico, que va más allá de lo racional. Muchos alumnos llegan con la sensación de "haberlo intentado todo" y descubren aquí una raíz emocional más profunda que nunca habían tocado.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">2. ¿Esto me va a remover cosas dolorosas otra vez?</div>
+                    <div class="faq-answer">Sí… pero no de la misma forma. En lugar de revivir el trauma, lo honramos, le damos lugar y lo soltamos con amor. No se trata de revolcarte en lo que duele, sino de mirarlo desde otro lugar, en un espacio contenido, respetuoso y seguro.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">3. ¿Y si no tengo pareja? ¿Igual me sirve?</div>
+                    <div class="faq-answer">Absolutamente. Este programa no está hecho para "mejorar tu relación actual" únicamente. Está hecho para que tú sanes tus vínculos internos, con tu historia, tus padres, tus exparejas... y desde ahí estés disponible para relacionarte desde otro lugar, contigo y con otros.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">4. ¿Y si ya tengo pareja? ¿Esto puede afectarla?</div>
+                    <div class="faq-answer">Sí. Pero para bien. Muchas personas que han hecho este proceso reportan una mejora en la comunicación, el respeto y la intimidad. A veces, incluso, la relación toma una nueva dirección, más honesta. Y en todo caso, lo importante es que tú te ordenes internamente primero.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">5. ¿Necesito saber de Constelaciones Familiares para hacerlo?</div>
+                    <div class="faq-answer">No. El lenguaje que usamos es claro, humano y directo. No necesitas experiencia previa. Este programa está diseñado para que cualquier persona lo entienda y lo integre, incluso si es su primer acercamiento a lo sistémico.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">6. ¿Qué pasa si no puedo asistir a las sesiones en vivo?</div>
+                    <div class="faq-answer">No pasa nada. Todas las clases quedarán grabadas y disponibles dentro de tu plataforma para que puedas verlas cuando quieras y las veces que necesites.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">7. ¿Cuánto tiempo me tomará hacer el programa?</div>
+                    <div class="faq-answer">Las clases en vivo están espaciadas cada dos semanas para permitir integración. Puedes hacerlo a ese ritmo o ir más lento. En total, son 5 módulos + una clase 0, con contenido aplicable desde el primer encuentro.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">8. ¿Realmente puede cambiar mi forma de relacionarme?</div>
+                    <div class="faq-answer">Sí. Pero no por "magia", sino porque trabajamos desde la raíz de tus patrones relacionales. No solo entenderás lo que repites, sino que podrás soltarlo, honrarlo y elegir diferente. Lo sistémico no solo transforma, reordena tu forma de estar en la vida.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">9. ¿Este programa es para mujeres solamente?</div>
+                    <div class="faq-answer">No. Aunque muchas mujeres se sienten llamadas a este tipo de procesos, los hombres que participan descubren una nueva forma de mirar sus vínculos, su masculinidad y sus emociones. Este espacio es para todo aquel que desee reconciliarse con su historia afectiva.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">10. ¿Qué diferencia este curso de otros que hablan de amor o pareja?</div>
+                    <div class="faq-answer">Aquí no te damos recetas ni técnicas superficiales. Lo que hacemos es mirar a tu sistema familiar, a tus vínculos pasados, a tu energía masculina/femenina... y desde ahí liberar lo que impide el amor verdadero. Este no es un curso "de pareja", es un viaje hacia la reconciliación contigo y con el otro.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">11. ¿Es un proceso espiritual o religioso?</div>
+                    <div class="faq-answer">Es espiritual en tanto trabaja con lo invisible, con la energía de tu sistema, tus emociones y vínculos. Pero no pertenece a ninguna religión ni exige creencias. Solo apertura, respeto y compromiso con tu propio proceso.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">12. ¿Puedo hacer el proceso si estoy en terapia?</div>
+                    <div class="faq-answer">Sí, y muchos lo hacen. Este curso no reemplaza un proceso terapéutico clínico, pero puede ser un complemento valiosísimo. Siempre sugerimos avisar a tu terapeuta si lo deseas, para integrar ambos enfoques.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">13. ¿Puedo pagarlo desde cualquier país?</div>
+                    <div class="faq-answer">Sí. La plataforma Hotmart acepta tarjetas internacionales, pagos locales según país y múltiples monedas. El proceso es 100% digital, seguro y rápido.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">14. ¿Y si me arrepiento o no siento que es para mí?</div>
+                    <div class="faq-answer">Tienes una garantía de 7 días. Si dentro de la primera semana sientes que este espacio no es para ti, simplemente escribes y se te devolverá el 100% de tu inversión. Sin preguntas ni condiciones.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonio -->
+    <section class="content-section light-section">
+        <div class="container">
+            <div class="testimonial-container">
+                <p class="testimonial-text">Este proceso cambió mi vida. Después de años de terapia, por fin pude entender por qué repetía los mismos patrones en mis relaciones. Renzo tiene una manera única de guiarte hacia tu propia verdad. Hoy me siento libre, en paz con mi pasado y abierta a amar de verdad.</p>
+                <p class="testimonial-author">- María G., participante del programa</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section id="cta" class="final-cta">
+        <div class="container">
+            <h2>¿Listo para reconciliarte con tu historia afectiva?</h2>
+            <p>Únete a este viaje transformador de 3 meses y comienza a crear vínculos más sanos y conscientes desde la raíz.</p>
+            
+            <a href="https://pay.hotmart.com/CHECKOUT_LINK" class="btn btn-primary" style="margin: 20px 0; padding: 15px 40px; font-size: 1.1rem;">Quiero comenzar mi reconciliación</a>
+            
+            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Precio de lanzamiento: $147 USD • Acceso inmediato • Garantía de 7 días</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>RECONEXIÓN SISTÉMICA</h3>
+                    <p>Programa de reconciliación afectiva</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="https://unoinstitutoholistico.com/politicas-de-privacidad/">Políticas de privacidad</a></li>
+                        <li><a href="https://unoinstitutoholistico.com/politicas-de-privacidad/">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-terminos">
+                <p>Este sitio no forma parte ni está respaldado por Facebook™️. Facebook™️ es una marca comercial de Facebook™️, Inc.</p>
+                <p>Los testimonios o resultados mencionados corresponden a procesos personales reales, pero no garantizan que tú necesariamente obtendrás los mismos resultados. Cada proceso de transformación emocional es único y depende de múltiples factores, como tu historia, disposición, compromiso y contexto.</p>
+                <p>Este programa no es una terapia individual ni reemplaza el acompañamiento terapéutico profesional. Es un proceso formativo basado en enfoque sistémico y constelaciones familiares, creado para ayudarte a reconciliar tu historia afectiva y transformar tu manera de relacionarte.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Preload de imágenes críticas para evitar layout shifts
+    function preloadCriticalImages() {
+        const criticalImages = ['logo.webp', 'foto2.webp', 'fondo.webp', 'renzo.webp'];
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
+
+    // Contador regresivo
+    function updateCountdown() {
+        // Fecha de finalización (ajustar según necesidad)
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + 3); // 3 días desde hoy
+        
+        const now = new Date().getTime();
+        const distance = endDate - now;
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById("days").textContent = days.toString().padStart(2, '0');
+        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+        
+        if (distance < 0) {
+            clearInterval(countdownTimer);
+            document.getElementById("days").textContent = "00";
+            document.getElementById("hours").textContent = "00";
+            document.getElementById("minutes").textContent = "00";
+            document.getElementById("seconds").textContent = "00";
+        }
+    }
+    
+    // FAQ interactivo
+    function setupFAQ() {
+        const questions = document.querySelectorAll('.faq-question');
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('show');
+            });
+        });
+    }
+    
+    // Smooth scroll para enlaces internos
+    function setupSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+    
+    // Ejecutar setup después de que DOM y recursos estén listos
+    document.addEventListener("DOMContentLoaded", function () {
+        // Iniciar preload de imágenes
+        preloadCriticalImages();
+        
+        // Iniciar contador regresivo
+        updateCountdown();
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        
+        // Configurar FAQ interactivo
+        setupFAQ();
+        
+        // Configurar smooth scroll
+        setupSmoothScroll();
+        
+        // Tracking de clicks en botones CTA
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout', {
+                        content_name: 'Reconciliación entre Hombres y Mujeres',
+                        value: 147,
+                        currency: 'USD'
+                    });
+                }
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>
