@@ -124,7 +124,7 @@
             color: white;
             padding: 20px 0 0 0;
             position: relative;
-            overflow: hidden; /* CAMBIO: ocultar desbordamiento */
+            overflow: hidden;
             min-height: 600px;
             z-index: 1;
         }
@@ -134,10 +134,10 @@
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             position: relative;
-            height: 100%;
+            height: 600px; /* CAMBIO: altura fija exacta */
             min-height: 600px;
             align-items: start;
-            overflow: hidden; /* CAMBIO: asegurar que no se desborde */
+            overflow: hidden;
         }
         
         .header-content {
@@ -149,8 +149,8 @@
         
         .header-photo {
             position: relative;
-            min-height: 600px;
-            overflow: hidden; /* CAMBIO: ocultar desbordamiento */
+            height: 100%; /* CAMBIO: altura completa del contenedor */
+            overflow: hidden;
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
@@ -285,19 +285,19 @@
             font-weight: 700;
         }
         
-        /* Foto de Renzo en el header - CORREGIDA */
+        /* Foto de Renzo en el header - CORREGIDA COMPLETAMENTE */
         .renzo-photo {
-            height: 100%; /* CAMBIO: usar 100% de altura del contenedor */
-            max-height: 600px; /* CAMBIO: limitar altura máxima */
+            height: 120%; /* CAMBIO: aumentar altura para que se extienda hasta la base */
+            max-height: none; /* CAMBIO: eliminar limitación de altura */
             width: auto;
             min-width: 300px;
-            object-fit: cover; /* CAMBIO: de contain a cover para mejor ajuste */
-            object-position: bottom center; /* CAMBIO: centrar horizontalmente */
+            object-fit: cover;
+            object-position: bottom center;
             position: absolute;
-            bottom: 0; /* CAMBIO: pegar al fondo del banner */
-            right: 0; /* CAMBIO: alinear a la derecha del contenedor */
+            bottom: -60px; /* CAMBIO: posicionar más abajo para tocar la base */
+            right: 0;
             z-index: 1;
-            transform: none; /* CAMBIO: eliminar transformación que lo movía */
+            transform: none;
         }
         
         /* Contador de cierre */
