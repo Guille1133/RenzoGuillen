@@ -300,46 +300,118 @@
             transform: none;
         }
         
-        /* Contador de cierre */
-        .countdown-container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
+        /* Contador de cierre PRO */
+        .countdown-container-pro {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
+            padding: 25px 30px;
+            border-radius: 15px;
+            margin: 0 0 40px 0;
             text-align: center;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
         
-        .countdown-title {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--mostaza);
+        .countdown-container-pro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--mostaza) 0%, #FFD700 50%, var(--mostaza) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s ease-in-out infinite;
         }
         
-        .countdown {
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .countdown-title-pro {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        
+        .countdown-pro {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            align-items: center;
+            gap: 8px;
         }
         
-        .countdown-item {
+        .countdown-item-pro {
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            padding: 15px 12px 10px;
+            border-radius: 12px;
+            min-width: 70px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
         
-        .countdown-value {
-            font-size: 1.8rem;
+        .countdown-item-pro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--mostaza), transparent);
+            opacity: 0.6;
+        }
+        
+        .countdown-value-pro {
+            font-size: 2.2rem;
             font-weight: 700;
             color: white;
             font-family: 'Anton', sans-serif;
+            line-height: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .countdown-label {
+        .countdown-label-pro {
             font-size: 0.7rem;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--mostaza);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 5px;
         }
+        
+        .countdown-separator {
+            font-size: 2rem;
+            color: var(--mostaza);
+            font-weight: 700;
+            font-family: 'Anton', sans-serif;
+            animation: pulse 1s ease-in-out infinite;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
+        /* Eliminar estilos del contador anterior */
         
         /* Secciones de contenido */
         .content-section {
@@ -755,12 +827,26 @@
                 text-align: center;
             }
             
-            /* Contador */
-            .countdown {
-                gap: 10px;
+            /* Contador PRO responsive */
+            .countdown-container-pro {
+                margin: 0 0 30px 0;
+                padding: 20px 25px;
             }
             
-            .countdown-value {
+            .countdown-pro {
+                gap: 6px;
+            }
+            
+            .countdown-item-pro {
+                min-width: 60px;
+                padding: 12px 8px 8px;
+            }
+            
+            .countdown-value-pro {
+                font-size: 1.8rem;
+            }
+            
+            .countdown-separator {
                 font-size: 1.5rem;
             }
             
@@ -834,16 +920,30 @@
                 font-size: 0.9rem;
             }
             
-            /* Contador */
-            .countdown {
-                gap: 5px;
+            /* Contador PRO responsive pequeño */
+            .countdown-container-pro {
+                margin: 0 0 20px 0;
+                padding: 15px 20px;
             }
             
-            .countdown-value {
+            .countdown-pro {
+                gap: 4px;
+            }
+            
+            .countdown-item-pro {
+                min-width: 50px;
+                padding: 10px 6px 6px;
+            }
+            
+            .countdown-value-pro {
+                font-size: 1.4rem;
+            }
+            
+            .countdown-separator {
                 font-size: 1.2rem;
             }
             
-            .countdown-label {
+            .countdown-label-pro {
                 font-size: 0.6rem;
             }
             
@@ -882,29 +982,28 @@
     <header>
         <div class="container header-container">
             <div class="header-content">
-                <div class="logo">
-                    <img src="logo.webp" alt="Logo Reconexión Sistémica">
-                </div>
-                
-                <!-- Contador de cierre -->
-                <div class="countdown-container">
-                    <div class="countdown-title">Las puertas a Reconciliación entre Hombres y Mujeres se cierran en:</div>
-                    <div class="countdown">
-                        <div class="countdown-item">
-                            <div class="countdown-value" id="days">00</div>
-                            <div class="countdown-label">Días</div>
+                <!-- Contador de cierre PRO -->
+                <div class="countdown-container-pro">
+                    <div class="countdown-title-pro">Las puertas se cierran en:</div>
+                    <div class="countdown-pro">
+                        <div class="countdown-item-pro">
+                            <div class="countdown-value-pro" id="days">00</div>
+                            <div class="countdown-label-pro">DÍAS</div>
                         </div>
-                        <div class="countdown-item">
-                            <div class="countdown-value" id="hours">00</div>
-                            <div class="countdown-label">Horas</div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item-pro">
+                            <div class="countdown-value-pro" id="hours">00</div>
+                            <div class="countdown-label-pro">HORAS</div>
                         </div>
-                        <div class="countdown-item">
-                            <div class="countdown-value" id="minutes">00</div>
-                            <div class="countdown-label">Minutos</div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item-pro">
+                            <div class="countdown-value-pro" id="minutes">00</div>
+                            <div class="countdown-label-pro">MIN</div>
                         </div>
-                        <div class="countdown-item">
-                            <div class="countdown-value" id="seconds">00</div>
-                            <div class="countdown-label">Segundos</div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item-pro">
+                            <div class="countdown-value-pro" id="seconds">00</div>
+                            <div class="countdown-label-pro">SEG</div>
                         </div>
                     </div>
                 </div>
