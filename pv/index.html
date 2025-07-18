@@ -193,87 +193,49 @@
         }
         
         .hero-text h1 {
-            font-size: 2rem;
-            margin-bottom: 15px;
+            font-size: 3.5rem; /* CAMBIO: título mucho más grande */
+            margin-bottom: 25px;
             position: relative;
             display: inline-block;
+            line-height: 1.1;
         }
         
-        /* Efecto de subrayado tipo marcador resaltador natural */
-        .highlight-marker {
-            position: relative;
-            display: inline-block;
+        /* Nuevo estilo para el título principal - SIN SUBRAYADO */
+        .main-title {
+            font-family: 'Anton', sans-serif;
+            font-weight: normal;
             color: white;
-            padding: 0 4px;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.1);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            background: linear-gradient(135deg, 
+                #ffffff 0%, 
+                #f8f8f8 25%, 
+                #ffffff 50%, 
+                #f0f0f0 75%, 
+                #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
         }
-
-        .highlight-marker::after {
+        
+        .main-title::after {
             content: '';
             position: absolute;
+            bottom: -8px;
             left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            background: linear-gradient(110deg, 
-                rgba(255, 215, 0, 0.8) 0%, 
-                rgba(255, 215, 0, 0.9) 15%, 
-                rgba(255, 215, 0, 0.7) 30%, 
-                rgba(255, 215, 0, 0.9) 45%, 
-                rgba(255, 215, 0, 0.8) 60%, 
-                rgba(255, 215, 0, 0.9) 75%, 
-                rgba(255, 215, 0, 0.8) 100%);
-            background-size: 0% 100%;
-            background-repeat: no-repeat;
-            background-position: left center;
-            animation: highlightDraw 2.5s ease-in-out forwards;
-            animation-delay: 0.8s;
-            transform: rotate(-0.5deg);
-            z-index: -1;
-            border-radius: 4px;
-        }
-
-        .highlight-marker::before {
-            content: '';
-            position: absolute;
-            left: 1px;
-            right: 1px;
-            top: 1px;
-            bottom: 1px;
-            background: linear-gradient(108deg, 
-                rgba(255, 215, 0, 0.3) 0%, 
-                rgba(255, 215, 0, 0.5) 20%, 
-                rgba(255, 215, 0, 0.4) 40%, 
-                rgba(255, 215, 0, 0.6) 60%, 
-                rgba(255, 215, 0, 0.4) 80%, 
-                rgba(255, 215, 0, 0.3) 100%);
-            background-size: 0% 100%;
-            background-repeat: no-repeat;
-            background-position: left center;
-            animation: highlightGlow 2.5s ease-in-out forwards;
-            animation-delay: 1.2s;
-            transform: rotate(-0.3deg);
-            z-index: -1;
-            border-radius: 3px;
-        }
-
-        @keyframes highlightDraw {
-            0% {
-                background-size: 0% 100%;
-            }
-            100% {
-                background-size: 100% 100%;
-            }
-        }
-
-        @keyframes highlightGlow {
-            0% {
-                background-size: 0% 100%;
-                opacity: 0;
-            }
-            100% {
-                background-size: 100% 100%;
-                opacity: 1;
-            }
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--mostaza) 0%, 
+                #FFD700 50%, 
+                var(--mostaza) 100%);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(222, 172, 70, 0.4);
         }
         
         .hero-text p {
@@ -286,16 +248,16 @@
             font-weight: 700;
         }
         
-        /* Foto de Renzo en el header - CORREGIDA PARA VER LA CABEZA COMPLETA */
+        /* Foto de Renzo - AJUSTADA PARA PANTALLA COMPLETA */
         .renzo-photo {
-            height: 95%; /* CAMBIO: reducir más la altura para que se vea la cabeza completa */
+            height: 100vh; /* CAMBIO: altura completa de la ventana */
             max-height: none;
             width: auto;
             min-width: 280px;
             object-fit: contain;
             object-position: bottom center;
             position: absolute;
-            bottom: -20px; /* CAMBIO: subir más la imagen para mostrar la cabeza */
+            bottom: 0; /* CAMBIO: exactamente en la base */
             right: -20px;
             z-index: 1;
             transform: none;
@@ -778,27 +740,39 @@
             text-align: center;
         }
         
-        /* Responsive - CORREGIDO PARA MÓVIL */
+        /* Responsive - AJUSTADO PARA PANTALLA COMPLETA */
         @media (max-width: 768px) {
             /* Header */
+            header {
+                min-height: 100vh; /* CAMBIO: mantener altura completa en móvil */
+                height: auto; /* CAMBIO: altura automática en móvil */
+                padding: 20px 0;
+            }
+            
             .header-container {
                 display: flex;
                 flex-direction: column;
-                min-height: auto;
+                min-height: 100vh; /* CAMBIO: altura completa en móvil */
+                height: auto;
                 gap: 0;
-                overflow: hidden; /* IMPORTANTE para móvil */
+                overflow: hidden;
+                justify-content: center; /* CAMBIO: centrar contenido */
             }
             
             .header-content {
                 order: 1;
-                padding-bottom: 10px;
+                padding: 40px 0 20px 0; /* CAMBIO: más padding */
                 text-align: center;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             
             .header-photo {
                 order: 2;
-                min-height: 400px; /* CAMBIO: altura fija para móvil */
-                height: 400px;
+                height: 50vh; /* CAMBIO: altura específica para móvil */
+                min-height: 400px;
                 overflow: hidden;
                 margin: 0;
                 display: flex;
@@ -808,16 +782,16 @@
             }
             
             .renzo-photo {
-                position: relative; /* CAMBIO para móvil */
+                position: relative;
                 bottom: 0;
                 right: auto;
                 max-width: 90%;
                 width: auto;
                 height: 100%;
-                max-height: 400px;
+                max-height: 50vh; /* CAMBIO: altura máxima en móvil */
                 transform: none;
                 margin: 0 auto;
-                object-fit: cover;
+                object-fit: contain;
                 object-position: bottom center;
             }
             
@@ -894,29 +868,26 @@
         }
         
         @media (max-width: 480px) {
-            /* Ajustes adicionales para móviles pequeños */
+            /* Ajustes para pantallas muy pequeñas */
+            .header-content {
+                padding: 30px 0 15px 0;
+            }
+            
             .header-photo {
-                min-height: 350px; /* CAMBIO: altura menor para pantallas pequeñas */
-                height: 350px;
+                height: 45vh; /* CAMBIO: altura menor en pantallas pequeñas */
+                min-height: 350px;
             }
             
             .renzo-photo {
-                max-height: 350px; /* CAMBIO: altura ajustada */
+                max-height: 45vh; /* CAMBIO: altura ajustada */
             }
             
             .hero-text h1 {
-                font-size: 1.4rem;
-                white-space: nowrap;
-                overflow: hidden;
+                font-size: 2.5rem; /* CAMBIO: tamaño reducido para tablet */
             }
             
-            .highlight-marker {
-                font-size: 1.2rem;
-                white-space: nowrap;
-                display: inline-block;
-                width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            .main-title {
+                letter-spacing: 1px; /* CAMBIO: menos espaciado en tablet */
             }
             
             .hero-text p {
@@ -1018,7 +989,7 @@
                 </div>
                 
                 <div class="hero-text">
-                    <h1><span class="highlight-marker">Reconcilia tu historia afectiva</span></h1>
+                    <h1><span class="main-title">Reconcilia tu historia afectiva</span></h1>
                     <p>Crea vínculos más sanos y conscientes, incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</p>
                 </div>
                 
