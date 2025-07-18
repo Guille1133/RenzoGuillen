@@ -301,18 +301,19 @@
             transform: none;
         }
         
-        /* Contador de cierre PRO */
+        /* Contador de cierre PRO - CON 4 ELEMENTOS */
         .countdown-container-pro {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
-            padding: 25px 30px;
+            padding: 20px 25px;
             border-radius: 15px;
-            margin: 0 0 40px 0;
+            margin: 0 auto 40px auto;
             text-align: center;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
+            max-width: 500px; /* CAMBIO: ancho mayor para 4 elementos */
         }
         
         .countdown-container-pro::before {
@@ -830,8 +831,9 @@
             
             /* Contador PRO responsive */
             .countdown-container-pro {
-                margin: 0 0 30px 0;
-                padding: 20px 25px;
+                margin: 0 auto 30px auto;
+                padding: 15px 20px;
+                max-width: 450px; /* CAMBIO: ajustado para 4 elementos en móvil */
             }
             
             .countdown-pro {
@@ -923,8 +925,14 @@
             
             /* Contador PRO responsive pequeño */
             .countdown-container-pro {
-                margin: 0 0 20px 0;
-                padding: 15px 20px;
+                margin: 0 auto 20px auto;
+                padding: 12px 15px;
+                max-width: 380px; /* CAMBIO: espacio para 4 elementos en pantallas pequeñas */
+            }
+            
+            .countdown-item-pro {
+                min-width: 45px; /* CAMBIO: hacer las cajas más pequeñas para que quepan 4 */
+                padding: 8px 4px 6px;
             }
             
             .countdown-pro {
@@ -998,7 +1006,7 @@
                         </div>
                         <div class="countdown-separator">:</div>
                         <div class="countdown-item-pro">
-                            <div class="countdown-value-pro" id="minutes">00</div>
+                            <div class="countdown-value-pro" id="minutes">23</div>
                             <div class="countdown-label-pro">MIN</div>
                         </div>
                         <div class="countdown-separator">:</div>
@@ -1204,30 +1212,6 @@
         </div>
     </section>
     
-    <!-- Facilitador -->
-    <section class="content-section light-section">
-        <div class="container">
-            <h2 class="section-title">Conoce al facilitador</h2>
-            
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;">
-                <div>
-                    <img src="renzo.webp" alt="Renzo Alfaro Guillén" style="width: 100%; border-radius: 5px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                </div>
-                
-                <div>
-                    <h3 style="color: var(--rojo-profundo); font-size: 1.8rem; margin-bottom: 10px;">Renzo Alfaro Guillén</h3>
-                    <p style="font-style: italic; color: var(--mostaza); margin-bottom: 20px;">Referente en liderazgo sistémico y desarrollo humano con alma.</p>
-                    
-                    <p style="margin-bottom: 15px;">Renzo Alfaro lidera el despertar de la conciencia en América Latina, habiendo impactado a más de 70.000 personas a través de viajes formativos que integran alma, cuerpo y propósito.</p>
-                    
-                    <p style="margin-bottom: 15px;">Ha formado a más de 1.300 profesionales en metodologías que unen ontología, constelaciones familiares y organizacionales, pedagogía espiritual y liderazgo consciente - siempre con un enfoque en la práctica vivencial y la sanación de sistemas.</p>
-                    
-                    <p>Reconocido por su presencia integral y escucha sensible, ha facilitado procesos transformadores en más de 10 países, incluyendo Brasil, Perú, Colombia, México, Argentina y España, además de trabajar como consultor sistémico para empresas líderes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- FAQ -->
     <section class="content-section dark-section">
         <div class="container">
@@ -1365,25 +1349,27 @@
         });
     }
 
-    // Contador regresivo
+    // Contador regresivo - SOLO 23 MINUTOS DESCONTANDO
     function updateCountdown() {
-        // Fecha de finalización (ajustar según necesidad)
-        const endDate = new Date();
-        endDate.setDate(endDate.getDate() + 3); // 3 días desde hoy
-        
+        // Configurar para solo 23 minutos desde ahora
         const now = new Date().getTime();
-        const distance = endDate - now;
+        const endDate = now + (23 * 60 * 1000); // Solo 23 minutos en milisegundos
         
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const currentTime = new Date().getTime();
+        const distance = endDate - currentTime;
         
-        document.getElementById("days").textContent = days.toString().padStart(2, '0');
-        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+        const days = 0; // Siempre 0 días
+        const hours = 0; // Siempre 0 horas
+        const minutes = Math.floor(distance / (1000 * 60)); // Minutos restantes
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Segundos restantes
+        
+        // Actualizar los elementos del DOM
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
         document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
         document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
         
+        // Si el contador llega a cero, detenerlo
         if (distance < 0) {
             clearInterval(countdownTimer);
             document.getElementById("days").textContent = "00";
