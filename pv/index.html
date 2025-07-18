@@ -149,11 +149,12 @@
         
         .header-photo {
             position: relative;
-            height: 100%; /* CAMBIO: altura completa del contenedor */
-            overflow: hidden;
+            height: 100%;
+            overflow: visible; /* CAMBIO: permitir que se vea la imagen completa */
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
+            padding-right: 20px; /* CAMBIO: añadir padding para que no se corte por el borde */
         }
         
         .logo {
@@ -285,17 +286,17 @@
             font-weight: 700;
         }
         
-        /* Foto de Renzo en el header - CORREGIDA COMPLETAMENTE */
+        /* Foto de Renzo en el header - CORREGIDA PARA QUE NO SE CORTE */
         .renzo-photo {
-            height: 120%; /* CAMBIO: aumentar altura para que se extienda hasta la base */
-            max-height: none; /* CAMBIO: eliminar limitación de altura */
+            height: 110%; /* CAMBIO: reducir altura para que no se corte la cabeza */
+            max-height: none;
             width: auto;
-            min-width: 300px;
-            object-fit: cover;
+            min-width: 280px; /* CAMBIO: reducir ancho mínimo */
+            object-fit: contain; /* CAMBIO: volver a contain para ver la imagen completa */
             object-position: bottom center;
             position: absolute;
-            bottom: -60px; /* CAMBIO: posicionar más abajo para tocar la base */
-            right: 0;
+            bottom: -40px; /* CAMBIO: ajustar posición para que toque la base sin cortarse */
+            right: -20px; /* CAMBIO: mover un poco hacia la izquierda para que no se corte el brazo */
             z-index: 1;
             transform: none;
         }
