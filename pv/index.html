@@ -286,17 +286,17 @@
             font-weight: 700;
         }
         
-        /* Foto de Renzo en el header - CORREGIDA PARA QUE NO SE CORTE */
+        /* Foto de Renzo en el header - CORREGIDA PARA VER LA CABEZA COMPLETA */
         .renzo-photo {
-            height: 110%; /* CAMBIO: reducir altura para que no se corte la cabeza */
+            height: 95%; /* CAMBIO: reducir más la altura para que se vea la cabeza completa */
             max-height: none;
             width: auto;
-            min-width: 280px; /* CAMBIO: reducir ancho mínimo */
-            object-fit: contain; /* CAMBIO: volver a contain para ver la imagen completa */
+            min-width: 280px;
+            object-fit: contain;
             object-position: bottom center;
             position: absolute;
-            bottom: -40px; /* CAMBIO: ajustar posición para que toque la base sin cortarse */
-            right: -20px; /* CAMBIO: mover un poco hacia la izquierda para que no se corte el brazo */
+            bottom: -20px; /* CAMBIO: subir más la imagen para mostrar la cabeza */
+            right: -20px;
             z-index: 1;
             transform: none;
         }
