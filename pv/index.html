@@ -257,14 +257,7 @@
             font-size: 1.8rem;
             color: white;
             line-height: 1;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-            background: linear-gradient(135deg, 
-                #ffffff 0%, 
-                var(--mostaza) 50%, 
-                #ffffff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
             font-weight: bold;
         }
 
@@ -381,27 +374,16 @@
             line-height: 1.1;
         }
         
-        /* TÍTULO ORIGINAL CON GRADIENTE PERO SIMPLIFICADO */
+        /* TÍTULO SIMPLE Y LEGIBLE SIN RELIEVE */
         .main-title {
-            font-family: 'Anton', sans-serif;
-            font-weight: normal;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             color: white;
-            text-shadow: 
-                2px 2px 4px rgba(0, 0, 0, 0.8),
-                0 0 20px rgba(255, 255, 255, 0.1);
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-transform: none;
             display: block;
-            background: linear-gradient(135deg, 
-                #ffffff 0%, 
-                #f8f8f8 25%, 
-                #ffffff 50%, 
-                #f0f0f0 75%, 
-                #ffffff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             position: relative;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
         
         .main-title::after {
@@ -409,14 +391,10 @@
             position: absolute;
             bottom: -8px;
             left: 0;
-            width: 100%;
+            width: 120px;
             height: 3px;
-            background: linear-gradient(90deg, 
-                var(--mostaza) 0%, 
-                #FFD700 50%, 
-                var(--mostaza) 100%);
+            background: var(--mostaza);
             border-radius: 2px;
-            box-shadow: 0 2px 8px rgba(222, 172, 70, 0.4);
         }
         
         .hero-text p {
@@ -1135,29 +1113,47 @@
                     <p class="program-description">Este recorrido está diseñado para vivirse en tiempo real junto a una comunidad que también está lista para transformar su historia afectiva. Además, tendrás acceso a todas las grabaciones para avanzar a tu ritmo.</p>
                 </div>
                 
-                <div class="program-item">
-                    <h3 class="program-title"><span class="icon">1.</span> Masculino y Femenino: Tomar y Honrar las Polaridades</h3>
-                    <p class="program-description">Descubre cómo estás rechazando o inflando una de tus energías y cómo recuperar tu equilibrio interior.</p>
-                </div>
-                
-                <div class="program-item">
-                    <h3 class="program-title"><span class="icon">2.</span> Respeto y Amor Natural: Recupera el Respeto hacia el Otro Sexo</h3>
-                    <p class="program-description">Sana las heridas invisibles de tu linaje que te hacen desconfiar, rechazar o luchar con el otro sexo.</p>
-                </div>
-                
-                <div class="program-item">
-                    <h3 class="program-title"><span class="icon">3.</span> Exparejas: Dejar Ir y Tomar la Vida</h3>
-                    <p class="program-description">Libérate de los vínculos pasados que siguen vivos dentro de ti y honra lo vivido para abrirte a nuevas posibilidades.</p>
-                </div>
-                
-                <div class="program-item">
-                    <h3 class="program-title"><span class="icon">4.</span> Sexualidad e Intimidad: Placer, Presencia y Respeto</h3>
-                    <p class="program-description">Reconcilia tu cuerpo, tu deseo y tu historia sexual con amor, libertad y profundidad.</p>
-                </div>
-                
-                <div class="program-item">
-                    <h3 class="program-title"><span class="icon">5.</span> Campos Mórficos: Memorias Invisibles que Nos Condicionan</h3>
-                    <p class="program-description">Accede a los patrones colectivos e inconscientes que habitan en tu sistema familiar… y libérate desde el asentimiento.</p>
+                <!-- Módulos con banners -->
+                <div class="modules-banners">
+                    <div class="module-banner">
+                        <img src="m1.webp" alt="Módulo 1 - Masculino y Femenino: Tomar y Honrar las Polaridades" loading="lazy">
+                        <div class="module-overlay">
+                            <h3>Masculino y Femenino: Tomar y Honrar las Polaridades</h3>
+                            <p>Descubre cómo estás rechazando o inflando una de tus energías y cómo recuperar tu equilibrio interior.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="module-banner">
+                        <img src="m2.webp" alt="Módulo 2 - Respeto y Amor Natural: Recupera el Respeto hacia el Otro Sexo" loading="lazy">
+                        <div class="module-overlay">
+                            <h3>Respeto y Amor Natural: Recupera el Respeto hacia el Otro Sexo</h3>
+                            <p>Sana las heridas invisibles de tu linaje que te hacen desconfiar, rechazar o luchar con el otro sexo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="module-banner">
+                        <img src="m3.webp" alt="Módulo 3 - Exparejas: Dejar Ir y Tomar la Vida" loading="lazy">
+                        <div class="module-overlay">
+                            <h3>Exparejas: Dejar Ir y Tomar la Vida</h3>
+                            <p>Libérate de los vínculos pasados que siguen vivos dentro de ti y honra lo vivido para abrirte a nuevas posibilidades.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="module-banner">
+                        <img src="m4.webp" alt="Módulo 4 - Sexualidad e Intimidad: Placer, Presencia y Respeto" loading="lazy">
+                        <div class="module-overlay">
+                            <h3>Sexualidad e Intimidad: Placer, Presencia y Respeto</h3>
+                            <p>Reconcilia tu cuerpo, tu deseo y tu historia sexual con amor, libertad y profundidad.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="module-banner">
+                        <img src="m5.webp" alt="Módulo 5 - Campos Mórficos: Memorias Invisibles que Nos Condicionan" loading="lazy">
+                        <div class="module-overlay">
+                            <h3>Campos Mórficos: Memorias Invisibles que Nos Condicionan</h3>
+                            <p>Accede a los patrones colectivos e inconscientes que habitan en tu sistema familiar… y libérate desde el asentimiento.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
