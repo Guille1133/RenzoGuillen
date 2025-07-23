@@ -290,7 +290,7 @@
             }
         }
 
-        /* Header - VOLVER AL DISEÑO ORIGINAL EXACTO */
+        /* Header - AJUSTES SOLICITADOS */
         header {
             background: url('banner.webp') no-repeat center center / cover;
             color: white;
@@ -299,6 +299,12 @@
             overflow: hidden;
             min-height: 600px;
             z-index: 1;
+        }
+        
+        @media (min-width: 769px) {
+            header {
+                background-position: 60% center; /* Mueve el fondo un poco a la derecha */
+            }
         }
         
         .header-container {
@@ -318,7 +324,7 @@
             padding-bottom: 60px;
             position: relative;
             z-index: 2;
-            margin-top: 40px;
+            margin-top: 60px; /* Más espacio en PC como solicitado */
         }
         
         .header-photo {
@@ -415,7 +421,7 @@
             font-weight: 700;
         }
         
-        /* Foto de Renzo - EXACTO COMO EL ORIGINAL */
+        /* Foto de Renzo - AJUSTES SOLICITADOS */
         .renzo-photo {
             height: 90%;
             max-height: none;
@@ -566,16 +572,16 @@
             font-size: 1.1rem;
         }
 
-        /* BONO EXCLUSIVO - EFECTO DE CARTA VOLTEABLE */
+        /* BONO EXCLUSIVO - EFECTO DE CARTA VOLTEABLE MEJORADO */
         .bonus-section {
             text-align: center;
         }
 
         .bonus-card-container {
             perspective: 1000px;
-            max-width: 650px;
+            max-width: 700px; /* Más ancho para evitar corte */
             margin: 30px auto 0;
-            height: 400px;
+            height: 450px; /* Más alto para mejor visualización */
         }
 
         .bonus-card {
@@ -622,7 +628,7 @@
             padding: 30px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Cambiado para mejor scroll */
         }
 
         .bonus-title {
@@ -634,8 +640,9 @@
 
         .bonus-content {
             overflow-y: auto;
-            max-height: 300px;
-            padding-right: 10px;
+            max-height: 350px; /* Más espacio para contenido */
+            padding-right: 15px;
+            flex-grow: 1;
         }
 
         .bonus-content p {
@@ -651,52 +658,12 @@
 
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
         @media (max-width: 768px) {
-            /* Contador responsive */
-            .countdown-banner {
-                position: fixed;
-                top: 0;
-                width: 100vw;
-                padding: 12px 0;
-                z-index: 2000;
-            }
-
-            .countdown-content {
-                flex-direction: column;
-                gap: 15px;
-                padding: 0 15px;
-            }
-
-            .countdown-text {
-                font-size: 0.9rem;
-                text-align: center;
-            }
-
-            .countdown-timer {
-                gap: 10px;
-            }
-
-            .time-unit {
-                min-width: 50px;
-                padding: 8px 6px 6px;
-            }
-
-            .time-number {
-                font-size: 1.4rem;
-            }
-
-            .time-label {
-                font-size: 0.6rem;
-            }
-
-            .time-separator {
-                font-size: 1.2rem;
-            }
-
             /* Header ajustado por contador fijo */
             header {
                 margin-top: 120px;
                 min-height: calc(100vh - 120px);
                 padding: 20px 0;
+                background-position: 65% center; /* Mueve el fondo a la derecha en móvil */
             }
             
             .header-container {
@@ -736,10 +703,10 @@
                 position: relative;
                 bottom: 0;
                 right: auto;
-                max-width: 90%;
+                max-width: 95%; /* Más grande en móvil */
                 width: auto;
                 height: 100%;
-                max-height: 50vh;
+                max-height: 55vh; /* Más grande en móvil */
                 transform: none;
                 margin: 0 auto;
                 object-fit: contain;
@@ -775,7 +742,7 @@
 
             /* Bono responsive */
             .bonus-card-container {
-                height: 350px;
+                height: 400px; /* Más alto en móvil */
                 max-width: 100%;
             }
 
@@ -785,6 +752,11 @@
 
             .bonus-title {
                 font-size: 1.3rem;
+            }
+            
+            /* Evitar que el toque accidental gire la tarjeta */
+            .bonus-card {
+                touch-action: pan-y;
             }
         }
         
@@ -822,6 +794,7 @@
             /* Header ajustado */
             header {
                 margin-top: 100px;
+                background-position: 70% center; /* Más a la derecha en móviles pequeños */
             }
 
             .header-content {
@@ -834,7 +807,7 @@
             }
             
             .renzo-photo {
-                max-height: 45vh;
+                max-height: 50vh; /* Aún más grande en móviles pequeños */
             }
             
             .hero-text h1 {
@@ -861,7 +834,7 @@
 
             /* Bono responsive */
             .bonus-card-container {
-                height: 300px;
+                height: 380px;
             }
 
             .bonus-title {
@@ -1204,9 +1177,9 @@
                     <p>Crea vínculos más sanos y conscientes, incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</p>
                 </div>
                 
-                <a href="#cta" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 20px;">Quiero unirme al programa</a>
+                <a href="#cta" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 30px;">Quiero unirme al programa</a>
                 
-                <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Esta experiencia transformacional comienza pronto… y no volverá a abrir este año.</p>
+                <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 20px;">Esta experiencia transformacional comienza pronto… y no volverá a abrir este año.</p>
             </div>
             
             <div class="header-photo">
@@ -1641,15 +1614,46 @@
     function setupBonusCardFlip() {
         const bonusCard = document.querySelector('.bonus-card');
         if (bonusCard) {
+            let isFlipped = false;
+            let ignoreClick = false;
+            
             // Click para desktop
-            bonusCard.addEventListener('click', function() {
+            bonusCard.addEventListener('click', function(e) {
+                if (ignoreClick) return;
+                
+                ignoreClick = true;
+                isFlipped = !isFlipped;
                 this.classList.toggle('flipped');
+                
+                setTimeout(() => {
+                    ignoreClick = false;
+                }, 800);
             });
             
             // Touch para móviles
             bonusCard.addEventListener('touchstart', function(e) {
-                e.preventDefault();
+                if (ignoreClick) return;
+                
+                // Verificar si el toque fue en el contenido desplazable
+                const content = this.querySelector('.bonus-content');
+                if (content && content.scrollHeight > content.clientHeight) {
+                    // Si hay scroll, no voltear la tarjeta
+                    const touchY = e.touches[0].clientY;
+                    const rect = content.getBoundingClientRect();
+                    
+                    if (touchY >= rect.top && touchY <= rect.bottom) {
+                        // El toque fue dentro del área desplazable
+                        return;
+                    }
+                }
+                
+                ignoreClick = true;
+                isFlipped = !isFlipped;
                 this.classList.toggle('flipped');
+                
+                setTimeout(() => {
+                    ignoreClick = false;
+                }, 800);
             }, {passive: false});
         }
     }
