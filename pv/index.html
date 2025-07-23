@@ -505,6 +505,55 @@
             line-height: 1.6;
         }
 
+        /* NUEVO ESTILO PARA MÓDULOS */
+        .modules-banners {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .module-banner {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .module-banner img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .module-banner:hover img {
+            transform: scale(1.02);
+        }
+
+        .module-overlay {
+            padding: 20px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 0 0 8px 8px;
+        }
+
+        .module-overlay h3 {
+            color: var(--rojo-profundo);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .module-overlay p {
+            color: var(--marron);
+            line-height: 1.5;
+        }
+
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
         @media (max-width: 768px) {
             /* Contador responsive */
@@ -621,6 +670,23 @@
             /* Secciones */
             .section-title {
                 font-size: 1.5rem;
+            }
+
+            /* Módulos responsive */
+            .module-banner {
+                max-width: 100%;
+            }
+
+            .module-banner img {
+                max-width: 100%;
+            }
+
+            .module-overlay {
+                padding: 15px;
+            }
+
+            .module-overlay h3 {
+                font-size: 1.1rem;
             }
         }
         
@@ -1113,7 +1179,7 @@
                     <p class="program-description">Este recorrido está diseñado para vivirse en tiempo real junto a una comunidad que también está lista para transformar su historia afectiva. Además, tendrás acceso a todas las grabaciones para avanzar a tu ritmo.</p>
                 </div>
                 
-                <!-- Módulos con banners -->
+                <!-- Módulos con banners - NUEVO DISEÑO -->
                 <div class="modules-banners">
                     <div class="module-banner">
                         <img src="m1.webp" alt="Módulo 1 - Masculino y Femenino: Tomar y Honrar las Polaridades" loading="lazy">
