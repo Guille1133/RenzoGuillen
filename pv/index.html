@@ -658,33 +658,33 @@
 
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
         @media (max-width: 768px) {
-            /* Header ajustado por contador fijo */
+            /* Header ajustado - AQUÍ ESTÁ LA CORRECCIÓN */
             header {
-                margin-top: 76px; /* Reducido para eliminar espacio blanco */
-                min-height: calc(100vh - 76px);
+                /* Sin margin-top - eliminamos el espacio blanco */
+                min-height: calc(100vh - 66px); /* Altura exacta menos el contador */
                 padding: 0;
-                background-position: 30% center; /* Más a la izquierda en mobile */
+                background-position: 30% center;
             }
             
             .header-container {
                 display: flex;
                 flex-direction: column;
-                min-height: calc(100vh - 76px);
+                min-height: calc(100vh - 66px); /* Misma altura que el header */
                 height: auto;
                 gap: 0;
                 overflow: hidden;
-                justify-content: flex-start; /* Alineado arriba */
+                justify-content: flex-start;
                 padding-top: 0;
             }
             
             .header-content {
                 order: 1;
-                padding: 20px 0 10px 0; /* Menos padding para reducir espacio */
+                padding: 20px 0 10px 0;
                 text-align: center;
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start; /* Alineado arriba */
+                justify-content: flex-start;
                 margin-top: 0;
             }
             
@@ -823,10 +823,15 @@
                 font-size: 0.55rem;
             }
 
-            /* Header ajustado */
+            /* Header ajustado - CORRECCIÓN PARA MÓVILES PEQUEÑOS */
             header {
-                margin-top: 76px; /* Ajuste fino para móviles pequeños */
-                background-position: 25% center; /* Más a la izquierda en móviles pequeños */
+                /* Sin margin-top */
+                min-height: calc(100vh - 64px); /* Altura menos contador más pequeño */
+                background-position: 25% center;
+            }
+            
+            .header-container {
+                min-height: calc(100vh - 64px);
             }
             
             .header-content {
