@@ -660,16 +660,16 @@
         @media (max-width: 768px) {
             /* Header ajustado por contador fijo */
             header {
-                margin-top: 80px; /* Reducido para eliminar espacio blanco */
-                min-height: calc(100vh - 80px);
+                margin-top: 76px; /* Reducido para eliminar espacio blanco */
+                min-height: calc(100vh - 76px);
                 padding: 0;
-                background-position: 75% center; /* Más a la izquierda */
+                background-position: 30% center; /* Más a la izquierda en mobile */
             }
             
             .header-container {
                 display: flex;
                 flex-direction: column;
-                min-height: calc(100vh - 80px);
+                min-height: calc(100vh - 76px);
                 height: auto;
                 gap: 0;
                 overflow: hidden;
@@ -826,7 +826,7 @@
             /* Header ajustado */
             header {
                 margin-top: 76px; /* Ajuste fino para móviles pequeños */
-                background-position: 80% center; /* Más a la derecha en móviles pequeños */
+                background-position: 25% center; /* Más a la izquierda en móviles pequeños */
             }
             
             .header-content {
@@ -873,12 +873,21 @@
             }
         }
 
-        /* Ajustes para PC - imágenes de módulos no cortadas */
+        /* Ajustes para PC - imágenes de módulos sin fondo */
         @media (min-width: 769px) {
             .module-image {
                 height: 300px; /* Más alto para PC */
-                object-fit: contain; /* Asegura que la imagen completa se vea */
-                background-color: #f5f5f5; /* Fondo para áreas no cubiertas por la imagen */
+                object-fit: cover; /* Cambiado a cover para PC */
+                background-color: transparent; /* Sin fondo */
+            }
+
+            /* Bono más ancho en PC */
+            .bonus-card-container {
+                max-width: 800px; /* Más ancho en PC */
+            }
+
+            .bonus-card-front img {
+                object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
             }
         }
 
