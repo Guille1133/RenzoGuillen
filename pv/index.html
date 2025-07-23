@@ -297,9 +297,9 @@
             }
         }
 
-        /* Header - MEJORADO */
+        /* Header - RESTAURADO AL ORIGINAL */
         header {
-            background: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=2025&auto=format&fit=crop') no-repeat center center / cover;
+            background: url('banner.webp') no-repeat center center / cover;
             color: white;
             padding: 20px 0 0 0;
             position: relative;
@@ -308,20 +308,7 @@
             z-index: 1;
         }
 
-        /* Overlay para mejorar legibilidad */
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(0, 0, 0, 0.7) 0%, 
-                rgba(162, 31, 24, 0.4) 50%, 
-                rgba(0, 0, 0, 0.7) 100%);
-            z-index: 1;
-        }
+        /* Eliminar overlay para mantener original */
         
         .header-container {
             display: grid;
@@ -1098,7 +1085,7 @@
     <section class="content-section dark-section">
         <div class="container">
             <h2 class="section-title">Lo que pasará cuando entres a este proceso</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: rgba(255,255,255,0.9);">Estas son 5 transformaciones reales que puedes esperar desde el primer módulo:</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: rgba(255,255,255,0.9);">Estas son 6 transformaciones reales que puedes esperar desde el primer módulo:</p>
             
             <div class="benefits-container">
                 <div class="benefit-item">
@@ -1129,6 +1116,12 @@
                     <div class="benefit-icon">🌱</div>
                     <h3 class="benefit-title">Reconstruirás vínculos</h3>
                     <p class="benefit-description">Desde un lugar consciente, con más libertad, claridad y amor propio.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔮</div>
+                    <h3 class="benefit-title">Te reconciliarás con tu historia familiar</h3>
+                    <p class="benefit-description">Honrando a quienes vinieron antes sin cargar sus destinos… y liberándote para vivir tu propio camino con más paz.</p>
                 </div>
             </div>
         </div>
