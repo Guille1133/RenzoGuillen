@@ -297,7 +297,7 @@
             }
         }
 
-        /* Header - RESTAURADO AL ORIGINAL */
+        /* Header - VOLVER AL DISEÑO ORIGINAL EXACTO */
         header {
             background: url('banner.webp') no-repeat center center / cover;
             color: white;
@@ -307,8 +307,6 @@
             min-height: 600px;
             z-index: 1;
         }
-
-        /* Eliminar overlay para mantener original */
         
         .header-container {
             display: grid;
@@ -383,42 +381,42 @@
             line-height: 1.1;
         }
         
-        /* NUEVO TÍTULO PROFESIONAL */
+        /* TÍTULO ORIGINAL CON GRADIENTE PERO SIMPLIFICADO */
         .main-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-family: 'Anton', sans-serif;
+            font-weight: normal;
             color: white;
             text-shadow: 
-                3px 3px 6px rgba(0, 0, 0, 0.8),
-                0 0 30px rgba(255, 255, 255, 0.1);
-            letter-spacing: 1px;
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.1);
+            letter-spacing: 2px;
+            text-transform: uppercase;
             display: block;
             background: linear-gradient(135deg, 
                 #ffffff 0%, 
                 #f8f8f8 25%, 
-                var(--mostaza) 50%, 
-                #f8f8f8 75%, 
+                #ffffff 50%, 
+                #f0f0f0 75%, 
                 #ffffff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             position: relative;
-            line-height: 1.2;
         }
         
         .main-title::after {
             content: '';
             position: absolute;
-            bottom: -12px;
+            bottom: -8px;
             left: 0;
-            width: 120px;
-            height: 4px;
+            width: 100%;
+            height: 3px;
             background: linear-gradient(90deg, 
                 var(--mostaza) 0%, 
                 #FFD700 50%, 
                 var(--mostaza) 100%);
             border-radius: 2px;
-            box-shadow: 0 3px 10px rgba(222, 172, 70, 0.5);
+            box-shadow: 0 2px 8px rgba(222, 172, 70, 0.4);
         }
         
         .hero-text p {
@@ -431,7 +429,7 @@
             font-weight: 700;
         }
         
-        /* Foto de Renzo */
+        /* Foto de Renzo - EXACTO COMO EL ORIGINAL */
         .renzo-photo {
             height: 90%;
             max-height: none;
@@ -1050,18 +1048,17 @@
         <div class="container header-container">
             <div class="header-content">
                 <div class="hero-text">
-                    <h1><span class="main-title">Transforma tu Historia Afectiva y Crea Vínculos Conscientes</span></h1>
-                    <p>Un programa sistémico de 3 meses para sanar relaciones desde la raíz, reconciliarte con tu pasado y atraer el amor que realmente mereces.</p>
-                    <p><strong>Incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</strong></p>
+                    <h1><span class="main-title">Reconcilia tu historia afectiva</span></h1>
+                    <p>Crea vínculos más sanos y conscientes, incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</p>
                 </div>
                 
-                <a href="#cta" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 20px;">Quiero transformar mi historia afectiva</a>
+                <a href="#cta" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 20px;">Quiero unirme al programa</a>
                 
-                <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8);">⚡ Esta experiencia transformacional comienza pronto y no volverá a abrir este año.</p>
+                <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Esta experiencia transformacional comienza pronto… y no volverá a abrir este año.</p>
             </div>
             
             <div class="header-photo">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Renzo Alfaro Guillén" class="renzo-photo" width="400" height="600">
+                <img src="renzo.webp" alt="Renzo Alfaro Guillén" class="renzo-photo" width="400" height="600">
             </div>
         </div>
     </header>
