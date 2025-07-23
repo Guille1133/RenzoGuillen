@@ -396,6 +396,24 @@
             background: var(--mostaza);
             border-radius: 2px;
         }
+
+        /* Subrayado amarillo para "historia" */
+        .highlight-history {
+            position: relative;
+            display: inline;
+        }
+        
+        .highlight-history::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: var(--mostaza);
+            opacity: 0.7;
+            z-index: -1;
+        }
         
         .hero-text p {
             font-size: 1.2rem;
@@ -466,7 +484,7 @@
             box-shadow: 0 0 10px rgba(222, 172, 70, 0.5);
         }
         
-        /* Beneficios */
+        /* Beneficios - MEJORADO TIPOGRAFÍA */
         .benefits-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -498,14 +516,19 @@
             font-size: 1.3rem;
             margin-bottom: 15px;
             color: white;
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
         }
         
         .benefit-description {
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
+            font-size: 1rem;
         }
 
-        /* NUEVO ESTILO PARA MÓDULOS */
+        /* MÓDULOS - MEJORADO TIPOGRAFÍA */
         .modules-banners {
             display: flex;
             flex-direction: column;
@@ -538,20 +561,97 @@
         }
 
         .module-overlay {
-            padding: 20px;
-            background: rgba(255,255,255,0.9);
+            padding: 25px 20px;
+            background: rgba(255,255,255,0.95);
             border-radius: 0 0 8px 8px;
         }
 
         .module-overlay h3 {
             color: var(--rojo-profundo);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+            padding: 0 10px;
         }
 
         .module-overlay p {
             color: var(--marron);
             line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        /* BONO EXCLUSIVO - EFECTO DE CARTA VOLTEABLE */
+        .bonus-card-container {
+            perspective: 1000px;
+            max-width: 600px;
+            margin: 40px auto 0;
+            height: 400px;
+        }
+
+        .bonus-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .bonus-card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .bonus-card-front, .bonus-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .bonus-card-front {
+            background-color: var(--rojo-profundo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bonus-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bonus-card-back {
+            background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
+            color: white;
+            transform: rotateY(180deg);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bonus-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--mostaza);
+            text-align: center;
+        }
+
+        .bonus-content {
+            overflow-y: auto;
+            max-height: 300px;
+            padding-right: 10px;
+        }
+
+        .bonus-content p {
+            margin-bottom: 15px;
         }
 
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
@@ -682,11 +782,29 @@
             }
 
             .module-overlay {
-                padding: 15px;
+                padding: 20px 15px;
             }
 
             .module-overlay h3 {
-                font-size: 1.1rem;
+                font-size: 1.15rem;
+                margin-bottom: 12px;
+            }
+
+            .benefit-title {
+                font-size: 1.2rem;
+            }
+
+            /* Bono responsive */
+            .bonus-card-container {
+                height: 350px;
+            }
+
+            .bonus-card-back {
+                padding: 20px;
+            }
+
+            .bonus-title {
+                font-size: 1.3rem;
             }
         }
         
@@ -755,6 +873,23 @@
             .section-title {
                 font-size: 1.3rem;
             }
+
+            .benefit-title {
+                font-size: 1.1rem;
+            }
+            
+            .module-overlay h3 {
+                font-size: 1.05rem;
+            }
+
+            /* Bono responsive */
+            .bonus-card-container {
+                height: 300px;
+            }
+
+            .bonus-title {
+                font-size: 1.1rem;
+            }
         }
 
         /* Resto del CSS original para otras secciones */
@@ -791,7 +926,7 @@
             line-height: 1.6;
         }
         
-        /* Calendario */
+        /* Calendario - Modificado para más espacio */
         .calendar-container {
             background: rgba(0, 0, 0, 0.1);
             padding: 30px;
@@ -801,60 +936,56 @@
         
         .calendar-item {
             display: flex;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
+            margin-bottom: 20px; /* Más espacio entre elementos */
+            padding-bottom: 20px; /* Más espacio interno */
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap; /* Para responsive */
+            gap: 15px; /* Espacio entre fecha y evento */
+            align-items: center;
         }
         
         .calendar-date {
             font-weight: 700;
             color: var(--mostaza);
             min-width: 120px;
+            flex: 1;
         }
         
         .calendar-event {
             color: white;
+            flex: 3;
         }
         
-        /* Inversión */
+        /* Inversión - Modificado para mejor espaciado */
         .investment-container {
             text-align: center;
             margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Espacio uniforme entre elementos */
         }
         
         .price {
             font-size: 3rem;
             font-family: 'Anton', sans-serif;
             color: var(--mostaza);
-            margin: 20px 0;
+            margin: 10px 0; /* Menos margen */
         }
         
         .payment-methods {
-            margin: 20px 0;
+            margin: 10px 0; /* Menos margen */
             color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
         }
         
         .guarantee {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 5px;
-            margin-top: 30px;
+            margin-top: 20px; /* Menos margen superior */
             border: 1px dashed var(--mostaza);
-        }
-        
-        /* Bono */
-        .bonus-container {
-            background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
-            padding: 30px;
-            border-radius: 5px;
-            margin-top: 40px;
-            color: white;
-        }
-        
-        .bonus-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--mostaza);
+            max-width: 600px;
         }
         
         /* FAQ */
@@ -1092,7 +1223,7 @@
         <div class="container header-container">
             <div class="header-content">
                 <div class="hero-text">
-                    <h1><span class="main-title">Reconcilia tu historia afectiva</span></h1>
+                    <h1><span class="main-title">Reconcilia tu <span class="highlight-history">historia</span> afectiva</span></h1>
                     <p>Crea vínculos más sanos y conscientes, incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</p>
                 </div>
                 
@@ -1272,9 +1403,8 @@
             <div class="investment-container">
                 <p>Precio lanzamiento:</p>
                 <div class="price">$147 USD</div>
+                <a href="#cta" class="btn btn-primary pulse-cta">Quiero unirme al programa</a>
                 <p class="payment-methods">Puedes pagar con tarjeta, PayPal o transferencia.<br>Acceso inmediato. Acceso POR 1 AÑO</p>
-                
-                <a href="#cta" class="btn btn-primary">Quiero unirme al programa</a>
                 
                 <div class="guarantee">
                     <h3>🛡️ Garantía de satisfacción</h3>
@@ -1289,23 +1419,32 @@
         <div class="container">
             <h2 class="section-title">Bono exclusivo</h2>
             
-            <div class="bonus-container">
-                <h3 class="bonus-title">🎁 CURSO EN VIVO: AMOR A SEGUNDA VISTA</h3>
-                <p>La pareja tiene el rostro de mamá</p>
-                <p style="margin: 15px 0;">Al inscribirte al programa, accedes gratis a un curso de 3 clases EN VIVO donde profundizaremos en los pilares ocultos del amor de pareja.</p>
-                
-                <div style="margin: 20px 0;">
-                    <p><strong>🔸 Clase 1:</strong> Amor a Segunda Vista</p>
-                    <p style="margin-left: 20px;">Lo que no viste antes en tus relaciones y cómo abrir los ojos desde el alma.</p>
-                    
-                    <p><strong>🔸 Clase 2:</strong> La Pareja Tiene el Rostro de Mamá</p>
-                    <p style="margin-left: 20px;">Cómo tus conflictos con mamá se manifiestan en tu vida amorosa.</p>
-                    
-                    <p><strong>🔸 Clase 3:</strong> Los Pilares de la Pareja y los Conflictos de Ella</p>
-                    <p style="margin-left: 20px;">Orden, pertenencia y jerarquía: la clave para una relación equilibrada.</p>
+            <div class="bonus-card-container">
+                <div class="bonus-card">
+                    <div class="bonus-card-front">
+                        <img src="bono.webp" alt="Bono Exclusivo - Amor a Segunda Vista">
+                    </div>
+                    <div class="bonus-card-back">
+                        <h3 class="bonus-title">🎁 CURSO EN VIVO: AMOR A SEGUNDA VISTA</h3>
+                        <div class="bonus-content">
+                            <p>La pareja tiene el rostro de mamá</p>
+                            <p>Al inscribirte al programa, accedes gratis a un curso de 3 clases EN VIVO donde profundizaremos en los pilares ocultos del amor de pareja.</p>
+                            
+                            <div style="margin: 15px 0;">
+                                <p><strong>🔸 Clase 1:</strong> Amor a Segunda Vista</p>
+                                <p style="margin-left: 20px;">Lo que no viste antes en tus relaciones y cómo abrir los ojos desde el alma.</p>
+                                
+                                <p><strong>🔸 Clase 2:</strong> La Pareja Tiene el Rostro de Mamá</p>
+                                <p style="margin-left: 20px;">Cómo tus conflictos con mamá se manifiestan en tu vida amorosa.</p>
+                                
+                                <p><strong>🔸 Clase 3:</strong> Los Pilares de la Pareja y los Conflictos de Ella</p>
+                                <p style="margin-left: 20px;">Orden, pertenencia y jerarquía: la clave para una relación equilibrada.</p>
+                            </div>
+                            
+                            <p>👉 Este curso es EN VIVO, exclusivo para estudiantes del programa. Un espacio íntimo, terapéutico y revelador para integrar la transformación.</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <p>👉 Este curso es EN VIVO, exclusivo para estudiantes del programa. Un espacio íntimo, terapéutico y revelador para integrar la transformación.</p>
             </div>
         </div>
     </section>
@@ -1440,7 +1579,7 @@
     <script>
     // Preload de imágenes críticas para evitar layout shifts
     function preloadCriticalImages() {
-        const criticalImages = ['logo.webp', 'foto2.webp', 'fondo.webp', 'renzo.webp'];
+        const criticalImages = ['logo.webp', 'foto2.webp', 'fondo.webp', 'renzo.webp', 'bono.webp'];
         criticalImages.forEach(src => {
             const img = new Image();
             img.src = src;
@@ -1517,6 +1656,16 @@
             });
         });
     }
+
+    // Efecto de carta volteable en móviles (touch)
+    function setupBonusCardFlip() {
+        const bonusCard = document.querySelector('.bonus-card');
+        if (bonusCard) {
+            bonusCard.addEventListener('click', function() {
+                this.classList.toggle('flipped');
+            });
+        }
+    }
     
     // Ejecutar setup después de que DOM y recursos estén listos
     document.addEventListener("DOMContentLoaded", function () {
@@ -1532,6 +1681,9 @@
         
         // Configurar smooth scroll
         setupSmoothScroll();
+
+        // Configurar efecto de carta para móviles
+        setupBonusCardFlip();
         
         // Tracking de clicks en botones CTA
         document.querySelectorAll('.btn-primary').forEach(button => {
