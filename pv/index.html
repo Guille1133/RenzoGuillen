@@ -179,7 +179,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* NUEVO CONTADOR PROFESIONAL Y RESPONSIVO */
+        /* NUEVO CONTADOR STICKY PROFESIONAL */
         .countdown-banner {
             position: sticky;
             top: 0;
@@ -318,7 +318,7 @@
             padding-bottom: 60px;
             position: relative;
             z-index: 2;
-            margin-top: 40px; /* Añadido para bajar el contenido */
+            margin-top: 40px;
         }
         
         .header-photo {
@@ -387,18 +387,7 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
         
-        .main-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 120px;
-            height: 3px;
-            background: var(--mostaza);
-            border-radius: 2px;
-        }
-
-        /* Subrayado amarillo para "historia" */
+        /* Subrayado amarillo para "historia" - SOLO UNO */
         .highlight-history {
             position: relative;
             display: inline;
@@ -529,68 +518,63 @@
             font-size: 1rem;
         }
 
-        /* MÓDULOS - MEJORADO TIPOGRAFÍA */
-        .modules-banners {
+        /* MÓDULOS - NUEVO DISEÑO CON IMAGENES COMPLETAS Y TEXTO ABAJO */
+        .modules-container {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 40px;
             margin: 40px 0;
         }
 
-        .module-banner {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .module-item {
+            display: flex;
+            flex-direction: column;
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
-            min-height: 350px; /* Asegura altura uniforme */
+            width: 100%;
         }
 
-        .module-banner img {
+        .module-image {
             width: 100%;
-            height: 200px; /* Altura fija para todas las imágenes */
+            height: 250px;
             object-fit: cover;
-            display: block;
-            margin: 0 auto;
-            border-radius: 8px 8px 0 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
 
-        .module-banner:hover img {
+        .module-image:hover {
             transform: scale(1.02);
         }
 
-        .module-overlay {
-            padding: 25px 20px;
-            background: rgba(255,255,255,0.95);
-            border-radius: 0 0 8px 8px;
-            min-height: 150px; /* Asegura altura uniforme */
+        .module-text {
+            padding: 20px 0;
+            text-align: center;
         }
 
-        .module-overlay h3 {
+        .module-text h3 {
             color: var(--rojo-profundo);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
             font-family: 'Libre Baskerville', serif;
             font-weight: 700;
-            letter-spacing: 0.3px;
-            line-height: 1.4;
-            padding: 0 10px;
         }
 
-        .module-overlay p {
+        .module-text p {
             color: var(--marron);
-            line-height: 1.5;
-            font-size: 1rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
         /* BONO EXCLUSIVO - EFECTO DE CARTA VOLTEABLE */
+        .bonus-section {
+            text-align: center;
+        }
+
         .bonus-card-container {
             perspective: 1000px;
-            max-width: 650px; /* Más ancho para evitar corte */
-            margin: 40px auto 0;
+            max-width: 650px;
+            margin: 30px auto 0;
             height: 400px;
         }
 
@@ -658,6 +642,13 @@
             margin-bottom: 15px;
         }
 
+        .bonus-instruction {
+            margin-top: 15px;
+            font-style: italic;
+            color: var(--mostaza);
+            font-size: 0.9rem;
+        }
+
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
         @media (max-width: 768px) {
             /* Contador responsive */
@@ -703,7 +694,7 @@
 
             /* Header ajustado por contador fijo */
             header {
-                margin-top: 120px; /* Espacio para contador fijo */
+                margin-top: 120px;
                 min-height: calc(100vh - 120px);
                 padding: 20px 0;
             }
@@ -755,14 +746,6 @@
                 object-position: bottom center;
             }
             
-            .logo {
-                justify-content: center;
-            }
-            
-            .hero-text {
-                text-align: center;
-            }
-
             .hero-text h1 {
                 font-size: 2.8rem;
             }
@@ -778,27 +761,15 @@
             }
 
             /* Módulos responsive */
-            .module-banner {
+            .module-item {
                 max-width: 100%;
-                min-height: auto;
             }
 
-            .module-banner img {
-                max-width: 100%;
-                height: auto;
+            .module-image {
+                height: 200px;
             }
 
-            .module-overlay {
-                padding: 20px 15px;
-                min-height: auto;
-            }
-
-            .module-overlay h3 {
-                font-size: 1.15rem;
-                margin-bottom: 12px;
-            }
-
-            .benefit-title {
+            .module-text h3 {
                 font-size: 1.2rem;
             }
 
@@ -870,10 +841,6 @@
                 font-size: 2.2rem;
             }
             
-            .main-title {
-                letter-spacing: 0.5px;
-            }
-            
             .hero-text p {
                 font-size: 1rem;
             }
@@ -883,12 +850,13 @@
                 font-size: 1.3rem;
             }
 
-            .benefit-title {
-                font-size: 1.1rem;
+            /* Módulos responsive */
+            .module-image {
+                height: 180px;
             }
-            
-            .module-overlay h3 {
-                font-size: 1.05rem;
+
+            .module-text h3 {
+                font-size: 1.1rem;
             }
 
             /* Bono responsive */
@@ -945,11 +913,11 @@
         
         .calendar-item {
             display: flex;
-            margin-bottom: 20px; /* Más espacio entre elementos */
-            padding-bottom: 20px; /* Más espacio interno */
+            margin-bottom: 20px;
+            padding-bottom: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            flex-wrap: wrap; /* Para responsive */
-            gap: 15px; /* Espacio entre fecha y evento */
+            flex-wrap: wrap;
+            gap: 15px;
             align-items: center;
         }
         
@@ -972,18 +940,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px; /* Espacio uniforme entre elementos */
+            gap: 20px;
         }
         
         .price {
             font-size: 3rem;
             font-family: 'Anton', sans-serif;
             color: var(--mostaza);
-            margin: 10px 0; /* Menos margen */
+            margin: 10px 0;
         }
         
         .payment-methods {
-            margin: 10px 0; /* Menos margen */
+            margin: 10px 0;
             color: rgba(255, 255, 255, 0.8);
             max-width: 600px;
         }
@@ -992,7 +960,7 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 5px;
-            margin-top: 20px; /* Menos margen superior */
+            margin-top: 20px;
             border: 1px dashed var(--mostaza);
             max-width: 600px;
         }
@@ -1319,43 +1287,43 @@
                     <p class="program-description">Este recorrido está diseñado para vivirse en tiempo real junto a una comunidad que también está lista para transformar su historia afectiva. Además, tendrás acceso a todas las grabaciones para avanzar a tu ritmo.</p>
                 </div>
                 
-                <!-- Módulos con banners - NUEVO DISEÑO -->
-                <div class="modules-banners">
-                    <div class="module-banner">
-                        <img src="m1.webp" alt="Módulo 1 - Masculino y Femenino: Tomar y Honrar las Polaridades" loading="lazy">
-                        <div class="module-overlay">
+                <!-- Módulos con nuevo diseño -->
+                <div class="modules-container">
+                    <div class="module-item">
+                        <img src="m1.webp" alt="Módulo 1 - Masculino y Femenino: Tomar y Honrar las Polaridades" class="module-image" loading="lazy">
+                        <div class="module-text">
                             <h3>Masculino y Femenino: Tomar y Honrar las Polaridades</h3>
                             <p>Descubre cómo estás rechazando o inflando una de tus energías y cómo recuperar tu equilibrio interior.</p>
                         </div>
                     </div>
                     
-                    <div class="module-banner">
-                        <img src="m2.webp" alt="Módulo 2 - Respeto y Amor Natural: Recupera el Respeto hacia el Otro Sexo" loading="lazy">
-                        <div class="module-overlay">
+                    <div class="module-item">
+                        <img src="m2.webp" alt="Módulo 2 - Respeto y Amor Natural: Recupera el Respeto hacia el Otro Sexo" class="module-image" loading="lazy">
+                        <div class="module-text">
                             <h3>Respeto y Amor Natural: Recupera el Respeto hacia el Otro Sexo</h3>
                             <p>Sana las heridas invisibles de tu linaje que te hacen desconfiar, rechazar o luchar con el otro sexo.</p>
                         </div>
                     </div>
                     
-                    <div class="module-banner">
-                        <img src="m3.webp" alt="Módulo 3 - Exparejas: Dejar Ir y Tomar la Vida" loading="lazy">
-                        <div class="module-overlay">
+                    <div class="module-item">
+                        <img src="m3.webp" alt="Módulo 3 - Exparejas: Dejar Ir y Tomar la Vida" class="module-image" loading="lazy">
+                        <div class="module-text">
                             <h3>Exparejas: Dejar Ir y Tomar la Vida</h3>
                             <p>Libérate de los vínculos pasados que siguen vivos dentro de ti y honra lo vivido para abrirte a nuevas posibilidades.</p>
                         </div>
                     </div>
                     
-                    <div class="module-banner">
-                        <img src="m4.webp" alt="Módulo 4 - Sexualidad e Intimidad: Placer, Presencia y Respeto" loading="lazy">
-                        <div class="module-overlay">
+                    <div class="module-item">
+                        <img src="m4.webp" alt="Módulo 4 - Sexualidad e Intimidad: Placer, Presencia y Respeto" class="module-image" loading="lazy">
+                        <div class="module-text">
                             <h3>Sexualidad e Intimidad: Placer, Presencia y Respeto</h3>
                             <p>Reconcilia tu cuerpo, tu deseo y tu historia sexual con amor, libertad y profundidad.</p>
                         </div>
                     </div>
                     
-                    <div class="module-banner">
-                        <img src="m5.webp" alt="Módulo 5 - Campos Mórficos: Memorias Invisibles que Nos Condicionan" loading="lazy">
-                        <div class="module-overlay">
+                    <div class="module-item">
+                        <img src="m5.webp" alt="Módulo 5 - Campos Mórficos: Memorias Invisibles que Nos Condicionan" class="module-image" loading="lazy">
+                        <div class="module-text">
                             <h3>Campos Mórficos: Memorias Invisibles que Nos Condicionan</h3>
                             <p>Accede a los patrones colectivos e inconscientes que habitan en tu sistema familiar… y libérate desde el asentimiento.</p>
                         </div>
@@ -1428,32 +1396,35 @@
         <div class="container">
             <h2 class="section-title">Bono exclusivo</h2>
             
-            <div class="bonus-card-container">
-                <div class="bonus-card">
-                    <div class="bonus-card-front">
-                        <img src="bono.webp" alt="Bono Exclusivo - Amor a Segunda Vista">
-                    </div>
-                    <div class="bonus-card-back">
-                        <h3 class="bonus-title">🎁 CURSO EN VIVO: AMOR A SEGUNDA VISTA</h3>
-                        <div class="bonus-content">
-                            <p>La pareja tiene el rostro de mamá</p>
-                            <p>Al inscribirte al programa, accedes gratis a un curso de 3 clases EN VIVO donde profundizaremos en los pilares ocultos del amor de pareja.</p>
-                            
-                            <div style="margin: 15px 0;">
-                                <p><strong>🔸 Clase 1:</strong> Amor a Segunda Vista</p>
-                                <p style="margin-left: 20px;">Lo que no viste antes en tus relaciones y cómo abrir los ojos desde el alma.</p>
+            <div class="bonus-section">
+                <div class="bonus-card-container">
+                    <div class="bonus-card">
+                        <div class="bonus-card-front">
+                            <img src="bono.webp" alt="Bono Exclusivo - Amor a Segunda Vista">
+                        </div>
+                        <div class="bonus-card-back">
+                            <h3 class="bonus-title">🎁 CURSO EN VIVO: AMOR A SEGUNDA VISTA</h3>
+                            <div class="bonus-content">
+                                <p>La pareja tiene el rostro de mamá</p>
+                                <p>Al inscribirte al programa, accedes gratis a un curso de 3 clases EN VIVO donde profundizaremos en los pilares ocultos del amor de pareja.</p>
                                 
-                                <p><strong>🔸 Clase 2:</strong> La Pareja Tiene el Rostro de Mamá</p>
-                                <p style="margin-left: 20px;">Cómo tus conflictos con mamá se manifiestan en tu vida amorosa.</p>
+                                <div style="margin: 15px 0;">
+                                    <p><strong>🔸 Clase 1:</strong> Amor a Segunda Vista</p>
+                                    <p style="margin-left: 20px;">Lo que no viste antes en tus relaciones y cómo abrir los ojos desde el alma.</p>
+                                    
+                                    <p><strong>🔸 Clase 2:</strong> La Pareja Tiene el Rostro de Mamá</p>
+                                    <p style="margin-left: 20px;">Cómo tus conflictos con mamá se manifiestan en tu vida amorosa.</p>
+                                    
+                                    <p><strong>🔸 Clase 3:</strong> Los Pilares de la Pareja y los Conflictos de Ella</p>
+                                    <p style="margin-left: 20px;">Orden, pertenencia y jerarquía: la clave para una relación equilibrada.</p>
+                                </div>
                                 
-                                <p><strong>🔸 Clase 3:</strong> Los Pilares de la Pareja y los Conflictos de Ella</p>
-                                <p style="margin-left: 20px;">Orden, pertenencia y jerarquía: la clave para una relación equilibrada.</p>
+                                <p>👉 Este curso es EN VIVO, exclusivo para estudiantes del programa. Un espacio íntimo, terapéutico y revelador para integrar la transformación.</p>
                             </div>
-                            
-                            <p>👉 Este curso es EN VIVO, exclusivo para estudiantes del programa. Un espacio íntimo, terapéutico y revelador para integrar la transformación.</p>
                         </div>
                     </div>
                 </div>
+                <p class="bonus-instruction">(Haz clic en la tarjeta para ver los detalles del bono)</p>
             </div>
         </div>
     </section>
