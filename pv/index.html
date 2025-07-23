@@ -290,7 +290,7 @@
             }
         }
 
-        /* Header - VOLVER AL DISEÑO ORIGINAL EXACTO */
+        /* Header - MEJORADO PARA MÓVIL */
         header {
             background: url('banner.webp') no-repeat center center / cover;
             color: white;
@@ -299,6 +299,14 @@
             overflow: hidden;
             min-height: 600px;
             z-index: 1;
+        }
+        
+        /* MEJORADO: Ajustar posición del fondo en móvil */
+        @media (max-width: 768px) {
+            header {
+                background-position: 65% center; /* Mostrar más del lado derecho */
+                background-size: cover;
+            }
         }
         
         .header-container {
@@ -418,6 +426,13 @@
             z-index: -1;
         }
         
+        /* Eliminar el subrayado del main-title en móvil para evitar duplicación */
+        @media (max-width: 768px) {
+            .main-title::after {
+                display: none;
+            }
+        }
+        
         .hero-text p {
             font-size: 1.2rem;
             line-height: 1.4;
@@ -433,7 +448,7 @@
             margin-top: 40px; /* Más espacio arriba para bajar los elementos */
         }
         
-        /* Foto de Renzo - EXACTO COMO EL ORIGINAL */
+        /* Foto de Renzo - MEJORADA PARA MÓVIL */
         .renzo-photo {
             height: 90%;
             max-height: none;
@@ -446,6 +461,28 @@
             right: 10px;
             z-index: 1;
             transform: none;
+        }
+        
+        /* MEJORADO: Coordinar imagen de Renzo con la base en móvil */
+        @media (max-width: 768px) {
+            .renzo-photo {
+                position: relative;
+                bottom: -20px; /* Bajar la imagen para que toque la base */
+                right: auto;
+                max-width: 85%;
+                width: auto;
+                height: calc(100% + 20px); /* Aumentar altura para compensar */
+                max-height: calc(50vh + 20px);
+                transform: none;
+                margin: 0 auto;
+                object-fit: cover; /* Cambiar a cover para mejor ajuste */
+                object-position: bottom center;
+            }
+            
+            .header-photo {
+                overflow: visible; /* Permitir que la imagen se extienda */
+                margin-bottom: -20px; /* Compensar el espacio extra */
+            }
         }
         
         /* Secciones de contenido */
@@ -599,13 +636,14 @@
             justify-content: center;
         }
 
-        /* BONO EXCLUSIVO - EFECTO DE CARTA VOLTEABLE CORREGIDO */
+        /* BONO EXCLUSIVO - EFECTO DE CARTA VOLTEABLE MEJORADO PARA MÓVIL */
         .bonus-card-container {
             perspective: 1000px;
             max-width: 700px; /* Aumentado para evitar cortes laterales */
             margin: 40px auto 0;
             height: 450px; /* Aumentado para mejor proporción */
             cursor: pointer;
+            position: relative;
         }
 
         .bonus-card {
@@ -670,6 +708,54 @@
 
         .bonus-content p {
             margin-bottom: 15px;
+        }
+
+        /* NUEVO: Texto indicativo para móviles */
+        .bonus-hint {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            display: none;
+        }
+
+        /* MEJORADO: Ajustes para móvil */
+        @media (max-width: 768px) {
+            .bonus-card-container {
+                height: 380px; /* Más proporcionado para móvil */
+                max-width: 95%;
+                margin-bottom: 50px; /* Espacio para el hint */
+            }
+
+            .bonus-card-front {
+                background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
+                padding: 25px; /* Más padding en móvil */
+                border-radius: 20px; /* Bordes más redondeados */
+            }
+
+            .bonus-card-front img {
+                border-radius: 15px;
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain; /* Mantener proporciones */
+            }
+
+            .bonus-card-back {
+                padding: 25px 20px;
+                border-radius: 20px;
+            }
+
+            .bonus-title {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+
+            .bonus-hint {
+                display: block; /* Mostrar en móvil */
+            }
         }
 
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
@@ -814,16 +900,36 @@
 
             /* Bono responsive */
             .bonus-card-container {
-                height: 400px;
+                height: 380px; /* Más proporcionado para móvil */
                 max-width: 95%;
+                margin-bottom: 50px; /* Espacio para el hint */
+            }
+
+            .bonus-card-front {
+                background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
+                padding: 25px; /* Más padding en móvil */
+                border-radius: 20px; /* Bordes más redondeados */
+            }
+
+            .bonus-card-front img {
+                border-radius: 15px;
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain; /* Mantener proporciones */
             }
 
             .bonus-card-back {
                 padding: 25px 20px;
+                border-radius: 20px;
             }
 
             .bonus-title {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+
+            .bonus-hint {
+                display: block; /* Mostrar en móvil */
             }
         }
         
@@ -1465,6 +1571,9 @@
                             <p>👉 Este curso es EN VIVO, exclusivo para estudiantes del programa. Un espacio íntimo, terapéutico y revelador para integrar la transformación.</p>
                         </div>
                     </div>
+                </div>
+                <div class="bonus-hint">
+                    👆 Toca la imagen para ver los detalles del bono
                 </div>
             </div>
         </div>
