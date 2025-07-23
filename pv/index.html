@@ -294,7 +294,7 @@
         header {
             background: url('banner.webp') no-repeat center center / cover;
             color: white;
-            padding: 20px 0 0 0;
+            padding: 0;
             position: relative;
             overflow: hidden;
             min-height: 600px;
@@ -304,6 +304,7 @@
         @media (min-width: 769px) {
             header {
                 background-position: 60% center; /* Mueve el fondo un poco a la derecha */
+                padding: 20px 0 0 0;
             }
         }
         
@@ -579,7 +580,7 @@
 
         .bonus-card-container {
             perspective: 1000px;
-            max-width: 700px; /* Más ancho para evitar corte */
+            max-width: 800px; /* Más ancho en PC */
             margin: 30px auto 0;
             height: 450px; /* Más alto para mejor visualización */
         }
@@ -660,8 +661,8 @@
         @media (max-width: 768px) {
             /* Header ajustado por contador fijo */
             header {
-                margin-top: 76px; /* Reducido para eliminar espacio blanco */
-                min-height: calc(100vh - 76px);
+                margin-top: 0; /* Eliminado completamente el margen superior */
+                min-height: calc(100vh - 76px); /* Restamos solo la altura del contador */
                 padding: 0;
                 background-position: 30% center; /* Más a la izquierda en mobile */
             }
@@ -669,7 +670,7 @@
             .header-container {
                 display: flex;
                 flex-direction: column;
-                min-height: calc(100vh - 76px);
+                min-height: calc(100vh - 76px); /* Ajustado para altura del contador */
                 height: auto;
                 gap: 0;
                 overflow: hidden;
@@ -742,10 +743,8 @@
 
             .module-image {
                 height: 200px;
-            }
-
-            .module-text h3 {
-                font-size: 1.2rem;
+                object-fit: contain; /* Para mobile */
+                background-color: #f5f5f5; /* Fondo solo en mobile */
             }
 
             /* Bono responsive */
@@ -762,9 +761,17 @@
                 font-size: 1.3rem;
             }
             
+            .bonus-card-front img {
+                object-fit: contain; /* Para mobile */
+                background-color: var(--rojo-profundo);
+            }
+            
             /* Contador ajustado al ancho de pantalla */
             .countdown-banner {
                 padding: 10px 0;
+                position: fixed; /* Cambiado a fixed para mejor control */
+                top: 0;
+                width: 100%;
             }
             
             .countdown-content {
@@ -783,12 +790,6 @@
             .countdown-timer {
                 width: 100%;
                 justify-content: center;
-            }
-            
-            /* Bono - imagen no cortada */
-            .bonus-card-front img {
-                object-fit: contain;
-                background-color: var(--rojo-profundo);
             }
         }
         
@@ -825,7 +826,6 @@
 
             /* Header ajustado */
             header {
-                margin-top: 76px; /* Ajuste fino para móviles pequeños */
                 background-position: 25% center; /* Más a la izquierda en móviles pequeños */
             }
             
@@ -875,10 +875,14 @@
 
         /* Ajustes para PC - imágenes de módulos sin fondo */
         @media (min-width: 769px) {
+            header {
+                padding: 20px 0 0 0;
+            }
+            
             .module-image {
                 height: 300px; /* Más alto para PC */
                 object-fit: cover; /* Cambiado a cover para PC */
-                background-color: transparent; /* Sin fondo */
+                background-color: transparent; /* Sin fondo en PC */
             }
 
             /* Bono más ancho en PC */
