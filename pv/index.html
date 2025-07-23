@@ -660,53 +660,55 @@
         @media (max-width: 768px) {
             /* Header ajustado por contador fijo */
             header {
-                margin-top: 120px;
-                min-height: calc(100vh - 120px);
-                padding: 20px 0;
-                background-position: 65% center; /* Mueve el fondo a la derecha en móvil */
+                margin-top: 80px; /* Reducido para eliminar espacio blanco */
+                min-height: calc(100vh - 80px);
+                padding: 0;
+                background-position: 75% center; /* Más a la izquierda */
             }
             
             .header-container {
                 display: flex;
                 flex-direction: column;
-                min-height: calc(100vh - 120px);
+                min-height: calc(100vh - 80px);
                 height: auto;
                 gap: 0;
                 overflow: hidden;
-                justify-content: center;
+                justify-content: flex-start; /* Alineado arriba */
+                padding-top: 0;
             }
             
             .header-content {
                 order: 1;
-                padding: 40px 0 20px 0;
+                padding: 20px 0 10px 0; /* Menos padding para reducir espacio */
                 text-align: center;
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start; /* Alineado arriba */
                 margin-top: 0;
             }
             
             .header-photo {
                 order: 2;
-                height: 50vh;
-                min-height: 400px;
+                height: auto;
+                min-height: 0;
                 overflow: hidden;
                 margin: 0;
                 display: flex;
                 justify-content: center;
                 align-items: flex-end;
                 width: 100%;
+                padding-top: 0;
             }
             
             .renzo-photo {
                 position: relative;
                 bottom: 0;
                 right: auto;
-                max-width: 95%; /* Más grande en móvil */
+                max-width: 100%;
                 width: auto;
-                height: 100%;
-                max-height: 55vh; /* Más grande en móvil */
+                height: auto;
+                max-height: 50vh;
                 transform: none;
                 margin: 0 auto;
                 object-fit: contain;
@@ -714,7 +716,13 @@
             }
             
             .hero-text h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero-text p {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
             }
             
             /* Beneficios */
@@ -754,20 +762,44 @@
                 font-size: 1.3rem;
             }
             
-            /* Evitar que el toque accidental gire la tarjeta */
-            .bonus-card {
-                touch-action: pan-y;
+            /* Contador ajustado al ancho de pantalla */
+            .countdown-banner {
+                padding: 10px 0;
+            }
+            
+            .countdown-content {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                padding: 0 15px;
+            }
+            
+            .countdown-text {
+                font-size: 0.9rem;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .countdown-timer {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            /* Bono - imagen no cortada */
+            .bonus-card-front img {
+                object-fit: contain;
+                background-color: var(--rojo-profundo);
             }
         }
         
         @media (max-width: 480px) {
             /* Contador más compacto */
             .countdown-banner {
-                padding: 10px 0;
+                padding: 8px 0;
             }
 
             .countdown-content {
-                gap: 10px;
+                gap: 8px;
             }
 
             .countdown-text {
@@ -775,11 +807,11 @@
             }
 
             .countdown-timer {
-                gap: 8px;
+                gap: 5px;
             }
 
             .time-unit {
-                min-width: 45px;
+                min-width: 40px;
                 padding: 6px 4px 4px;
             }
 
@@ -793,25 +825,24 @@
 
             /* Header ajustado */
             header {
-                margin-top: 100px;
-                background-position: 70% center; /* Más a la derecha en móviles pequeños */
+                margin-top: 76px; /* Ajuste fino para móviles pequeños */
+                background-position: 80% center; /* Más a la derecha en móviles pequeños */
             }
-
+            
             .header-content {
-                padding: 30px 0 15px 0;
+                padding: 15px 0 5px 0;
             }
             
             .header-photo {
-                height: 45vh;
-                min-height: 350px;
+                height: auto;
             }
             
             .renzo-photo {
-                max-height: 50vh; /* Aún más grande en móviles pequeños */
+                max-height: 45vh;
             }
             
             .hero-text h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .hero-text p {
@@ -839,6 +870,15 @@
 
             .bonus-title {
                 font-size: 1.1rem;
+            }
+        }
+
+        /* Ajustes para PC - imágenes de módulos no cortadas */
+        @media (min-width: 769px) {
+            .module-image {
+                height: 300px; /* Más alto para PC */
+                object-fit: contain; /* Asegura que la imagen completa se vea */
+                background-color: #f5f5f5; /* Fondo para áreas no cubiertas por la imagen */
             }
         }
 
