@@ -290,7 +290,7 @@
             }
         }
 
-        /* Header - MEJORADO PARA MÓVIL */
+        /* Header - VOLVER AL DISEÑO ORIGINAL EXACTO */
         header {
             background: url('banner.webp') no-repeat center center / cover;
             color: white;
@@ -299,14 +299,6 @@
             overflow: hidden;
             min-height: 600px;
             z-index: 1;
-        }
-        
-        /* MEJORADO: Ajustar posición del fondo en móvil */
-        @media (max-width: 768px) {
-            header {
-                background-position: 65% center; /* Mostrar más del lado derecho */
-                background-size: cover;
-            }
         }
         
         .header-container {
@@ -323,12 +315,10 @@
         
         .header-content {
             text-align: left;
-            padding-bottom: 100px; /* Aumentado para centrar mejor con el fondo */
+            padding-bottom: 60px;
             position: relative;
             z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            margin-top: 40px; /* Añadido para bajar el contenido */
         }
         
         .header-photo {
@@ -408,7 +398,7 @@
             border-radius: 2px;
         }
 
-        /* CORREGIDO: Subrayado amarillo ÚNICO y completo para "historia" */
+        /* Subrayado amarillo para "historia" */
         .highlight-history {
             position: relative;
             display: inline;
@@ -417,20 +407,13 @@
         .highlight-history::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -2px;
             left: 0;
             width: 100%;
-            height: 8px;
+            height: 6px;
             background-color: var(--mostaza);
-            opacity: 0.8;
+            opacity: 0.7;
             z-index: -1;
-        }
-        
-        /* Eliminar el subrayado del main-title en móvil para evitar duplicación */
-        @media (max-width: 768px) {
-            .main-title::after {
-                display: none;
-            }
         }
         
         .hero-text p {
@@ -443,12 +426,7 @@
             font-weight: 700;
         }
         
-        /* CTA elements positioned lower */
-        .cta-elements {
-            margin-top: 40px; /* Más espacio arriba para bajar los elementos */
-        }
-        
-        /* Foto de Renzo - MEJORADA PARA MÓVIL */
+        /* Foto de Renzo - EXACTO COMO EL ORIGINAL */
         .renzo-photo {
             height: 90%;
             max-height: none;
@@ -461,28 +439,6 @@
             right: 10px;
             z-index: 1;
             transform: none;
-        }
-        
-        /* MEJORADO: Coordinar imagen de Renzo con la base en móvil */
-        @media (max-width: 768px) {
-            .renzo-photo {
-                position: relative;
-                bottom: -20px; /* Bajar la imagen para que toque la base */
-                right: auto;
-                max-width: 85%;
-                width: auto;
-                height: calc(100% + 20px); /* Aumentar altura para compensar */
-                max-height: calc(50vh + 20px);
-                transform: none;
-                margin: 0 auto;
-                object-fit: cover; /* Cambiar a cover para mejor ajuste */
-                object-position: bottom center;
-            }
-            
-            .header-photo {
-                overflow: visible; /* Permitir que la imagen se extienda */
-                margin-bottom: -20px; /* Compensar el espacio extra */
-            }
         }
         
         /* Secciones de contenido */
@@ -589,15 +545,16 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            min-height: 350px; /* Asegura altura uniforme */
         }
 
         .module-banner img {
             width: 100%;
-            max-width: 600px;
-            height: auto;
+            height: 200px; /* Altura fija para todas las imágenes */
+            object-fit: cover;
             display: block;
             margin: 0 auto;
-            border-radius: 8px;
+            border-radius: 8px 8px 0 0;
             transition: transform 0.3s ease;
         }
 
@@ -609,6 +566,7 @@
             padding: 25px 20px;
             background: rgba(255,255,255,0.95);
             border-radius: 0 0 8px 8px;
+            min-height: 150px; /* Asegura altura uniforme */
         }
 
         .module-overlay h3 {
@@ -628,33 +586,24 @@
             font-size: 1rem;
         }
 
-        /* CORREGIDO: Módulo 4 con el mismo tamaño que los demás */
-        .module-banner:nth-child(4) .module-overlay h3 {
-            min-height: 3.2rem; /* Altura mínima igual a los otros módulos */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* BONO EXCLUSIVO - EFECTO DE CARTA VOLTEABLE MEJORADO PARA MÓVIL */
+        /* BONO EXCLUSIVO - EFECTO DE CARTA VOLTEABLE */
         .bonus-card-container {
             perspective: 1000px;
-            max-width: 700px; /* Aumentado para evitar cortes laterales */
+            max-width: 650px; /* Más ancho para evitar corte */
             margin: 40px auto 0;
-            height: 450px; /* Aumentado para mejor proporción */
-            cursor: pointer;
-            position: relative;
+            height: 400px;
         }
 
         .bonus-card {
             position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.8s ease-in-out;
+            transition: transform 0.8s;
             transform-style: preserve-3d;
+            cursor: pointer;
         }
 
-        .bonus-card:hover {
+        .bonus-card.flipped {
             transform: rotateY(180deg);
         }
 
@@ -663,9 +612,9 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 15px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .bonus-card-front {
@@ -673,89 +622,40 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px; /* Padding para evitar cortes */
         }
 
         .bonus-card-front img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Cambiado de cover a contain para evitar cortes */
-            border-radius: 10px;
+            object-fit: cover;
+            object-position: center;
         }
 
         .bonus-card-back {
             background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
             color: white;
             transform: rotateY(180deg);
-            padding: 35px 30px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .bonus-title {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             color: var(--mostaza);
             text-align: center;
         }
 
         .bonus-content {
             overflow-y: auto;
-            max-height: 350px;
+            max-height: 300px;
             padding-right: 10px;
         }
 
         .bonus-content p {
             margin-bottom: 15px;
-        }
-
-        /* NUEVO: Texto indicativo para móviles */
-        .bonus-hint {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            display: none;
-        }
-
-        /* MEJORADO: Ajustes para móvil */
-        @media (max-width: 768px) {
-            .bonus-card-container {
-                height: 380px; /* Más proporcionado para móvil */
-                max-width: 95%;
-                margin-bottom: 50px; /* Espacio para el hint */
-            }
-
-            .bonus-card-front {
-                background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
-                padding: 25px; /* Más padding en móvil */
-                border-radius: 20px; /* Bordes más redondeados */
-            }
-
-            .bonus-card-front img {
-                border-radius: 15px;
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain; /* Mantener proporciones */
-            }
-
-            .bonus-card-back {
-                padding: 25px 20px;
-                border-radius: 20px;
-            }
-
-            .bonus-title {
-                font-size: 1.3rem;
-                margin-bottom: 15px;
-            }
-
-            .bonus-hint {
-                display: block; /* Mostrar en móvil */
-            }
         }
 
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
@@ -826,6 +726,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                margin-top: 0;
             }
             
             .header-photo {
@@ -879,14 +780,17 @@
             /* Módulos responsive */
             .module-banner {
                 max-width: 100%;
+                min-height: auto;
             }
 
             .module-banner img {
                 max-width: 100%;
+                height: auto;
             }
 
             .module-overlay {
                 padding: 20px 15px;
+                min-height: auto;
             }
 
             .module-overlay h3 {
@@ -900,36 +804,16 @@
 
             /* Bono responsive */
             .bonus-card-container {
-                height: 380px; /* Más proporcionado para móvil */
-                max-width: 95%;
-                margin-bottom: 50px; /* Espacio para el hint */
-            }
-
-            .bonus-card-front {
-                background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
-                padding: 25px; /* Más padding en móvil */
-                border-radius: 20px; /* Bordes más redondeados */
-            }
-
-            .bonus-card-front img {
-                border-radius: 15px;
+                height: 350px;
                 max-width: 100%;
-                max-height: 100%;
-                object-fit: contain; /* Mantener proporciones */
             }
 
             .bonus-card-back {
-                padding: 25px 20px;
-                border-radius: 20px;
+                padding: 20px;
             }
 
             .bonus-title {
                 font-size: 1.3rem;
-                margin-bottom: 15px;
-            }
-
-            .bonus-hint {
-                display: block; /* Mostrar en móvil */
             }
         }
         
@@ -1009,11 +893,11 @@
 
             /* Bono responsive */
             .bonus-card-container {
-                height: 350px;
+                height: 300px;
             }
 
             .bonus-title {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
         }
 
@@ -1352,11 +1236,9 @@
                     <p>Crea vínculos más sanos y conscientes, incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</p>
                 </div>
                 
-                <div class="cta-elements">
-                    <a href="#cta" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 20px;">Quiero unirme al programa</a>
-                    
-                    <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Esta experiencia transformacional comienza pronto… y no volverá a abrir este año.</p>
-                </div>
+                <a href="#cta" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 20px;">Quiero unirme al programa</a>
+                
+                <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Esta experiencia transformacional comienza pronto… y no volverá a abrir este año.</p>
             </div>
             
             <div class="header-photo">
@@ -1572,9 +1454,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="bonus-hint">
-                    👆 Toca la imagen para ver los detalles del bono
-                </div>
             </div>
         </div>
     </section>
@@ -1705,3 +1584,137 @@
             </div>
         </div>
     </footer>
+
+    <script>
+    // Preload de imágenes críticas para evitar layout shifts
+    function preloadCriticalImages() {
+        const criticalImages = ['logo.webp', 'foto2.webp', 'fondo.webp', 'renzo.webp', 'bono.webp'];
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
+
+    // CONTADOR REGRESIVO MEJORADO - FUNCIONAL Y REALISTA
+    function updateCountdown() {
+        // Obtener tiempo guardado en localStorage o crear nuevo
+        let endTime = localStorage.getItem('countdownEndTime');
+        
+        if (!endTime) {
+            // Si no existe, crear countdown de 23 minutos desde ahora
+            const now = new Date().getTime();
+            endTime = now + (23 * 60 * 1000); // 23 minutos en milisegundos
+            localStorage.setItem('countdownEndTime', endTime);
+        } else {
+            endTime = parseInt(endTime);
+        }
+        
+        const now = new Date().getTime();
+        const distance = endTime - now;
+        
+        if (distance > 0) {
+            const days = 0; // Siempre 0 días
+            const hours = 0; // Siempre 0 horas  
+            const minutes = Math.floor(distance / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Actualizar los elementos del DOM
+            document.getElementById("days").textContent = "00";
+            document.getElementById("hours").textContent = "00";
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+        } else {
+            // Tiempo agotado - reiniciar a 23 minutos
+            const now = new Date().getTime();
+            const newEndTime = now + (23 * 60 * 1000);
+            localStorage.setItem('countdownEndTime', newEndTime);
+            
+            document.getElementById("days").textContent = "00";
+            document.getElementById("hours").textContent = "00";
+            document.getElementById("minutes").textContent = "23";
+            document.getElementById("seconds").textContent = "00";
+        }
+    }
+    
+    // FAQ interactivo
+    function setupFAQ() {
+        const questions = document.querySelectorAll('.faq-question');
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('show');
+            });
+        });
+    }
+    
+    // Smooth scroll para enlaces internos
+    function setupSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    // Efecto de carta volteable mejorado
+    function setupBonusCardFlip() {
+        const bonusCard = document.querySelector('.bonus-card');
+        if (bonusCard) {
+            // Click para desktop
+            bonusCard.addEventListener('click', function() {
+                this.classList.toggle('flipped');
+            });
+            
+            // Touch para móviles
+            bonusCard.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                this.classList.toggle('flipped');
+            }, {passive: false});
+        }
+    }
+    
+    // Ejecutar setup después de que DOM y recursos estén listos
+    document.addEventListener("DOMContentLoaded", function () {
+        // Iniciar preload de imágenes
+        preloadCriticalImages();
+        
+        // Iniciar contador regresivo
+        updateCountdown();
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        
+        // Configurar FAQ interactivo
+        setupFAQ();
+        
+        // Configurar smooth scroll
+        setupSmoothScroll();
+
+        // Configurar efecto de carta
+        setupBonusCardFlip();
+        
+        // Tracking de clicks en botones CTA
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout', {
+                        content_name: 'Reconciliación entre Hombres y Mujeres',
+                        value: 147,
+                        currency: 'USD'
+                    });
+                }
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>
