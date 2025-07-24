@@ -360,12 +360,15 @@
             letter-spacing: 2px;
         }
 
-        .logo img {
-            max-width: 60px !important; /* Forzamos el tamaño con !important */
+        /* Logo container y imagen - FORZADO ABSOLUTO */
+        .logo-container img,
+        .logo img,
+        img[src="logo.webp"] {
+            max-width: 60px !important;
             width: 60px !important;
             height: auto !important;
             display: block !important;
-            margin: 0 0 5px 0 !important;
+            margin: 0 auto 5px auto !important;
         }
 
         .hero-text {
@@ -659,9 +662,11 @@
 
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
         @media (max-width: 768px) {
-            /* Logo más pequeño en móvil */
-            .logo img {
-                max-width: 40px !important; /* Muy pequeño en móvil con !important */
+            /* Logo más pequeño en móvil - TODOS LOS SELECTORES */
+            .logo-container img,
+            .logo img,
+            img[src="logo.webp"] {
+                max-width: 40px !important;
                 width: 40px !important;
                 height: auto !important;
             }
