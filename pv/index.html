@@ -364,8 +364,8 @@
         .logo-container img,
         .logo img,
         img[src="logo.webp"] {
-            max-width: 60px !important;
-            width: 60px !important;
+            max-width: 80px !important; /* Aumentado a 80px para mejor visibilidad */
+            width: 80px !important;
             height: auto !important;
             display: block !important;
             margin: 0 auto 5px auto !important;
@@ -666,8 +666,8 @@
             .logo-container img,
             .logo img,
             img[src="logo.webp"] {
-                max-width: 40px !important;
-                width: 40px !important;
+                max-width: 55px !important; /* Aumentado a 55px para móvil */
+                width: 55px !important;
                 height: auto !important;
             }
             
@@ -806,10 +806,12 @@
         }
         
         @media (max-width: 480px) {
-            /* Logo aún más pequeño en móviles muy pequeños */
-            .logo img {
-                max-width: 35px !important; /* Muy pequeño para móviles pequeños con !important */
-                width: 35px !important;
+            /* Logo aún más pequeño en móviles muy pequeños - TODOS LOS SELECTORES */
+            .logo-container img,
+            .logo img,
+            img[src="logo.webp"] {
+                max-width: 50px !important; /* Aumentado a 50px para móviles pequeños */
+                width: 50px !important;
                 height: auto !important;
             }
             
@@ -900,11 +902,19 @@
 
         /* Ajustes para PC - imágenes de módulos sin fondo */
         @media (min-width: 769px) {
-            /* Logo en tamaño adecuado para PC */
-            .logo img {
-                max-width: 50px !important; /* Tamaño pequeño pero visible para PC con !important */
-                width: 50px !important;
+            /* Logo en tamaño adecuado para PC - TODOS LOS SELECTORES */
+            .logo-container img,
+            .logo img,
+            img[src="logo.webp"] {
+                max-width: 70px !important; /* Aumentado a 70px para PC */
+                width: 70px !important;
                 height: auto !important;
+            }
+            
+            /* Garantía centrada en PC */
+            .guarantee {
+                margin: 20px auto 0 auto; /* Centrado automático */
+                text-align: center;
             }
             
             .module-image {
@@ -1017,6 +1027,7 @@
             margin-top: 20px;
             border: 1px dashed var(--mostaza);
             max-width: 600px;
+            text-align: center; /* Centrado del texto */
         }
         
         /* FAQ */
