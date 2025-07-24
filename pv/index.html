@@ -324,7 +324,7 @@
             padding-bottom: 60px;
             position: relative;
             z-index: 2;
-            margin-top: 20px; /* Ajustado para acomodar el logo */
+            margin-top: 10px; /* Reducido para el logo más pequeño */
         }
         
         .header-photo {
@@ -341,7 +341,7 @@
         .logo {
             font-family: 'Anton', sans-serif;
             font-size: 2rem;
-            margin-bottom: 15px;
+            margin-bottom: 5px; /* Reducido margen inferior */
             text-transform: uppercase;
             letter-spacing: 3px;
             position: relative;
@@ -356,15 +356,15 @@
         .logo span {
             display: block;
             font-size: 1.2rem;
-            margin-top: 10px;
+            margin-top: 5px; /* Reducido margen superior */
             letter-spacing: 2px;
         }
 
         .logo img {
-            max-width: 40px; /* Mucho más pequeño - tamaño base muy reducido */
+            max-width: 70px; /* Reducido considerablemente (antes 350px) */
             height: auto;
             display: block;
-            margin: 0 0 5px 0; /* Margen reducido también */
+            margin: 0 0 5px 0; /* Margen inferior reducido */
         }
 
         .hero-text {
@@ -658,11 +658,6 @@
 
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
         @media (max-width: 768px) {
-            /* Logo más pequeño en móvil */
-            .logo img {
-                max-width: 35px; /* Muy pequeño en móvil */
-            }
-            
             /* Header ajustado - AQUÍ ESTÁ LA CORRECCIÓN */
             header {
                 /* Sin margin-top - eliminamos el espacio blanco */
@@ -798,11 +793,6 @@
         }
         
         @media (max-width: 480px) {
-            /* Logo aún más pequeño en móviles muy pequeños */
-            .logo img {
-                max-width: 30px; /* Muy pequeño para móviles pequeños */
-            }
-            
             /* Contador más compacto */
             .countdown-banner {
                 padding: 8px 0;
@@ -890,11 +880,6 @@
 
         /* Ajustes para PC - imágenes de módulos sin fondo */
         @media (min-width: 769px) {
-            /* Logo en tamaño adecuado para PC */
-            .logo img {
-                max-width: 45px; /* Tamaño pequeño pero visible para PC */
-            }
-            
             .module-image {
                 height: 300px; /* Más alto para PC */
                 object-fit: cover; /* Cambiado a cover para PC */
@@ -1192,7 +1177,7 @@
         /* 1. Logo encima del título */
         .logo-container {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Reducido margen inferior */
         }
         
         /* 2. Cambio de emojis */
@@ -1231,21 +1216,25 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 15px; /* Aumentado espacio entre logos */
             margin-top: 20px;
         }
         
         .payment-logo {
-            max-width: 40px;
+            max-width: 50px; /* Aumentado tamaño para mejor visibilidad */
             height: auto;
-            filter: grayscale(30%);
-            opacity: 0.8;
+            filter: grayscale(0%); /* Quitado el filtro gris */
+            opacity: 1; /* Máxima opacidad */
             transition: all 0.3s ease;
         }
         
-        .payment-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
+        /* LOGOS ESPECÍFICOS PARA MEJOR VISIBILIDAD */
+        .payment-logo.amex {
+            max-width: 60px; /* American Express un poco más grande */
+        }
+        
+        .payment-logo.western-union {
+            max-width: 70px; /* Western Union más grande */
         }
         
         /* 5. Título "Testimonios" */
@@ -1376,7 +1365,7 @@
     <header>
         <div class="container header-container">
             <div class="header-content">
-                <!-- 1. Logo agregado encima del título -->
+                <!-- Logo más pequeño como solicitado -->
                 <div class="logo-container">
                     <img src="logo.webp" alt="Logo" class="logo">
                 </div>
@@ -1426,7 +1415,6 @@
                 </div>
                 
                 <div class="benefit-item">
-                    <!-- 2. Emoji cambiado -->
                     <div class="energy-icon">⚖️</div>
                     <h3 class="benefit-title">Reconectarás con tu energía masculina y femenina interna</h3>
                     <p class="benefit-description">Dejando de vivirte en polaridades.</p>
@@ -1445,7 +1433,6 @@
                 </div>
                 
                 <div class="benefit-item">
-                    <!-- 2. Emoji cambiado -->
                     <div class="growth-icon">🌿</div>
                     <h3 class="benefit-title">Reconstruirás vínculos</h3>
                     <p class="benefit-description">Desde un lugar consciente, con más libertad, claridad y amor propio.</p>
@@ -1461,7 +1448,6 @@
     </section>
     
     <!-- Programa -->
-    <!-- 3. Sección con fondo diferente -->
     <section class="program-section">
         <div class="container">
             <h2 class="section-title">¿Qué incluye el programa?</h2>
@@ -1562,7 +1548,6 @@
         <div class="container">
             <h2 class="section-title">Precio e inversión</h2>
             
-            <!-- 4. Cuadrado estético para precio e inversión -->
             <div class="price-box">
                 <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9);">Precio lanzamiento:</p>
                 <div class="price" style="color: var(--mostaza);">$147 USD</div>
@@ -1570,13 +1555,13 @@
                 <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Puedes pagar con tarjeta, PayPal o transferencia.<br>Acceso inmediato.</p>
             </div>
             
-            <!-- 4. Logos de métodos de pago - AÑADIDOS AMERICAN EXPRESS Y WESTERN UNION -->
+            <!-- Logos de pago mejorados y visibles -->
             <div class="payment-logos">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/PayPal_Logo_Icon_2014.svg" alt="PayPal" class="payment-logo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="payment-logo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="payment-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="American Express" class="payment-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Western_Union_logo.svg" alt="Western Union" class="payment-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/American_Express_logo_%282018%29.svg" alt="American Express" class="payment-logo amex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Western_Union_logo.svg" alt="Western Union" class="payment-logo western-union">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg" alt="Bitcoin" class="payment-logo">
             </div>
             
@@ -1707,7 +1692,6 @@
     <!-- Testimonio -->
     <section class="content-section light-section">
         <div class="container">
-            <!-- 5. Título "Testimonios" agregado -->
             <h2 class="testimonials-title">Testimonios</h2>
             
             <div class="testimonial-container">
@@ -1723,7 +1707,6 @@
             <h2>¿Listo para reconciliarte con tu historia afectiva?</h2>
             <p>Únete a este viaje transformador de 3 meses y comienza a crear vínculos más sanos y conscientes desde la raíz.</p>
             
-            <!-- 6. Botón final más destacado -->
             <a href="https://pay.hotmart.com/CHECKOUT_LINK" class="btn final-btn" style="margin: 20px 0; padding: 15px 40px; font-size: 1.1rem;">Quiero comenzar mi reconciliación</a>
             
             <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Precio de lanzamiento: $147 USD • Acceso inmediato • Garantía de 7 días</p>
