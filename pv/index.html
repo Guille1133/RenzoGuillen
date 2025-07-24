@@ -294,7 +294,7 @@
         header {
             background: url('banner.webp') no-repeat center center / cover;
             color: white;
-            padding: 20px 0 0 0;
+            padding: 40px 0 0 0;
             position: relative;
             overflow: hidden;
             min-height: 600px;
@@ -324,7 +324,7 @@
             padding-bottom: 60px;
             position: relative;
             z-index: 2;
-            margin-top: 60px; /* Más espacio en PC como solicitado */
+            margin-top: 20px; /* Ajustado para acomodar el logo */
         }
         
         .header-photo {
@@ -364,7 +364,7 @@
             max-width: 350px;
             height: auto;
             display: block;
-            margin: 0 auto;
+            margin: 0 0 20px 0;
         }
 
         .hero-text {
@@ -1171,6 +1171,134 @@
             line-height: 1.5;
             text-align: center;
         }
+
+        /* Nuevos estilos para las modificaciones solicitadas */
+        
+        /* 1. Logo encima del título */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        /* 2. Cambio de emojis */
+        .energy-icon {
+            font-size: 2.5rem;
+            color: var(--mostaza);
+            margin-bottom: 15px;
+        }
+        
+        .growth-icon {
+            font-size: 2.5rem;
+            color: var(--mostaza);
+            margin-bottom: 15px;
+        }
+        
+        /* 3. Fondo diferente para "¿Qué incluye el programa?" */
+        .program-section {
+            background-color: #f8f1e9;
+            padding: 60px 0;
+        }
+        
+        /* 4. Cuadrado estético para precio e inversión */
+        .price-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            border: 2px solid var(--mostaza);
+            color: white;
+        }
+        
+        .payment-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .payment-logo {
+            max-width: 40px;
+            height: auto;
+            filter: grayscale(30%);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        /* 5. Título "Testimonios" */
+        .testimonials-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: var(--rojo-profundo);
+        }
+        
+        /* 6. Botón final más destacado */
+        .final-btn {
+            background-color: var(--rojo-profundo);
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-btn:hover {
+            background-color: var(--rojo-claro);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(162, 31, 24, 0.6);
+        }
+        
+        /* WhatsApp popup */
+        .whatsapp-popup {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-button {
+            display: block;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-icon {
+            color: white;
+            font-size: 36px;
+            line-height: 60px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 
     <!-- Meta Pixel Code -->
@@ -1200,7 +1328,7 @@
             </div>
             <div class="countdown-timer">
                 <div class="time-unit">
-                    <div class="time-number" id="days">00</div>
+                    <div class="time-number" id="days">01</div>
                     <div class="time-label">DÍAS</div>
                 </div>
                 <div class="time-separator">:</div>
@@ -1210,22 +1338,34 @@
                 </div>
                 <div class="time-separator">:</div>
                 <div class="time-unit">
-                    <div class="time-number" id="minutes">23</div>
+                    <div class="time-number" id="minutes">00</div>
                     <div class="time-label">MIN</div>
                 </div>
                 <div class="time-separator">:</div>
                 <div class="time-unit">
-                    <div class="time-number" id="seconds">59</div>
+                    <div class="time-number" id="seconds">00</div>
                     <div class="time-label">SEG</div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- WhatsApp Popup -->
+    <div class="whatsapp-popup">
+        <a href="https://wa.me/51912632814" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+        </a>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="header-content">
+                <!-- 1. Logo agregado encima del título -->
+                <div class="logo-container">
+                    <img src="logo.webp" alt="Logo" class="logo">
+                </div>
+                
                 <div class="hero-text">
                     <h1><span class="main-title">Reconcilia tu <span class="highlight-history">historia</span> afectiva</span></h1>
                     <p>Crea vínculos más sanos y conscientes, incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</p>
@@ -1271,7 +1411,8 @@
                 </div>
                 
                 <div class="benefit-item">
-                    <div class="benefit-icon">🧬</div>
+                    <!-- 2. Emoji cambiado -->
+                    <div class="energy-icon">⚖️</div>
                     <h3 class="benefit-title">Reconectarás con tu energía masculina y femenina interna</h3>
                     <p class="benefit-description">Dejando de vivirte en polaridades.</p>
                 </div>
@@ -1289,7 +1430,8 @@
                 </div>
                 
                 <div class="benefit-item">
-                    <div class="benefit-icon">🌱</div>
+                    <!-- 2. Emoji cambiado -->
+                    <div class="growth-icon">🌿</div>
                     <h3 class="benefit-title">Reconstruirás vínculos</h3>
                     <p class="benefit-description">Desde un lugar consciente, con más libertad, claridad y amor propio.</p>
                 </div>
@@ -1304,7 +1446,8 @@
     </section>
     
     <!-- Programa -->
-    <section class="content-section light-section">
+    <!-- 3. Sección con fondo diferente -->
+    <section class="program-section">
         <div class="container">
             <h2 class="section-title">¿Qué incluye el programa?</h2>
             
@@ -1404,16 +1547,27 @@
         <div class="container">
             <h2 class="section-title">Precio e inversión</h2>
             
-            <div class="investment-container">
-                <p>Precio lanzamiento:</p>
-                <div class="price">$147 USD</div>
-                <a href="#cta" class="btn btn-primary pulse-cta">Quiero unirme al programa</a>
-                <p class="payment-methods">Puedes pagar con tarjeta, PayPal o transferencia.<br>Acceso inmediato. Acceso POR 1 AÑO</p>
-                
-                <div class="guarantee">
-                    <h3>🛡️ Garantía de satisfacción</h3>
-                    <p>Si antes de completar el segundo módulo sientes que esto no es para ti, te devolvemos el 100% de tu dinero. Sin preguntas. Sin condiciones. Así de seguro estamos del poder de este proceso.</p>
-                </div>
+            <!-- 4. Cuadrado estético para precio e inversión -->
+            <div class="price-box">
+                <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9);">Precio lanzamiento:</p>
+                <div class="price" style="color: var(--mostaza);">$147 USD</div>
+                <a href="#cta" class="btn btn-primary pulse-cta" style="margin: 20px auto;">Quiero unirme al programa</a>
+                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Puedes pagar con tarjeta, PayPal o transferencia.<br>Acceso inmediato. Acceso POR 1 AÑO</p>
+            </div>
+            
+            <!-- 4. Logos de métodos de pago -->
+            <div class="payment-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/PayPal_Logo_Icon_2014.svg" alt="PayPal" class="payment-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="payment-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="payment-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/American_Express_logo_%282018%29.svg" alt="American Express" class="payment-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Western_Union_logo.svg" alt="Western Union" class="payment-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg" alt="Bitcoin" class="payment-logo">
+            </div>
+            
+            <div class="guarantee">
+                <h3>🛡️ Garantía de satisfacción</h3>
+                <p>Si antes de completar el segundo módulo sientes que esto no es para ti, te devolvemos el 100% de tu dinero. Sin preguntas. Sin condiciones. Así de seguro estamos del poder de este proceso.</p>
             </div>
         </div>
     </section>
@@ -1538,6 +1692,9 @@
     <!-- Testimonio -->
     <section class="content-section light-section">
         <div class="container">
+            <!-- 5. Título "Testimonios" agregado -->
+            <h2 class="testimonials-title">Testimonios</h2>
+            
             <div class="testimonial-container">
                 <p class="testimonial-text">Este proceso cambió mi vida. Después de años de terapia, por fin pude entender por qué repetía los mismos patrones en mis relaciones. Renzo tiene una manera única de guiarte hacia tu propia verdad. Hoy me siento libre, en paz con mi pasado y abierta a amar de verdad.</p>
                 <p class="testimonial-author">- María G., participante del programa</p>
@@ -1551,7 +1708,8 @@
             <h2>¿Listo para reconciliarte con tu historia afectiva?</h2>
             <p>Únete a este viaje transformador de 3 meses y comienza a crear vínculos más sanos y conscientes desde la raíz.</p>
             
-            <a href="https://pay.hotmart.com/CHECKOUT_LINK" class="btn btn-primary" style="margin: 20px 0; padding: 15px 40px; font-size: 1.1rem;">Quiero comenzar mi reconciliación</a>
+            <!-- 6. Botón final más destacado -->
+            <a href="https://pay.hotmart.com/CHECKOUT_LINK" class="btn final-btn" style="margin: 20px 0; padding: 15px 40px; font-size: 1.1rem;">Quiero comenzar mi reconciliación</a>
             
             <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Precio de lanzamiento: $147 USD • Acceso inmediato • Garantía de 7 días</p>
         </div>
@@ -1599,9 +1757,9 @@
         let endTime = localStorage.getItem('countdownEndTime');
         
         if (!endTime) {
-            // Si no existe, crear countdown de 23 minutos desde ahora
+            // Si no existe, crear countdown de 1 día desde ahora
             const now = new Date().getTime();
-            endTime = now + (23 * 60 * 1000); // 23 minutos en milisegundos
+            endTime = now + (24 * 60 * 60 * 1000); // 1 día en milisegundos
             localStorage.setItem('countdownEndTime', endTime);
         } else {
             endTime = parseInt(endTime);
@@ -1611,25 +1769,25 @@
         const distance = endTime - now;
         
         if (distance > 0) {
-            const days = 0; // Siempre 0 días
-            const hours = 0; // Siempre 0 horas  
-            const minutes = Math.floor(distance / (1000 * 60));
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
             // Actualizar los elementos del DOM
-            document.getElementById("days").textContent = "00";
-            document.getElementById("hours").textContent = "00";
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
             document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
             document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
         } else {
-            // Tiempo agotado - reiniciar a 23 minutos
+            // Tiempo agotado - reiniciar a 1 día
             const now = new Date().getTime();
-            const newEndTime = now + (23 * 60 * 1000);
+            const newEndTime = now + (24 * 60 * 60 * 1000);
             localStorage.setItem('countdownEndTime', newEndTime);
             
-            document.getElementById("days").textContent = "00";
+            document.getElementById("days").textContent = "01";
             document.getElementById("hours").textContent = "00";
-            document.getElementById("minutes").textContent = "23";
+            document.getElementById("minutes").textContent = "00";
             document.getElementById("seconds").textContent = "00";
         }
     }
