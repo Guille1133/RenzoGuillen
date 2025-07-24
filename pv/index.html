@@ -361,10 +361,10 @@
         }
 
         .logo img {
-            max-width: 70px; /* Reducido de 150px a 100px para que sea más estético */
+            max-width: 80px; /* Reducido a 80px para mejor proporción */
             height: auto;
             display: block;
-            margin: 0 0 10px 0; /* Reducido el margen inferior */
+            margin: 0 0 10px 0;
         }
 
         .hero-text {
@@ -658,6 +658,11 @@
 
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
         @media (max-width: 768px) {
+            /* Logo más pequeño en móvil */
+            .logo img {
+                max-width: 60px; /* Más pequeño en móvil */
+            }
+            
             /* Header ajustado - AQUÍ ESTÁ LA CORRECCIÓN */
             header {
                 /* Sin margin-top - eliminamos el espacio blanco */
@@ -793,6 +798,11 @@
         }
         
         @media (max-width: 480px) {
+            /* Logo aún más pequeño en móviles muy pequeños */
+            .logo img {
+                max-width: 50px; /* Muy pequeño para móviles pequeños */
+            }
+            
             /* Contador más compacto */
             .countdown-banner {
                 padding: 8px 0;
@@ -880,6 +890,11 @@
 
         /* Ajustes para PC - imágenes de módulos sin fondo */
         @media (min-width: 769px) {
+            /* Logo en tamaño adecuado para PC */
+            .logo img {
+                max-width: 70px; /* Tamaño intermedio para PC */
+            }
+            
             .module-image {
                 height: 300px; /* Más alto para PC */
                 object-fit: cover; /* Cambiado a cover para PC */
