@@ -368,7 +368,7 @@
             width: 200px !important;
             height: auto !important;
             display: block !important;
-            margin: 0 auto 15px auto !important;
+            margin: 0 0 15px 0 !important; /* Cambiado a margen izquierdo */
         }
 
         .hero-text {
@@ -576,361 +576,65 @@
             font-size: 1.1rem;
         }
 
-        /* BONO EXCLUSIVO - EFECTO DE CARTA VOLTEABLE MEJORADO */
-        .bonus-section {
-            text-align: center;
+        /* BONOS - NUEVO DISEÑO CON DOS BONOS EN FILA */
+        .bonuses-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
         }
 
-        .bonus-card-container {
-            perspective: 1000px;
-            max-width: 700px; /* Más ancho para evitar corte */
-            margin: 30px auto 0;
-            height: 450px; /* Más alto para mejor visualización */
-        }
-
-        .bonus-card {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-
-        .bonus-card.flipped {
-            transform: rotateY(180deg);
-        }
-
-        .bonus-card-front, .bonus-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
+        .bonus-item {
+            flex: 1 1 400px;
+            max-width: 500px;
+            background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .bonus-card-front {
-            background-color: var(--rojo-profundo);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .bonus-card-front img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .bonus-card-back {
-            background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--marron) 100%);
             color: white;
-            transform: rotateY(180deg);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; /* Cambiado para mejor scroll */
+        }
+
+        .bonus-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .bonus-content {
+            padding: 25px;
         }
 
         .bonus-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 15px;
             color: var(--mostaza);
             text-align: center;
         }
 
-        .bonus-content {
-            overflow-y: auto;
-            max-height: 350px; /* Más espacio para contenido */
-            padding-right: 15px;
-            flex-grow: 1;
-        }
-
-        .bonus-content p {
+        .bonus-description {
             margin-bottom: 15px;
+            line-height: 1.6;
         }
 
-        .bonus-instruction {
-            margin-top: 15px;
-            font-style: italic;
+        .bonus-features {
+            margin: 20px 0;
+        }
+
+        .bonus-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .bonus-feature .icon {
             color: var(--mostaza);
-            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-top: 3px;
         }
 
-        /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
-        @media (max-width: 768px) {
-            /* Logo más pequeño en móvil - TODOS LOS SELECTORES */
-            .logo-container img,
-            .logo img,
-            img[src="logo.webp"] {
-                max-width: 140px !important; /* 140px para móvil - más visible */
-                width: 140px !important;
-                height: auto !important;
-            }
-            
-            /* Header ajustado - AQUÍ ESTÁ LA CORRECCIÓN */
-            header {
-                /* Sin margin-top - eliminamos el espacio blanco */
-                min-height: calc(100vh - 66px); /* Altura exacta menos el contador */
-                padding: 0;
-                background-position: 30% center;
-            }
-            
-            .header-container {
-                display: flex;
-                flex-direction: column;
-                min-height: calc(100vh - 66px); /* Misma altura que el header */
-                height: auto;
-                gap: 0;
-                overflow: hidden;
-                justify-content: flex-start;
-                padding-top: 0;
-            }
-            
-            .header-content {
-                order: 1;
-                padding: 20px 0 10px 0;
-                text-align: center;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                margin-top: 0;
-            }
-            
-            .header-photo {
-                order: 2;
-                height: auto;
-                min-height: 0;
-                overflow: hidden;
-                margin: 0;
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
-                width: 100%;
-                padding-top: 0;
-            }
-            
-            .renzo-photo {
-                position: relative;
-                bottom: 0;
-                right: auto;
-                max-width: 100%;
-                width: auto;
-                height: auto;
-                max-height: 50vh;
-                transform: none;
-                margin: 0 auto;
-                object-fit: contain;
-                object-position: bottom center;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-                margin-bottom: 15px;
-            }
-            
-            .hero-text p {
-                font-size: 1.1rem;
-                margin-bottom: 10px;
-            }
-            
-            /* Beneficios */
-            .benefits-container {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Secciones */
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            /* Módulos responsive */
-            .module-item {
-                max-width: 100%;
-            }
-
-            .module-image {
-                height: 200px;
-            }
-
-            .module-text h3 {
-                font-size: 1.2rem;
-            }
-
-            /* Bono responsive */
-            .bonus-card-container {
-                height: 400px; /* Más alto en móvil */
-                max-width: 100%;
-            }
-
-            .bonus-card-back {
-                padding: 20px;
-            }
-
-            .bonus-title {
-                font-size: 1.3rem;
-            }
-            
-            /* Contador ajustado al ancho de pantalla */
-            .countdown-banner {
-                padding: 10px 0;
-            }
-            
-            .countdown-content {
-                flex-direction: column;
-                gap: 10px;
-                width: 100%;
-                padding: 0 15px;
-            }
-            
-            .countdown-text {
-                font-size: 0.9rem;
-                text-align: center;
-                width: 100%;
-            }
-            
-            .countdown-timer {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            /* Bono - imagen no cortada */
-            .bonus-card-front img {
-                object-fit: contain;
-                background-color: var(--rojo-profundo);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            /* Logo aún más pequeño en móviles muy pequeños - TODOS LOS SELECTORES */
-            .logo-container img,
-            .logo img,
-            img[src="logo.webp"] {
-                max-width: 120px !important; /* 120px para móviles pequeños */
-                width: 120px !important;
-                height: auto !important;
-            }
-            
-            /* Contador más compacto */
-            .countdown-banner {
-                padding: 8px 0;
-            }
-
-            .countdown-content {
-                gap: 8px;
-            }
-
-            .countdown-text {
-                font-size: 0.8rem;
-            }
-
-            .countdown-timer {
-                gap: 5px;
-            }
-
-            .time-unit {
-                min-width: 40px;
-                padding: 6px 4px 4px;
-            }
-
-            .time-number {
-                font-size: 1.2rem;
-            }
-
-            .time-label {
-                font-size: 0.55rem;
-            }
-
-            /* Header ajustado - CORRECCIÓN PARA MÓVILES PEQUEÑOS */
-            header {
-                /* Sin margin-top */
-                min-height: calc(100vh - 64px); /* Altura menos contador más pequeño */
-                background-position: 25% center;
-            }
-            
-            .header-container {
-                min-height: calc(100vh - 64px);
-            }
-            
-            .header-content {
-                padding: 15px 0 5px 0;
-            }
-            
-            .header-photo {
-                height: auto;
-            }
-            
-            .renzo-photo {
-                max-height: 45vh;
-            }
-            
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-text p {
-                font-size: 1rem;
-            }
-            
-            /* Secciones */
-            .section-title {
-                font-size: 1.3rem;
-            }
-
-            /* Módulos responsive */
-            .module-image {
-                height: 180px;
-            }
-
-            .module-text h3 {
-                font-size: 1.1rem;
-            }
-
-            /* Bono responsive */
-            .bonus-card-container {
-                height: 380px;
-            }
-
-            .bonus-title {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Ajustes para PC - imágenes de módulos sin fondo */
-        @media (min-width: 769px) {
-            /* Logo en tamaño adecuado para PC - TODOS LOS SELECTORES */
-            .logo-container img,
-            .logo img,
-            img[src="logo.webp"] {
-                max-width: 180px !important; /* 180px para PC - bien visible */
-                width: 180px !important;
-                height: auto !important;
-            }
-            
-            /* Garantía centrada en PC */
-            .guarantee {
-                margin: 20px auto 0 auto; /* Centrado automático */
-                text-align: center;
-            }
-            
-            .module-image {
-                height: 300px; /* Más alto para PC */
-                object-fit: cover; /* Cambiado a cover para PC */
-                background-color: transparent; /* Sin fondo */
-            }
-
-            /* Bono más ancho en PC */
-            .bonus-card-container {
-                max-width: 800px; /* Más ancho en PC */
-            }
-
-            .bonus-card-front img {
-                object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
-            }
+        .bonus-feature-text {
+            flex: 1;
         }
 
         /* Resto del CSS original para otras secciones */
@@ -1214,7 +918,7 @@
         
         /* 1. Logo encima del título */
         .logo-container {
-            text-align: center;
+            text-align: left; /* Cambiado a left */
             margin-bottom: 20px;
         }
         
@@ -1337,6 +1041,260 @@
                 transform: scale(1);
             }
         }
+
+        /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
+        @media (max-width: 768px) {
+            /* Logo más pequeño en móvil - TODOS LOS SELECTORES */
+            .logo-container img,
+            .logo img,
+            img[src="logo.webp"] {
+                max-width: 140px !important; /* 140px para móvil - más visible */
+                width: 140px !important;
+                height: auto !important;
+            }
+            
+            /* Header ajustado - AQUÍ ESTÁ LA CORRECCIÓN */
+            header {
+                /* Sin margin-top - eliminamos el espacio blanco */
+                min-height: calc(100vh - 66px); /* Altura exacta menos el contador */
+                padding: 0;
+                background-position: 30% center;
+            }
+            
+            .header-container {
+                display: flex;
+                flex-direction: column;
+                min-height: calc(100vh - 66px); /* Misma altura que el header */
+                height: auto;
+                gap: 0;
+                overflow: hidden;
+                justify-content: flex-start;
+                padding-top: 0;
+            }
+            
+            .header-content {
+                order: 1;
+                padding: 20px 0 10px 0;
+                text-align: center;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                margin-top: 0;
+            }
+            
+            .header-photo {
+                order: 2;
+                height: auto;
+                min-height: 0;
+                overflow: hidden;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                width: 100%;
+                padding-top: 0;
+            }
+            
+            .renzo-photo {
+                position: relative;
+                bottom: 0;
+                right: auto;
+                max-width: 100%;
+                width: auto;
+                height: auto;
+                max-height: 50vh;
+                transform: none;
+                margin: 0 auto;
+                object-fit: contain;
+                object-position: bottom center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero-text p {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+            
+            /* Beneficios */
+            .benefits-container {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Secciones */
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            /* Módulos responsive */
+            .module-item {
+                max-width: 100%;
+            }
+
+            .module-image {
+                height: 200px;
+            }
+
+            .module-text h3 {
+                font-size: 1.2rem;
+            }
+
+            /* Bonos responsive */
+            .bonuses-container {
+                flex-direction: column;
+            }
+
+            .bonus-item {
+                max-width: 100%;
+            }
+
+            /* Footer responsive */
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            /* Contador ajustado al ancho de pantalla */
+            .countdown-banner {
+                padding: 10px 0;
+            }
+            
+            .countdown-content {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                padding: 0 15px;
+            }
+            
+            .countdown-text {
+                font-size: 0.9rem;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .countdown-timer {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Logo aún más pequeño en móviles muy pequeños - TODOS LOS SELECTORES */
+            .logo-container img,
+            .logo img,
+            img[src="logo.webp"] {
+                max-width: 120px !important; /* 120px para móviles pequeños */
+                width: 120px !important;
+                height: auto !important;
+            }
+            
+            /* Contador más compacto */
+            .countdown-banner {
+                padding: 8px 0;
+            }
+
+            .countdown-content {
+                gap: 8px;
+            }
+
+            .countdown-text {
+                font-size: 0.8rem;
+            }
+
+            .countdown-timer {
+                gap: 5px;
+            }
+
+            .time-unit {
+                min-width: 40px;
+                padding: 6px 4px 4px;
+            }
+
+            .time-number {
+                font-size: 1.2rem;
+            }
+
+            .time-label {
+                font-size: 0.55rem;
+            }
+
+            /* Header ajustado - CORRECCIÓN PARA MÓVILES PEQUEÑOS */
+            header {
+                /* Sin margin-top */
+                min-height: calc(100vh - 64px); /* Altura menos contador más pequeño */
+                background-position: 25% center;
+            }
+            
+            .header-container {
+                min-height: calc(100vh - 64px);
+            }
+            
+            .header-content {
+                padding: 15px 0 5px 0;
+            }
+            
+            .header-photo {
+                height: auto;
+            }
+            
+            .renzo-photo {
+                max-height: 45vh;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+            }
+            
+            /* Secciones */
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            /* Módulos responsive */
+            .module-image {
+                height: 180px;
+            }
+
+            .module-text h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Ajustes para PC - imágenes de módulos sin fondo */
+        @media (min-width: 769px) {
+            /* Logo en tamaño adecuado para PC - TODOS LOS SELECTORES */
+            .logo-container img,
+            .logo img,
+            img[src="logo.webp"] {
+                max-width: 180px !important; /* 180px para PC - bien visible */
+                width: 180px !important;
+                height: auto !important;
+            }
+            
+            /* Garantía centrada en PC */
+            .guarantee {
+                margin: 20px auto 0 auto; /* Centrado automático */
+                text-align: center;
+            }
+            
+            .module-image {
+                height: 300px; /* Más alto para PC */
+                object-fit: cover; /* Cambiado a cover para PC */
+                background-color: transparent; /* Sin fondo */
+            }
+
+            /* Bonos en fila para PC */
+            .bonuses-container {
+                flex-direction: row;
+            }
+        }
     </style>
 
     <!-- Meta Pixel Code -->
@@ -1399,7 +1357,7 @@
     <header>
         <div class="container header-container">
             <div class="header-content">
-                <!-- 1. Logo agregado encima del título -->
+                <!-- Logo alineado a la izquierda -->
                 <div class="logo-container">
                     <img src="logo.webp" alt="Logo" class="logo">
                 </div>
@@ -1409,7 +1367,8 @@
                     <p>Crea vínculos más sanos y conscientes, incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</p>
                 </div>
                 
-                <a href="#cta" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 30px;">Quiero unirme al programa</a>
+                <!-- PRIMER BOTÓN MODIFICADO (hace scroll al botón de precio) -->
+                <a href="#cta-precio" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 30px;">Quiero unirme al programa</a>
                 
                 <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 20px;">Esta experiencia transformacional comienza pronto… y no volverá a abrir este año.</p>
             </div>
@@ -1430,7 +1389,8 @@
                 
                 <p style="font-size: 1.1rem; margin-bottom: 30px;">Este no es un curso más. Es un viaje sistémico de 3 meses, profundo y transformador, donde sanarás desde la raíz, no desde la superficie.</p>
                 
-                <a href="#cta" class="btn btn-primary">Quiero unirme al programa</a>
+                <!-- SEGUNDO BOTÓN MODIFICADO (hace scroll al botón de precio) -->
+                <a href="#cta-precio" class="btn btn-primary">Quiero unirme al programa</a>
             </div>
         </div>
     </section>
@@ -1589,7 +1549,8 @@
             <div class="price-box">
                 <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9);">Precio lanzamiento:</p>
                 <div class="price" style="color: var(--mostaza);">$147 USD</div>
-                <a href="#cta" class="btn btn-primary pulse-cta" style="margin: 20px auto;">Quiero unirme al programa</a>
+                <!-- BOTÓN PRINCIPAL CON ID Y ENLACE HOTMART -->
+                <a id="cta-precio" href="https://pay.hotmart.com/G101005864R?off=77acl2kn&checkoutMode=10&bid=1753397691025" class="btn btn-primary pulse-cta" style="margin: 20px auto;">Quiero unirme al programa</a>
                 <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Puedes pagar con tarjeta, PayPal o transferencia.<br>Acceso inmediato.</p>
             </div>
             
@@ -1610,40 +1571,71 @@
         </div>
     </section>
     
-    <!-- Bono -->
+    <!-- Bonos -->
     <section class="content-section dark-section">
         <div class="container">
-            <h2 class="section-title">Bono exclusivo</h2>
+            <h2 class="section-title">Bonos exclusivos</h2>
             
-            <div class="bonus-section">
-                <div class="bonus-card-container">
-                    <div class="bonus-card">
-                        <div class="bonus-card-front">
-                            <img src="bono.webp" alt="Bono Exclusivo - Amor a Segunda Vista">
-                        </div>
-                        <div class="bonus-card-back">
-                            <h3 class="bonus-title">🎁 CURSO EN VIVO: AMOR A SEGUNDA VISTA</h3>
-                            <div class="bonus-content">
-                                <p>La pareja tiene el rostro de mamá</p>
-                                <p>Al inscribirte al programa, accedes gratis a un curso de 3 clases EN VIVO donde profundizaremos en los pilares ocultos del amor de pareja.</p>
-                                
-                                <div style="margin: 15px 0;">
-                                    <p><strong>🔸 Clase 1:</strong> Amor a Segunda Vista</p>
-                                    <p style="margin-left: 20px;">Lo que no viste antes en tus relaciones y cómo abrir los ojos desde el alma.</p>
-                                    
-                                    <p><strong>🔸 Clase 2:</strong> La Pareja Tiene el Rostro de Mamá</p>
-                                    <p style="margin-left: 20px;">Cómo tus conflictos con mamá se manifiestan en tu vida amorosa.</p>
-                                    
-                                    <p><strong>🔸 Clase 3:</strong> Los Pilares de la Pareja y los Conflictos de Ella</p>
-                                    <p style="margin-left: 20px;">Orden, pertenencia y jerarquía: la clave para una relación equilibrada.</p>
-                                </div>
-                                
-                                <p>👉 Este curso es EN VIVO, exclusivo para estudiantes del programa. Un espacio íntimo, terapéutico y revelador para integrar la transformación.</p>
+            <div class="bonuses-container">
+                <div class="bonus-item">
+                    <img src="b1.webp" alt="Bono Extra #1 - La Rendición" class="bonus-image">
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">🎁 BONO EXTRA #1 – La Rendición</h3>
+                        <p class="bonus-description">21 días para soltar el control y volver al centro con ejercicios sistémicos</p>
+                        <p class="bonus-description">Un entrenamiento vivencial de 21 días para soltar el peso que no te corresponde y recuperar tu paz interior.</p>
+                        
+                        <div class="bonus-features">
+                            <div class="bonus-feature">
+                                <span class="icon">✔</span>
+                                <div class="bonus-feature-text">Ejercicios diarios para liberar tensión emocional y mental</div>
+                            </div>
+                            <div class="bonus-feature">
+                                <span class="icon">✔</span>
+                                <div class="bonus-feature-text">Conectarás con la humildad del alma y la sabiduría del "sí a la vida"</div>
+                            </div>
+                            <div class="bonus-feature">
+                                <span class="icon">✔</span>
+                                <div class="bonus-feature-text">Aprenderás a rendirte desde la fuerza, no desde la resignación</div>
+                            </div>
+                            <div class="bonus-feature">
+                                <span class="icon">✔</span>
+                                <div class="bonus-feature-text">Ideal para integrar lo trabajado en cada módulo del curso</div>
                             </div>
                         </div>
+                        
+                        <p class="bonus-description">👉 Un espacio breve y profundo para entregarte a lo que es… y sentir alivio desde el primer día.</p>
                     </div>
                 </div>
-                <p class="bonus-instruction">(Haz clic en la tarjeta para ver los detalles del bono)</p>
+                
+                <div class="bonus-item">
+                    <img src="b2.webp" alt="Bono Extra #2 - Nuestros Hijos y lo que cargan por amor" class="bonus-image">
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">🎁 BONO EXTRA #2 – Nuestros Hijos y lo que cargan por amor</h3>
+                        <p class="bonus-description">Libera a tus hijos de cargas invisibles con una mirada sistémica</p>
+                        <p class="bonus-description">Un taller transformador para madres, padres y terapeutas que intuyen que los hijos están cargando historias que no les pertenecen.</p>
+                        
+                        <div class="bonus-features">
+                            <div class="bonus-feature">
+                                <span class="icon">✔</span>
+                                <div class="bonus-feature-text">Descubrirás cómo los hijos repiten o compensan lo no resuelto en sus padres</div>
+                            </div>
+                            <div class="bonus-feature">
+                                <span class="icon">✔</span>
+                                <div class="bonus-feature-text">Aprenderás a devolver el peso al lugar correcto en el sistema familiar</div>
+                            </div>
+                            <div class="bonus-feature">
+                                <span class="icon">✔</span>
+                                <div class="bonus-feature-text">Sanarás desde tu rol de adulto, sin sobreproteger ni transferir heridas</div>
+                            </div>
+                            <div class="bonus-feature">
+                                <span class="icon">✔</span>
+                                <div class="bonus-feature-text">Incluye ejercicios para liberar a tus hijos y a ti del entrelazamiento inconsciente</div>
+                            </div>
+                        </div>
+                        
+                        <p class="bonus-description">👉 Un acto de amor real: liberar a tus hijos para que puedan vivir su propio destino.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1747,7 +1739,7 @@
             <p>Únete a este viaje transformador de 3 meses y comienza a crear vínculos más sanos y conscientes desde la raíz.</p>
             
             <!-- 6. Botón final más destacado -->
-            <a href="https://pay.hotmart.com/CHECKOUT_LINK" class="btn final-btn" style="margin: 20px 0; padding: 15px 40px; font-size: 1.1rem;">Quiero comenzar mi reconciliación</a>
+            <a href="https://pay.hotmart.com/G101005864R?off=77acl2kn&checkoutMode=10&bid=1753397691025" class="btn final-btn" style="margin: 20px 0; padding: 15px 40px; font-size: 1.1rem;">Quiero comenzar mi reconciliación</a>
             
             <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Precio de lanzamiento: $147 USD • Acceso inmediato • Garantía de 7 días</p>
         </div>
@@ -1782,7 +1774,7 @@
     <script>
     // Preload de imágenes críticas para evitar layout shifts
     function preloadCriticalImages() {
-        const criticalImages = ['logo.webp', 'foto2.webp', 'fondo.webp', 'renzo.webp', 'bono.webp'];
+        const criticalImages = ['logo.webp', 'foto2.webp', 'fondo.webp', 'renzo.webp', 'b1.webp', 'b2.webp'];
         criticalImages.forEach(src => {
             const img = new Image();
             img.src = src;
@@ -1860,52 +1852,19 @@
         });
     }
 
-    // Efecto de carta volteable mejorado
-    function setupBonusCardFlip() {
-        const bonusCard = document.querySelector('.bonus-card');
-        if (bonusCard) {
-            let isFlipped = false;
-            let ignoreClick = false;
-            
-            // Click para desktop
-            bonusCard.addEventListener('click', function(e) {
-                if (ignoreClick) return;
-                
-                ignoreClick = true;
-                isFlipped = !isFlipped;
-                this.classList.toggle('flipped');
-                
-                setTimeout(() => {
-                    ignoreClick = false;
-                }, 800);
-            });
-            
-            // Touch para móviles
-            bonusCard.addEventListener('touchstart', function(e) {
-                if (ignoreClick) return;
-                
-                // Verificar si el toque fue en el contenido desplazable
-                const content = this.querySelector('.bonus-content');
-                if (content && content.scrollHeight > content.clientHeight) {
-                    // Si hay scroll, no voltear la tarjeta
-                    const touchY = e.touches[0].clientY;
-                    const rect = content.getBoundingClientRect();
-                    
-                    if (touchY >= rect.top && touchY <= rect.bottom) {
-                        // El toque fue dentro del área desplazable
-                        return;
-                    }
+    // Tracking de clicks en botones CTA
+    function setupCTATracking() {
+        document.querySelectorAll('.btn-primary, .final-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout', {
+                        content_name: 'Reconciliación entre Hombres y Mujeres',
+                        value: 147,
+                        currency: 'USD'
+                    });
                 }
-                
-                ignoreClick = true;
-                isFlipped = !isFlipped;
-                this.classList.toggle('flipped');
-                
-                setTimeout(() => {
-                    ignoreClick = false;
-                }, 800);
-            }, {passive: false});
-        }
+            });
+        });
     }
     
     // Ejecutar setup después de que DOM y recursos estén listos
@@ -1923,21 +1882,8 @@
         // Configurar smooth scroll
         setupSmoothScroll();
 
-        // Configurar efecto de carta
-        setupBonusCardFlip();
-        
-        // Tracking de clicks en botones CTA
-        document.querySelectorAll('.btn-primary').forEach(button => {
-            button.addEventListener('click', function() {
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'InitiateCheckout', {
-                        content_name: 'Reconciliación entre Hombres y Mujeres',
-                        value: 147,
-                        currency: 'USD'
-                    });
-                }
-            });
-        });
+        // Configurar tracking de CTA
+        setupCTATracking();
     });
     </script>
 
