@@ -415,10 +415,12 @@
             z-index: -1;
         }
         
+        /* PÁRRAFO MÁS GRANDE - CORRECCIÓN SOLICITADA */
         .hero-text p {
-            font-size: 1.2rem;
-            line-height: 1.4;
+            font-size: 1.4rem; /* Aumentado de 1.2rem a 1.4rem */
+            line-height: 1.5; /* Mejorado line-height */
             margin-bottom: 15px;
+            font-weight: 500; /* Agregado peso de fuente */
         }
         
         .hero-text strong {
@@ -528,7 +530,7 @@
             font-size: 1rem;
         }
 
-        /* MÓDULOS - NUEVO DISEÑO CON IMAGENES COMPLETAS Y TEXTO ABAJO */
+        /* MÓDULOS - NUEVO DISEÑO CON IMAGENES COMPLETAS Y TEXTO ABAJO - MÁS ALTOS */
         .modules-container {
             display: flex;
             flex-direction: column;
@@ -544,9 +546,10 @@
             width: 100%;
         }
 
+        /* ALTURA AUMENTADA PARA LAS CARTAS DE MÓDULOS */
         .module-image {
             width: 100%;
-            height: 250px;
+            height: 320px; /* Aumentado de 250px a 320px */
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -558,14 +561,14 @@
         }
 
         .module-text {
-            padding: 20px 0;
+            padding: 25px 0; /* Aumentado de 20px a 25px */
             text-align: center;
         }
 
         .module-text h3 {
             color: var(--rojo-profundo);
-            margin-bottom: 10px;
-            font-size: 1.4rem;
+            margin-bottom: 12px; /* Aumentado de 10px a 12px */
+            font-size: 1.5rem; /* Aumentado de 1.4rem a 1.5rem */
             font-family: 'Libre Baskerville', serif;
             font-weight: 700;
         }
@@ -576,7 +579,7 @@
             font-size: 1.1rem;
         }
 
-        /* BONOS - NUEVO DISEÑO CON DOS BONOS EN FILA */
+        /* BONOS - EFECTO ZUMBIDO SUTIL Y PRO */
         .bonuses-container {
             display: flex;
             flex-wrap: wrap;
@@ -593,6 +596,54 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             color: white;
+            /* NUEVO EFECTO ZUMBIDO */
+            animation: vibrate 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        /* EFECTO ZUMBIDO SUTIL PARA BONOS */
+        @keyframes vibrate {
+            0%, 50%, 100% { 
+                transform: translate(0, 0); 
+            }
+            10% { 
+                transform: translate(-1px, -1px); 
+            }
+            20% { 
+                transform: translate(1px, 1px); 
+            }
+            30% { 
+                transform: translate(-1px, 1px); 
+            }
+            40% { 
+                transform: translate(1px, -1px); 
+            }
+        }
+
+        /* EFECTO DE GLOW ADICIONAL */
+        .bonus-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(222, 172, 70, 0.1) 50%, 
+                transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .bonus-item:hover::before {
+            opacity: 1;
+        }
+
+        .bonus-item:hover {
+            animation-duration: 1.5s; /* Acelera el zumbido al hacer hover */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
         .bonus-image {
@@ -1029,18 +1080,6 @@
             font-size: 36px;
             line-height: 60px;
         }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
 
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
         @media (max-width: 768px) {
@@ -1116,7 +1155,7 @@
             }
             
             .hero-text p {
-                font-size: 1.1rem;
+                font-size: 1.2rem; /* Aumentado también para móvil */
                 margin-bottom: 10px;
             }
             
@@ -1136,11 +1175,11 @@
             }
 
             .module-image {
-                height: 200px;
+                height: 250px; /* Mantener altura adecuada en móvil */
             }
 
             .module-text h3 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
             /* Bonos responsive */
@@ -1249,7 +1288,7 @@
             }
             
             .hero-text p {
-                font-size: 1rem;
+                font-size: 1.1rem; /* Aumentado también para móviles pequeños */
             }
             
             /* Secciones */
@@ -1259,11 +1298,11 @@
 
             /* Módulos responsive */
             .module-image {
-                height: 180px;
+                height: 200px;
             }
 
             .module-text h3 {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
         }
 
@@ -1285,7 +1324,7 @@
             }
             
             .module-image {
-                height: 300px; /* Más alto para PC */
+                height: 350px; /* Aumentado aún más para PC */
                 object-fit: cover; /* Cambiado a cover para PC */
                 background-color: transparent; /* Sin fondo */
             }
@@ -1367,8 +1406,8 @@
                     <p>Crea vínculos más sanos y conscientes, incluso si vienes de rupturas dolorosas o cargas emocionales que no logras soltar.</p>
                 </div>
                 
-                <!-- PRIMER BOTÓN MODIFICADO (hace scroll al botón de precio) -->
-                <a href="#cta-precio" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 30px;">Quiero unirme al programa</a>
+                <!-- PRIMER BOTÓN CORREGIDO - APUNTA AL PRECIO -->
+                <a href="#precio-box" class="btn btn-primary pulse-cta" style="width: 100%; margin-bottom: 30px;">Quiero unirme al programa</a>
                 
                 <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 20px;">Esta experiencia transformacional comienza pronto… y no volverá a abrir este año.</p>
             </div>
@@ -1389,8 +1428,8 @@
                 
                 <p style="font-size: 1.1rem; margin-bottom: 30px;">Este no es un curso más. Es un viaje sistémico de 3 meses, profundo y transformador, donde sanarás desde la raíz, no desde la superficie.</p>
                 
-                <!-- SEGUNDO BOTÓN MODIFICADO (hace scroll al botón de precio) -->
-                <a href="#cta-precio" class="btn btn-primary">Quiero unirme al programa</a>
+                <!-- SEGUNDO BOTÓN CORREGIDO - APUNTA AL PRECIO -->
+                <a href="#precio-box" class="btn btn-primary">Quiero unirme al programa</a>
             </div>
         </div>
     </section>
@@ -1545,12 +1584,12 @@
         <div class="container">
             <h2 class="section-title">Precio e inversión</h2>
             
-            <!-- 4. Cuadrado estético para precio e inversión -->
-            <div class="price-box">
+            <!-- PRECIO CON ID CORREGIDO -->
+            <div id="precio-box" class="price-box">
                 <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9);">Precio lanzamiento:</p>
                 <div class="price" style="color: var(--mostaza);">$147 USD</div>
-                <!-- BOTÓN PRINCIPAL CON ID Y ENLACE HOTMART -->
-                <a id="cta-precio" href="https://pay.hotmart.com/G101005864R?off=77acl2kn&checkoutMode=10&bid=1753397691025" class="btn btn-primary pulse-cta" style="margin: 20px auto;">Quiero unirme al programa</a>
+                <!-- BOTÓN PRINCIPAL CON ENLACE HOTMART -->
+                <a href="https://pay.hotmart.com/G101005864R?off=77acl2kn&checkoutMode=10&bid=1753397691025" class="btn btn-primary pulse-cta" style="margin: 20px auto;">Quiero unirme al programa</a>
                 <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Puedes pagar con tarjeta, PayPal o transferencia.<br>Acceso inmediato.</p>
             </div>
             
@@ -1781,7 +1820,7 @@
         });
     }
 
-    // CONTADOR REGRESIVO MEJORADO - FUNCIONAL Y REALISTA
+    // CONTADOR REGRESIVO ORIGINAL - FUNCIONAL Y REALISTA
     function updateCountdown() {
         // Obtener tiempo guardado en localStorage o crear nuevo
         let endTime = localStorage.getItem('countdownEndTime');
@@ -1833,7 +1872,7 @@
         });
     }
     
-    // Smooth scroll para enlaces internos
+    // Smooth scroll para enlaces internos - CENTRADO PERFECTO
     function setupSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1844,9 +1883,30 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    // Si es el precio, centrar perfectamente
+                    if (targetId === '#precio-box') {
+                        // Esperar un momento para que el DOM esté completamente renderizado
+                        setTimeout(() => {
+                            const elementRect = targetElement.getBoundingClientRect();
+                            const absoluteElementTop = elementRect.top + window.pageYOffset;
+                            const elementHeight = elementRect.height;
+                            const windowHeight = window.innerHeight;
+                            const countdownHeight = document.querySelector('.countdown-banner')?.offsetHeight || 66;
+                            
+                            // Calcular para centrar exactamente el cuadro del precio
+                            const targetScrollPosition = absoluteElementTop - (windowHeight / 2) + (elementHeight / 2) - (countdownHeight / 2);
+                            
+                            window.scrollTo({
+                                top: Math.max(0, targetScrollPosition), // Evitar scroll negativo
+                                behavior: 'smooth'
+                            });
+                        }, 100);
+                    } else {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
                 }
             });
         });
