@@ -1093,6 +1093,90 @@
             line-height: 60px;
         }
 
+        /* ESTILOS PARA EL CARRUSEL DE TESTIMONIOS EN VIDEO */
+        .testimonials-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-videos {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-video-container {
+            min-width: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--mostaza);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .carousel-arrow:hover {
+            background-color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.left {
+            left: -50px;
+        }
+
+        .carousel-arrow.right {
+            right: -50px;
+        }
+
+        .carousel-arrow i {
+            color: var(--rojo-profundo);
+            font-size: 20px;
+        }
+
         /* RESPONSIVE MEJORADO - MÓVIL PRIMERO */
         @media (max-width: 768px) {
             /* Logo más pequeño en móvil - TODOS LOS SELECTORES */
@@ -1282,6 +1366,28 @@
             .countdown-timer {
                 width: 100%;
                 justify-content: center;
+            }
+
+            /* CARRUSEL RESPONSIVE */
+            .testimonials-carousel {
+                padding: 0 15px;
+            }
+
+            .carousel-arrow {
+                width: 30px;
+                height: 30px;
+            }
+
+            .carousel-arrow.left {
+                left: 5px;
+            }
+
+            .carousel-arrow.right {
+                right: 5px;
+            }
+
+            .carousel-arrow i {
+                font-size: 16px;
             }
         }
         
@@ -1876,9 +1982,45 @@
             <!-- 5. Título "Testimonios" agregado -->
             <h2 class="testimonials-title">Testimonios</h2>
             
-            <div class="testimonial-container">
-                <p class="testimonial-text">Este proceso cambió mi vida. Después de años de terapia, por fin pude entender por qué repetía los mismos patrones en mis relaciones. Renzo tiene una manera única de guiarte hacia tu propia verdad. Hoy me siento libre, en paz con mi pasado y abierta a amar de verdad.</p>
-                <p class="testimonial-author">- María G., participante del programa</p>
+            <!-- Carrusel de testimonios en video -->
+            <div class="testimonials-carousel">
+                <div class="testimonial-videos">
+                    <!-- Video 1 -->
+                    <div class="testimonial-video-container">
+                        <iframe class="testimonial-video" src="https://www.youtube.com/embed/k9n6JVM7btY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="testimonial-video-container">
+                        <iframe class="testimonial-video" src="https://www.youtube.com/embed/en3xKYA_YFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="testimonial-video-container">
+                        <iframe class="testimonial-video" src="https://www.youtube.com/embed/en3xKYA_YFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Video 4 -->
+                    <div class="testimonial-video-container">
+                        <iframe class="testimonial-video" src="https://www.youtube.com/embed/SvhDrlA5Mv4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <!-- Navegación del carrusel -->
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" data-index="0"></div>
+                    <div class="carousel-dot" data-index="1"></div>
+                    <div class="carousel-dot" data-index="2"></div>
+                    <div class="carousel-dot" data-index="3"></div>
+                </div>
+                
+                <!-- Flechas de navegación -->
+                <div class="carousel-arrow left">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="carousel-arrow right">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -2038,6 +2180,58 @@
             });
         });
     }
+
+    // Carrusel de testimonios en video
+    function setupTestimonialCarousel() {
+        const videosContainer = document.querySelector('.testimonial-videos');
+        const videos = document.querySelectorAll('.testimonial-video-container');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const leftArrow = document.querySelector('.carousel-arrow.left');
+        const rightArrow = document.querySelector('.carousel-arrow.right');
+        
+        let currentIndex = 0;
+        const totalVideos = videos.length;
+        
+        // Función para actualizar el carrusel
+        function updateCarousel() {
+            videosContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Actualizar dots activos
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Event listeners para los dots
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                currentIndex = parseInt(this.getAttribute('data-index'));
+                updateCarousel();
+            });
+        });
+        
+        // Event listener para flecha izquierda
+        leftArrow.addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + totalVideos) % totalVideos;
+            updateCarousel();
+        });
+        
+        // Event listener para flecha derecha
+        rightArrow.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % totalVideos;
+            updateCarousel();
+        });
+        
+        // Autoavance opcional (descomentar si se desea)
+        // setInterval(() => {
+        //     currentIndex = (currentIndex + 1) % totalVideos;
+        //     updateCarousel();
+        // }, 5000);
+    }
     
     // Ejecutar setup después de que DOM y recursos estén listos
     document.addEventListener("DOMContentLoaded", function () {
@@ -2056,6 +2250,9 @@
 
         // Configurar tracking de CTA
         setupCTATracking();
+
+        // Configurar carrusel de testimonios
+        setupTestimonialCarousel();
     });
     </script>
 
