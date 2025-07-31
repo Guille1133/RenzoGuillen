@@ -1111,13 +1111,30 @@
         .testimonial-video-container {
             min-width: 100%;
             transition: transform 0.5s ease;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
 
         .testimonial-video {
             width: 100%;
-            aspect-ratio: 16/9;
             border: none;
             border-radius: 10px;
+            background: #000;
+        }
+
+        /* Primer video (horizontal) */
+        .testimonial-video-container:first-child .testimonial-video {
+            aspect-ratio: 16/9;
+            height: auto;
+        }
+
+        /* Videos shorts (verticales) */
+        .testimonial-video-container:not(:first-child) .testimonial-video {
+            aspect-ratio: 9/16;
+            height: 500px;
+            max-height: 80vh;
+            margin: 0 auto;
+            display: block;
         }
 
         .carousel-nav {
@@ -1333,13 +1350,6 @@
                 hyphens: auto; /* Permitir guiones */
             }
 
-            .bonus-feature .icon {
-                font-size: 0.8rem; /* Iconos más pequeños */
-                margin-top: 1px; /* Mejor alineación */
-                margin-right: 8px; /* Menos espacio */
-                flex-shrink: 0;
-            }
-
             /* Footer responsive */
             .footer-content {
                 flex-direction: column;
@@ -1388,6 +1398,12 @@
 
             .carousel-arrow i {
                 font-size: 16px;
+            }
+
+            /* Videos shorts en móvil */
+            .testimonial-video-container:not(:first-child) .testimonial-video {
+                height: 400px;
+                max-height: 70vh;
             }
         }
         
@@ -1521,6 +1537,12 @@
                 font-size: 0.7rem; /* Iconos ultra pequeños */
                 margin-top: 0px;
                 margin-right: 6px;
+            }
+
+            /* Videos shorts en móviles pequeños */
+            .testimonial-video-container:not(:first-child) .testimonial-video {
+                height: 350px;
+                max-height: 60vh;
             }
         }
 
@@ -1985,22 +2007,22 @@
             <!-- Carrusel de testimonios en video -->
             <div class="testimonials-carousel">
                 <div class="testimonial-videos">
-                    <!-- Video 1 -->
+                    <!-- Video 1 (Horizontal) -->
                     <div class="testimonial-video-container">
                         <iframe class="testimonial-video" src="https://www.youtube.com/embed/k9n6JVM7btY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     
-                    <!-- Video 2 -->
+                    <!-- Video 2 (Short vertical) -->
                     <div class="testimonial-video-container">
                         <iframe class="testimonial-video" src="https://www.youtube.com/embed/en3xKYA_YFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     
-                    <!-- Video 3 -->
+                    <!-- Video 3 (Short vertical) -->
                     <div class="testimonial-video-container">
                         <iframe class="testimonial-video" src="https://www.youtube.com/embed/en3xKYA_YFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     
-                    <!-- Video 4 -->
+                    <!-- Video 4 (Short vertical) -->
                     <div class="testimonial-video-container">
                         <iframe class="testimonial-video" src="https://www.youtube.com/embed/SvhDrlA5Mv4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -2194,7 +2216,8 @@
         
         // Función para actualizar el carrusel
         function updateCarousel() {
-            videosContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            const offset = -currentIndex * 100;
+            videosContainer.style.transform = `translateX(${offset}%)`;
             
             // Actualizar dots activos
             dots.forEach((dot, index) => {
@@ -2231,6 +2254,9 @@
         //     currentIndex = (currentIndex + 1) % totalVideos;
         //     updateCarousel();
         // }, 5000);
+        
+        // Inicializar el carrusel
+        updateCarousel();
     }
     
     // Ejecutar setup después de que DOM y recursos estén listos
