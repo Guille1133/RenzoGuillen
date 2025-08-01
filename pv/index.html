@@ -1120,21 +1120,8 @@
             border: none;
             border-radius: 10px;
             background: #000;
-        }
-
-        /* Primer video (horizontal) */
-        .testimonial-video-container:first-child .testimonial-video {
             aspect-ratio: 16/9;
             height: auto;
-        }
-
-        /* Videos shorts (verticales) */
-        .testimonial-video-container:not(:first-child) .testimonial-video {
-            aspect-ratio: 9/16;
-            height: 500px;
-            max-height: 80vh;
-            margin: 0 auto;
-            display: block;
         }
 
         .carousel-nav {
@@ -1399,12 +1386,6 @@
             .carousel-arrow i {
                 font-size: 16px;
             }
-
-            /* Videos shorts en móvil */
-            .testimonial-video-container:not(:first-child) .testimonial-video {
-                height: 400px;
-                max-height: 70vh;
-            }
         }
         
         @media (max-width: 480px) {
@@ -1537,12 +1518,6 @@
                 font-size: 0.7rem; /* Iconos ultra pequeños */
                 margin-top: 0px;
                 margin-right: 6px;
-            }
-
-            /* Videos shorts en móviles pequeños */
-            .testimonial-video-container:not(:first-child) .testimonial-video {
-                height: 350px;
-                max-height: 60vh;
             }
         }
 
@@ -2012,17 +1987,17 @@
                         <iframe class="testimonial-video" src="https://www.youtube.com/embed/k9n6JVM7btY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     
-                    <!-- Video 2 (Short vertical) -->
+                    <!-- Video 2 (Short vertical convertido a horizontal) -->
+                    <div class="testimonial-video-container">
+                        <iframe class="testimonial-video" src="https://www.youtube.com/embed/XkE4O3EsdtQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Video 3 (Short vertical convertido a horizontal) -->
                     <div class="testimonial-video-container">
                         <iframe class="testimonial-video" src="https://www.youtube.com/embed/en3xKYA_YFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     
-                    <!-- Video 3 (Short vertical) -->
-                    <div class="testimonial-video-container">
-                        <iframe class="testimonial-video" src="https://www.youtube.com/embed/en3xKYA_YFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    
-                    <!-- Video 4 (Short vertical) -->
+                    <!-- Video 4 (Short vertical convertido a horizontal) -->
                     <div class="testimonial-video-container">
                         <iframe class="testimonial-video" src="https://www.youtube.com/embed/SvhDrlA5Mv4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
